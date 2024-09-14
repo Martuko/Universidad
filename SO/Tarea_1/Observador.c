@@ -5,7 +5,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <time.h>
+#include <signal.h>
 
 #define PIPE_NAME "votos_pipe"
 #define RESULT_PIPE "resultado_pipe"
@@ -13,73 +13,46 @@
 void contar_votos(int num_jugadores);
 
 int main() {
-    int num_jugadores = 10;  // Número inicial de jugadores
-
-    while (num_jugadores > 1) {
-        contar_votos(num_jugadores);  // Contar votos con el número actual de jugadores
-        num_jugadores--;  // Reducir el número de jugadores después de cada eliminación
+    while (1) {
+        contar_votos(10);
     }
-    printf("Observador: ¡El juego ha terminado! Hay un solo ganador.\n");
     return 0;
 }
 
 void contar_votos(int num_jugadores) {
-    int votos[num_jugadores + 1];  // Array para contar votos de cada jugador
-    memset(votos, 0, sizeof(votos));  // Reiniciar conteo de votos
+    int votos[num_jugadores + 1];
+    memset(votos, 0, sizeof(votos));
 
-    // Abrir pipe para leer votos
     int pipe_fd = open(PIPE_NAME, O_RDONLY);
     if (pipe_fd == -1) {
         perror("Error abriendo el pipe de votos");
         exit(EXIT_FAILURE);
     }
 
-    // Leer exactamente num_jugadores votos
     int voto;
     int votos_recibidos = 0;
+    while (read(pipe_fd, &voto, sizeof(int)) > 0) {
+        if (voto >= 1 && voto <= num_jugadores) {
+            votos[voto]++;
+            printf("Observador: Jugador %d recibió un voto. Total votos recibidos: %d/%d\n", voto, ++votos_recibidos, num_jugadores);
 
-    while (votos_recibidos < num_jugadores) {
-        if (read(pipe_fd, &voto, sizeof(int)) > 0) {
-            if (voto >= 1 && voto <= num_jugadores) {
-                votos[voto]++;
-                votos_recibidos++;
-                printf("Observador: Jugador %d recibió un voto. Total votos recibidos: %d/%d\n", voto, votos_recibidos, num_jugadores);
-            }
-        } else {
-            usleep(100000);  // Espera un poco si no hay datos para evitar bloqueo
+            // Enviar confirmación al jugador
+            kill(getppid(), SIGUSR2); // Asumiendo que cada voto corresponde a un PID que se registra para confirmación
         }
     }
-
     close(pipe_fd);
 
-    // Determinar el jugador con más votos
     int jugador_eliminado = 0;
     int max_votos = 0;
-    int jugadores_empatados[num_jugadores];
-    int num_empatados = 0;
-
     for (int i = 1; i <= num_jugadores; i++) {
         if (votos[i] > max_votos) {
             max_votos = votos[i];
             jugador_eliminado = i;
-            num_empatados = 1;
-            jugadores_empatados[0] = i;
-        } else if (votos[i] == max_votos) {
-            jugadores_empatados[num_empatados] = i;
-            num_empatados++;
         }
-    }
-
-    // Si hay empate, seleccionar un jugador al azar
-    if (num_empatados > 1) {
-        srand(time(NULL));
-        jugador_eliminado = jugadores_empatados[rand() % num_empatados];
-        printf("Observador: Empate en los votos, eliminando aleatoriamente al jugador %d.\n", jugador_eliminado);
     }
 
     printf("Observador: Jugador %d fue el más votado y será eliminado.\n", jugador_eliminado);
 
-    // Enviar el jugador eliminado al pipe de resultados
     int result_pipe_fd = open(RESULT_PIPE, O_WRONLY);
     if (result_pipe_fd == -1) {
         perror("Error abriendo el pipe de resultados");
