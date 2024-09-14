@@ -25,6 +25,12 @@ void recrear_pipes();
 void verificar_pipes();
 
 int main() {
+    struct sigaction sa;
+    sa.sa_handler = jugador_listo;  // Configurar jugador_listo como manejador de SIGUSR1
+    sigemptyset(&sa.sa_mask);
+    sa.sa_flags = 0;
+    sigaction(SIGUSR1, &sa, NULL);
+
     recrear_pipes();
 
     pid_t observador_pid = fork();
@@ -79,45 +85,49 @@ void crear_jugadores() {
 }
 
 void votar() {
+    printf("Enviando señales de votación a cada jugador...\n");
     for (int i = 0; i < num_jugadores; i++) {
-        kill(jugadores_pids[i], SIGCONT);
+        if (kill(jugadores_pids[i], SIGCONT) < 0) {
+            perror("Error enviando señal SIGCONT");
+        }
     }
 }
 
 void eliminar_jugador(int jugador_eliminado) {
     int index = jugador_eliminado - 1;
     if (index >= 0 && index < num_jugadores) {
-        kill(jugadores_pids[index], SIGTERM);
+        printf("Eliminando jugador %d con PID %d.\n", jugador_eliminado, jugadores_pids[index]);
+        kill(jugadores_pids[index], SIGKILL);
         for (int i = index; i < num_jugadores - 1; i++) {
             jugadores_pids[i] = jugadores_pids[i + 1];
         }
         num_jugadores--;
+        printf("Número de jugadores restantes: %d\n", num_jugadores);
+    } else {
+        printf("Índice de jugador eliminado fuera de rango.\n");
     }
 }
 
 void jugador(int id) {
-    signal(SIGCONT, iniciar_votacion);  // Usar signal en lugar de sigaction
+    signal(SIGCONT, iniciar_votacion);
 
     printf("Jugador %d está listo.\n", id);
     kill(getppid(), SIGUSR1);
 
-    pause();  // Espera a que el proceso principal indique que la votación puede empezar
+    pause();
 }
 
 void iniciar_votacion(int sig) {
-    (void)sig;  // Marcar como usado para evitar advertencia del compilador
-
     int pipe_fd = open(PIPE_NAME, O_WRONLY);
     srand(time(NULL) + getpid());
     int voto = (rand() % num_jugadores) + 1;
     write(pipe_fd, &voto, sizeof(voto));
     close(pipe_fd);
 
-    pause();  // Esperar la siguiente señal de votación
+    pause();
 }
 
 void jugador_listo(int sig) {
-    (void)sig;  // Marcar como usado para evitar advertencia del compilador
     jugadores_listos++;
 }
 
@@ -133,7 +143,9 @@ void verificar_pipes() {
     int fd = open(PIPE_NAME, O_RDONLY | O_NONBLOCK);
     if (fd != -1) {
         if (read(fd, buffer, sizeof(buffer)) > 0) {
-            printf("Contenido inesperado en %s.\n", PIPE_NAME);
+            printf("Contenido inesperado en %s: %.*s\n", PIPE_NAME, (int) sizeof(buffer), buffer);
+        } else {
+            printf("PIPE_NAME está limpio para la siguiente ronda.\n");
         }
         close(fd);
     }
@@ -141,7 +153,9 @@ void verificar_pipes() {
     fd = open(RESULT_PIPE, O_RDONLY | O_NONBLOCK);
     if (fd != -1) {
         if (read(fd, buffer, sizeof(buffer)) > 0) {
-            printf("Contenido inesperado en %s.\n", RESULT_PIPE);
+            printf("Contenido inesperado en %s: %.*s\n", RESULT_PIPE, (int) sizeof(buffer), buffer);
+        } else {
+            printf("RESULT_PIPE está limpio para la siguiente ronda.\n");
         }
         close(fd);
     }
