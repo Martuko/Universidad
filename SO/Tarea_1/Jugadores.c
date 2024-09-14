@@ -14,7 +14,6 @@
 
 int num_jugadores = 10;
 volatile sig_atomic_t jugadores_listos = 0;
-volatile sig_atomic_t votos_confirmados = 0;
 pid_t jugadores_pids[10];
 
 void crear_jugadores();
@@ -23,10 +22,8 @@ void eliminar_jugador(int jugador_eliminado);
 void jugador(int id);
 void jugador_listo(int sig);
 void iniciar_votacion(int sig);
-void confirmar_voto(int sig);
 void recrear_pipes();
-void esperar_jugadores_listos();
-void esperar_votacion_completa();
+void verificar_pipes();
 
 int main() {
     struct sigaction sa;
@@ -34,12 +31,6 @@ int main() {
     sigemptyset(&sa.sa_mask);
     sa.sa_flags = 0;
     sigaction(SIGUSR1, &sa, NULL);
-
-    struct sigaction sa_confirm;
-    sa_confirm.sa_handler = confirmar_voto;
-    sigemptyset(&sa_confirm.sa_mask);
-    sa_confirm.sa_flags = 0;
-    sigaction(SIGUSR2, &sa_confirm, NULL);
 
     recrear_pipes();
 
@@ -55,16 +46,14 @@ int main() {
 
     crear_jugadores();
 
-    esperar_jugadores_listos();
+    while (jugadores_listos < num_jugadores) {
+        pause();
+    }
 
     while (num_jugadores > 1) {
         printf("Todos los jugadores están listos. Iniciando la votación.\n");
 
-        votos_confirmados = 0;  // Reiniciar contador de votos confirmados
-
         votar();
-
-        esperar_votacion_completa();
 
         int jugador_eliminado;
         int result_pipe_fd = open(RESULT_PIPE, O_RDONLY);
@@ -79,12 +68,14 @@ int main() {
         printf("Continúa el juego con la siguiente ronda.\n");
 
         recrear_pipes();
+        verificar_pipes();
         sleep(1);
     }
 
     printf("¡El jugador final es el ganador!\n");
-    unlink(PIPE_NAME);
-    unlink(RESULT_PIPE);
+    // Eliminar los pipes al finalizar
+    system("rm -f " PIPE_NAME);
+    system("rm -f " RESULT_PIPE);
 
     return 0;
 }
@@ -113,6 +104,7 @@ void eliminar_jugador(int jugador_eliminado) {
     int index = jugador_eliminado - 1;
     if (index >= 0 && index < num_jugadores) {
         printf("Eliminando jugador %d con PID %d.\n", jugador_eliminado, jugadores_pids[index]);
+
         if (fork() == 0) {
             execl("./Amurrado", "Amurrado", NULL);
             perror("Error ejecutando Amurrado");
@@ -123,7 +115,9 @@ void eliminar_jugador(int jugador_eliminado) {
         for (int i = index; i < num_jugadores - 1; i++) {
             jugadores_pids[i] = jugadores_pids[i + 1];
         }
+        jugadores_pids[num_jugadores - 1] = 0;
         num_jugadores--;
+
         printf("Número de jugadores restantes: %d\n", num_jugadores);
     } else {
         printf("Índice de jugador eliminado fuera de rango.\n");
@@ -131,8 +125,11 @@ void eliminar_jugador(int jugador_eliminado) {
 }
 
 void jugador(int id) {
-    signal(SIGCONT, iniciar_votacion);
-    signal(SIGUSR2, confirmar_voto);
+    struct sigaction sa;
+    sa.sa_handler = iniciar_votacion;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_flags = 0;
+    sigaction(SIGCONT, &sa, NULL);
 
     printf("Jugador %d está listo.\n", id);
     kill(getppid(), SIGUSR1);
@@ -145,16 +142,9 @@ void jugador(int id) {
 void iniciar_votacion(int sig) {
     printf("Jugador con PID %d está votando...\n", getpid());
 
-    int pipe_fd;
-    int retries = 5;
-    while ((pipe_fd = open(PIPE_NAME, O_WRONLY)) == -1 && retries > 0) {
-        perror("Error abriendo el pipe de votos, reintentando...");
-        retries--;
-        usleep(100000);
-    }
-
+    int pipe_fd = open(PIPE_NAME, O_WRONLY);
     if (pipe_fd == -1) {
-        perror("Error crítico al abrir el pipe de votos, saliendo...");
+        perror("Error abriendo el pipe de votos");
         exit(EXIT_FAILURE);
     }
 
@@ -162,24 +152,10 @@ void iniciar_votacion(int sig) {
     int voto = (rand() % num_jugadores) + 1;
     printf("Jugador con PID %d votó por el jugador %d.\n", getpid(), voto);
 
-    if (write(pipe_fd, &voto, sizeof(voto)) == -1) {
-        perror("Error escribiendo el voto en el pipe");
-        close(pipe_fd);
-        exit(EXIT_FAILURE);
-    }
+    write(pipe_fd, &voto, sizeof(voto));
+    close(pipe_fd);
 
-    if (close(pipe_fd) == -1) {
-        perror("Error cerrando el pipe de votos");
-    } else {
-        printf("Jugador con PID %d cerró correctamente el pipe después de votar.\n", getpid());
-    }
-
-    printf("Jugador con PID %d ha completado la votación y espera confirmación...\n", getpid());
-}
-
-void confirmar_voto(int sig) {
-    printf("Jugador con PID %d recibió confirmación de voto.\n", getpid());
-    kill(getppid(), SIGUSR2);  // Notificar al proceso principal de la confirmación
+    printf("Jugador con PID %d ha completado la votación y espera la siguiente ronda...\n", getpid());
 }
 
 void jugador_listo(int sig) {
@@ -187,9 +163,8 @@ void jugador_listo(int sig) {
 }
 
 void recrear_pipes() {
-    unlink(PIPE_NAME);
-    unlink(RESULT_PIPE);
-
+    system("rm -f " PIPE_NAME);
+    system("rm -f " RESULT_PIPE);
     if (mkfifo(PIPE_NAME, 0666) == -1) {
         perror("Error creando PIPE_NAME");
         exit(EXIT_FAILURE);
@@ -198,18 +173,27 @@ void recrear_pipes() {
         perror("Error creando RESULT_PIPE");
         exit(EXIT_FAILURE);
     }
-    printf("Pipes recreados correctamente para la nueva ronda.\n");
 }
 
-void esperar_jugadores_listos() {
-    while (jugadores_listos < num_jugadores) {
-        pause();
+void verificar_pipes() {
+    char buffer[100];
+    int fd = open(PIPE_NAME, O_RDONLY | O_NONBLOCK);
+    if (fd != -1) {
+        if (read(fd, buffer, sizeof(buffer)) > 0) {
+            printf("Contenido inesperado en %s: %.*s\n", PIPE_NAME, (int) sizeof(buffer), buffer);
+        } else {
+            printf("PIPE_NAME está limpio para la siguiente ronda.\n");
+        }
+        close(fd);
     }
-}
 
-void esperar_votacion_completa() {
-    while (votos_confirmados < num_jugadores) {
-        pause();
+    fd = open(RESULT_PIPE, O_RDONLY | O_NONBLOCK);
+    if (fd != -1) {
+        if (read(fd, buffer, sizeof(buffer)) > 0) {
+            printf("Contenido inesperado en %s: %.*s\n", RESULT_PIPE, (int) sizeof(buffer), buffer);
+        } else {
+            printf("RESULT_PIPE está limpio para la siguiente ronda.\n");
+        }
+        close(fd);
     }
-    printf("Todos los votos confirmados para esta ronda.\n");
 }
