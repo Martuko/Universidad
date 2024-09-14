@@ -3,110 +3,146 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <string.h>
+#include <signal.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <time.h>
-#include <sys/wait.h>
 
 #define PIPE_NAME "votos_pipe"
 #define RESULT_PIPE "resultado_pipe"
 
-void jugador(int id, int num_jugadores, int jugador_eliminado);
+int num_jugadores = 10;
+volatile sig_atomic_t jugadores_listos = 0;
+pid_t jugadores_pids[10];
+
+void crear_jugadores();
+void votar();
+void eliminar_jugador(int jugador_eliminado);
+void jugador(int id);
+void jugador_listo(int sig);
+void iniciar_votacion(int sig);
+void recrear_pipes();
+void verificar_pipes();
 
 int main() {
-    int num_jugadores;
+    recrear_pipes();
 
-    printf("Ingrese el número de jugadores: ");
-    scanf("%d", &num_jugadores);
-
-    if (num_jugadores < 2) {
-        printf("El número de jugadores debe ser al menos 2.\n");
+    pid_t observador_pid = fork();
+    if (observador_pid == 0) {
+        execl("./Observador", "Observador", NULL);
+        perror("Error ejecutando el Observador");
+        exit(EXIT_FAILURE);
+    } else if (observador_pid < 0) {
+        perror("Error creando el proceso Observador");
         exit(EXIT_FAILURE);
     }
 
-    mkfifo(PIPE_NAME, 0666);
-    mkfifo(RESULT_PIPE, 0666);
+    crear_jugadores();
 
-    pid_t pid;
-
-    // Crear proceso observador
-    pid = fork();
-    if (pid == 0) {
-        execl("./observador", "observador", NULL); // Ejecutar el código del observador
-        exit(0);
-    } else if (pid < 0) {
-        perror("Error creando el proceso observador");
-        exit(EXIT_FAILURE);
+    while (jugadores_listos < num_jugadores) {
+        pause();  // Espera activamente la señal
     }
 
-    int i;
-    for (i = 0; i < num_jugadores; i++) {
-        pid = fork();
-        if (pid == 0) {
-            jugador(i + 1, num_jugadores, -1); // Cada jugador se crea con su ID
-            exit(0);
-        } else if (pid < 0) {
-            perror("Error creando el proceso jugador");
-            exit(EXIT_FAILURE);
-        }
+    while (num_jugadores > 1) {
+        printf("Todos los jugadores están listos. Iniciando la votación.\n");
+
+        votar();
+
+        int jugador_eliminado;
+        int result_pipe_fd = open(RESULT_PIPE, O_RDONLY);
+        read(result_pipe_fd, &jugador_eliminado, sizeof(int));
+        close(result_pipe_fd);
+
+        eliminar_jugador(jugador_eliminado);
+        printf("Continua el juego con la siguiente ronda\n");
+
+        recrear_pipes();
+        verificar_pipes();
+        sleep(1);
     }
 
-    // Esperar a que todos los procesos (jugadores y observador) terminen
-    for (i = 0; i < num_jugadores + 1; i++) {
-        wait(NULL);
-    }
-
-    // Leer el jugador eliminado desde el pipe de resultados
-    int jugador_eliminado;
-    int result_pipe_fd = open(RESULT_PIPE, O_RDONLY);
-    read(result_pipe_fd, &jugador_eliminado, sizeof(int));
-    close(result_pipe_fd);
-
-    // Reiniciar los jugadores para que verifiquen si son eliminados
-    for (i = 0; i < num_jugadores; i++) {
-        pid = fork();
-        if (pid == 0) {
-            jugador(i + 1, num_jugadores, jugador_eliminado); // Reenviar con el jugador eliminado
-            exit(0);
-        } else if (pid < 0) {
-            perror("Error creando el proceso jugador");
-            exit(EXIT_FAILURE);
-        }
-    }
-
-    // Esperar a que todos los procesos terminen
-    for (i = 0; i < num_jugadores; i++) {
-        wait(NULL);
-    }
-
-    printf("Jugador %d fue eliminado.\n", jugador_eliminado);
+    printf("¡El jugador final es el ganador!\n");
     unlink(PIPE_NAME);
     unlink(RESULT_PIPE);
+
     return 0;
 }
 
-void jugador(int id, int num_jugadores, int jugador_eliminado) {
-    // Verificar si el jugador es el eliminado
-    if (id == jugador_eliminado) {
-        execl("./amurrado", "amurrado", NULL); // Llamar al código de amurrado si el jugador está eliminado
-        exit(0);
+void crear_jugadores() {
+    for (int i = 0; i < num_jugadores; i++) {
+        jugadores_pids[i] = fork();
+        if (jugadores_pids[i] == 0) {
+            jugador(i + 1);
+            exit(0);
+        }
     }
+}
+
+void votar() {
+    for (int i = 0; i < num_jugadores; i++) {
+        kill(jugadores_pids[i], SIGCONT);
+    }
+}
+
+void eliminar_jugador(int jugador_eliminado) {
+    int index = jugador_eliminado - 1;
+    if (index >= 0 && index < num_jugadores) {
+        kill(jugadores_pids[index], SIGTERM);
+        for (int i = index; i < num_jugadores - 1; i++) {
+            jugadores_pids[i] = jugadores_pids[i + 1];
+        }
+        num_jugadores--;
+    }
+}
+
+void jugador(int id) {
+    signal(SIGCONT, iniciar_votacion);  // Usar signal en lugar de sigaction
 
     printf("Jugador %d está listo.\n", id);
-    sleep(1);
+    kill(getppid(), SIGUSR1);
+
+    pause();  // Espera a que el proceso principal indique que la votación puede empezar
+}
+
+void iniciar_votacion(int sig) {
+    (void)sig;  // Marcar como usado para evitar advertencia del compilador
 
     int pipe_fd = open(PIPE_NAME, O_WRONLY);
-    if (pipe_fd == -1) {
-        perror("Error abriendo el pipe");
-        exit(EXIT_FAILURE);
+    srand(time(NULL) + getpid());
+    int voto = (rand() % num_jugadores) + 1;
+    write(pipe_fd, &voto, sizeof(voto));
+    close(pipe_fd);
+
+    pause();  // Esperar la siguiente señal de votación
+}
+
+void jugador_listo(int sig) {
+    (void)sig;  // Marcar como usado para evitar advertencia del compilador
+    jugadores_listos++;
+}
+
+void recrear_pipes() {
+    unlink(PIPE_NAME);
+    unlink(RESULT_PIPE);
+    mkfifo(PIPE_NAME, 0666);
+    mkfifo(RESULT_PIPE, 0666);
+}
+
+void verificar_pipes() {
+    char buffer[100];
+    int fd = open(PIPE_NAME, O_RDONLY | O_NONBLOCK);
+    if (fd != -1) {
+        if (read(fd, buffer, sizeof(buffer)) > 0) {
+            printf("Contenido inesperado en %s.\n", PIPE_NAME);
+        }
+        close(fd);
     }
 
-    srand(time(NULL) + id);
-    int voto = (rand() % num_jugadores) + 1;
-    printf("Jugador %d vota por el jugador %d\n", id, voto);
-
-    char voto_str[10];
-    sprintf(voto_str, "%d", voto);
-    write(pipe_fd, voto_str, strlen(voto_str) + 1);
-    close(pipe_fd);
+    fd = open(RESULT_PIPE, O_RDONLY | O_NONBLOCK);
+    if (fd != -1) {
+        if (read(fd, buffer, sizeof(buffer)) > 0) {
+            printf("Contenido inesperado en %s.\n", RESULT_PIPE);
+        }
+        close(fd);
+    }
 }

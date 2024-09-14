@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 int main() {
-    printf("Me amurré y me voy.\n");
+    printf("El jugador con PID %d se amurra y se retira del juego.\n", getpid());
+    exit(0);
     return 0;
 }
