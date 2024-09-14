@@ -103,20 +103,22 @@ void eliminar_jugador(int jugador_eliminado) {
     int index = jugador_eliminado - 1;
     if (index >= 0 && index < num_jugadores) {
         printf("Eliminando jugador %d con PID %d.\n", jugador_eliminado, jugadores_pids[index]);
-        kill(jugadores_pids[index], SIGCONT); // Enviamos SIGCONT para que ejecute Amurrado.c
-        sleep(1); // Tiempo para que se ejecute amurrarse y reclamar antes de matar el proceso
+        
+        // Ejecutar Amurrado y esperar que termine
         if (fork() == 0) {
             execl("./Amurrado", "Amurrado", NULL);
             perror("Error ejecutando Amurrado");
             exit(EXIT_FAILURE);
         }
-        wait(NULL); // Esperamos a que el jugador "amurrado" termine
+        wait(NULL);  // Espera a que el proceso amurrado termine
         
-        // Ajustar el array de PIDs
+        // Remover el PID del jugador eliminado
         for (int i = index; i < num_jugadores - 1; i++) {
             jugadores_pids[i] = jugadores_pids[i + 1];
         }
+        jugadores_pids[num_jugadores - 1] = 0; // Opcional: limpiar la última posición
         num_jugadores--;
+
         printf("Número de jugadores restantes: %d\n", num_jugadores);
     } else {
         printf("Índice de jugador eliminado fuera de rango.\n");
