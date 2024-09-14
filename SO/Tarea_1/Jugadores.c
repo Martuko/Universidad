@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <time.h>
+#include <sys/wait.h> 
 
 #define PIPE_NAME "votos_pipe"
 #define RESULT_PIPE "resultado_pipe"
@@ -56,11 +57,15 @@ int main() {
 
         int jugador_eliminado;
         int result_pipe_fd = open(RESULT_PIPE, O_RDONLY);
+        if (result_pipe_fd == -1) {
+            perror("Error abriendo el pipe de resultados");
+            exit(EXIT_FAILURE);
+        }
         read(result_pipe_fd, &jugador_eliminado, sizeof(int));
         close(result_pipe_fd);
 
         eliminar_jugador(jugador_eliminado);
-        printf("Continua el juego con la siguiente ronda\n");
+        printf("Continúa el juego con la siguiente ronda.\n");
 
         recrear_pipes();
         verificar_pipes();
@@ -87,6 +92,7 @@ void crear_jugadores() {
 void votar() {
     printf("Enviando señales de votación a cada jugador...\n");
     for (int i = 0; i < num_jugadores; i++) {
+        printf("Enviando señal SIGCONT al jugador con PID %d.\n", jugadores_pids[i]);
         if (kill(jugadores_pids[i], SIGCONT) < 0) {
             perror("Error enviando señal SIGCONT");
         }
@@ -97,7 +103,16 @@ void eliminar_jugador(int jugador_eliminado) {
     int index = jugador_eliminado - 1;
     if (index >= 0 && index < num_jugadores) {
         printf("Eliminando jugador %d con PID %d.\n", jugador_eliminado, jugadores_pids[index]);
-        kill(jugadores_pids[index], SIGKILL);
+        kill(jugadores_pids[index], SIGCONT); // Enviamos SIGCONT para que ejecute Amurrado.c
+        sleep(1); // Tiempo para que se ejecute amurrarse y reclamar antes de matar el proceso
+        if (fork() == 0) {
+            execl("./Amurrado", "Amurrado", NULL);
+            perror("Error ejecutando Amurrado");
+            exit(EXIT_FAILURE);
+        }
+        wait(NULL); // Esperamos a que el jugador "amurrado" termine
+        
+        // Ajustar el array de PIDs
         for (int i = index; i < num_jugadores - 1; i++) {
             jugadores_pids[i] = jugadores_pids[i + 1];
         }
@@ -109,22 +124,38 @@ void eliminar_jugador(int jugador_eliminado) {
 }
 
 void jugador(int id) {
-    signal(SIGCONT, iniciar_votacion);
+    // Configura la señal para iniciar la votación.
+    struct sigaction sa;
+    sa.sa_handler = iniciar_votacion;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_flags = 0;
+    sigaction(SIGCONT, &sa, NULL);
 
     printf("Jugador %d está listo.\n", id);
-    kill(getppid(), SIGUSR1);
+    kill(getppid(), SIGUSR1);  // Notifica al proceso principal que el jugador está listo.
 
-    pause();
+    while (1) {
+        pause();  // Espera hasta recibir SIGCONT para iniciar votación.
+    }
 }
 
 void iniciar_votacion(int sig) {
+    printf("Jugador con PID %d está votando...\n", getpid());
+
     int pipe_fd = open(PIPE_NAME, O_WRONLY);
+    if (pipe_fd == -1) {
+        perror("Error abriendo el pipe de votos");
+        exit(EXIT_FAILURE);
+    }
+
     srand(time(NULL) + getpid());
     int voto = (rand() % num_jugadores) + 1;
+    printf("Jugador con PID %d votó por el jugador %d.\n", getpid(), voto);
+
     write(pipe_fd, &voto, sizeof(voto));
     close(pipe_fd);
-
-    pause();
+    
+    printf("Jugador con PID %d ha completado la votación y espera la siguiente ronda...\n", getpid());
 }
 
 void jugador_listo(int sig) {
