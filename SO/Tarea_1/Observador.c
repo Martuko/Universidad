@@ -19,7 +19,7 @@ int main() {
         contar_votos(num_jugadores);  // Contar votos con el número actual de jugadores
         num_jugadores--;  // Reducir el número de jugadores después de cada eliminación
     }
-    printf("Observador: ¡El juego ha terminado! Hay un solo ganador.\n");
+    printf("Observador: ¡El juego ha terminado!\n");
     return 0;
 }
 
@@ -37,19 +37,17 @@ void contar_votos(int num_jugadores) {
     // Leer exactamente num_jugadores votos
     int voto;
     int votos_recibidos = 0;
-
     while (votos_recibidos < num_jugadores) {
         if (read(pipe_fd, &voto, sizeof(int)) > 0) {
             if (voto >= 1 && voto <= num_jugadores) {
                 votos[voto]++;
                 votos_recibidos++;
-                printf("Observador: Jugador %d recibió un voto. Total votos recibidos: %d/%d\n", voto, votos_recibidos, num_jugadores);
+                printf("Observador: Jugador %d recibió un voto.\n", voto);
             }
         } else {
             usleep(100000);  // Espera un poco si no hay datos para evitar bloqueo
         }
     }
-
     close(pipe_fd);
 
     // Determinar el jugador con más votos
@@ -87,4 +85,10 @@ void contar_votos(int num_jugadores) {
     }
     write(result_pipe_fd, &jugador_eliminado, sizeof(int));
     close(result_pipe_fd);
+
+    // Recrear los pipes para la siguiente ronda
+    unlink(PIPE_NAME);
+    unlink(RESULT_PIPE);
+    mkfifo(PIPE_NAME, 0666);
+    mkfifo(RESULT_PIPE, 0666);
 }

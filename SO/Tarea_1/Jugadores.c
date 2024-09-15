@@ -3,7 +3,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <string.h>
-#include <signal.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <time.h>
@@ -13,43 +12,26 @@
 #define RESULT_PIPE "resultado_pipe"
 
 int num_jugadores = 10;
-volatile sig_atomic_t jugadores_listos = 0;
+int sincronizacion_pipes[10][2]; // Pipes para iniciar votación a cada jugador
+int confirmacion_pipes[10][2];   // Pipes para confirmar votación/eliminación
 pid_t jugadores_pids[10];
 
 void crear_jugadores();
 void votar();
 void eliminar_jugador(int jugador_eliminado);
 void jugador(int id);
-void jugador_listo(int sig);
-void iniciar_votacion(int sig);
+void iniciar_votacion(int id);
 void recrear_pipes();
 void verificar_pipes();
 
 int main() {
-    struct sigaction sa;
-    sa.sa_handler = jugador_listo;
-    sigemptyset(&sa.sa_mask);
-    sa.sa_flags = 0;
-    sigaction(SIGUSR1, &sa, NULL);
-
     recrear_pipes();
 
-    pid_t observador_pid = fork();
-    if (observador_pid == 0) {
-        execl("./Observador", "Observador", NULL);
-        perror("Error ejecutando el Observador");
-        exit(EXIT_FAILURE);
-    } else if (observador_pid < 0) {
-        perror("Error creando el proceso Observador");
-        exit(EXIT_FAILURE);
-    }
+    printf("Ejecuta el Observador en otra terminal antes de continuar.\n");
 
     crear_jugadores();
 
-    while (jugadores_listos < num_jugadores) {
-        pause();
-    }
-
+    // Bucle principal del juego
     while (num_jugadores > 1) {
         printf("Todos los jugadores están listos. Iniciando la votación.\n");
 
@@ -61,42 +43,60 @@ int main() {
             perror("Error abriendo el pipe de resultados");
             exit(EXIT_FAILURE);
         }
+        // Lee el jugador eliminado del pipe de resultados
         read(result_pipe_fd, &jugador_eliminado, sizeof(int));
         close(result_pipe_fd);
 
         eliminar_jugador(jugador_eliminado);
-        printf("Continúa el juego con la siguiente ronda.\n");
 
+        // Imprimir el número de jugadores restantes
+        printf("Número de jugadores restantes: %d\n", num_jugadores);
+
+        // Recrear los pipes para la siguiente ronda
         recrear_pipes();
         verificar_pipes();
-        sleep(1);
+        sleep(1);  // Espera breve para asegurar sincronización
     }
 
     printf("¡El jugador final es el ganador!\n");
-    // Eliminar los pipes al finalizar
-    system("rm -f " PIPE_NAME);
-    system("rm -f " RESULT_PIPE);
+    unlink(PIPE_NAME);
+    unlink(RESULT_PIPE);
 
     return 0;
 }
 
 void crear_jugadores() {
     for (int i = 0; i < num_jugadores; i++) {
+        // Crear pipes para sincronizar votación y confirmar acciones de cada jugador
+        if (pipe(sincronizacion_pipes[i]) == -1 || pipe(confirmacion_pipes[i]) == -1) {
+            perror("Error creando pipes de sincronización");
+            exit(EXIT_FAILURE);
+        }
+
         jugadores_pids[i] = fork();
         if (jugadores_pids[i] == 0) {
+            close(sincronizacion_pipes[i][1]); // Cerrar la escritura del pipe de sincronización en el hijo
+            close(confirmacion_pipes[i][0]);   // Cerrar la lectura del pipe de confirmación en el hijo
             jugador(i + 1);
             exit(0);
         }
+        close(sincronizacion_pipes[i][0]); // Cerrar la lectura del pipe de sincronización en el padre
+        close(confirmacion_pipes[i][1]);   // Cerrar la escritura del pipe de confirmación en el padre
     }
 }
 
 void votar() {
-    printf("Enviando señales de votación a cada jugador...\n");
+    printf("Enviando mensajes de votación a cada jugador...\n");
+    char mensaje[] = "VOTAR";
+
     for (int i = 0; i < num_jugadores; i++) {
-        printf("Enviando señal SIGCONT al jugador con PID %d.\n", jugadores_pids[i]);
-        if (kill(jugadores_pids[i], SIGCONT) < 0) {
-            perror("Error enviando señal SIGCONT");
-        }
+        printf("Enviando mensaje de votación al jugador con PID %d.\n", jugadores_pids[i]);
+        write(sincronizacion_pipes[i][1], mensaje, sizeof(mensaje)); // Enviar la instrucción de votar
+
+        // Esperar confirmación de que el jugador ha completado su votación
+        char confirmacion[10];
+        read(confirmacion_pipes[i][0], confirmacion, sizeof(confirmacion));
+        printf("Jugador con PID %d ha completado su votación.\n", jugadores_pids[i]);
     }
 }
 
@@ -105,41 +105,47 @@ void eliminar_jugador(int jugador_eliminado) {
     if (index >= 0 && index < num_jugadores) {
         printf("Eliminando jugador %d con PID %d.\n", jugador_eliminado, jugadores_pids[index]);
 
-        if (fork() == 0) {
-            execl("./Amurrado", "Amurrado", NULL);
-            perror("Error ejecutando Amurrado");
-            exit(EXIT_FAILURE);
-        }
-        wait(NULL);
+        // Enviar un mensaje de eliminación al jugador
+        char mensaje[] = "ELIMINAR";
+        write(sincronizacion_pipes[index][1], mensaje, sizeof(mensaje));
 
+        // Esperar confirmación de que el jugador ha sido eliminado
+        char confirmacion[10];
+        read(confirmacion_pipes[index][0], confirmacion, sizeof(confirmacion));
+
+        // Ajustar el array de PIDs y pipes para eliminar al jugador
         for (int i = index; i < num_jugadores - 1; i++) {
             jugadores_pids[i] = jugadores_pids[i + 1];
+            sincronizacion_pipes[i][0] = sincronizacion_pipes[i + 1][0];
+            sincronizacion_pipes[i][1] = sincronizacion_pipes[i + 1][1];
+            confirmacion_pipes[i][0] = confirmacion_pipes[i + 1][0];
+            confirmacion_pipes[i][1] = confirmacion_pipes[i + 1][1];
         }
-        jugadores_pids[num_jugadores - 1] = 0;
         num_jugadores--;
-
-        printf("Número de jugadores restantes: %d\n", num_jugadores);
     } else {
         printf("Índice de jugador eliminado fuera de rango.\n");
     }
 }
 
 void jugador(int id) {
-    struct sigaction sa;
-    sa.sa_handler = iniciar_votacion;
-    sigemptyset(&sa.sa_mask);
-    sa.sa_flags = 0;
-    sigaction(SIGCONT, &sa, NULL);
-
     printf("Jugador %d está listo.\n", id);
-    kill(getppid(), SIGUSR1);
 
     while (1) {
-        pause();
+        // Leer desde el pipe de sincronización para saber si debe votar o ser eliminado
+        char buffer[10];
+        read(sincronizacion_pipes[id - 1][0], buffer, sizeof(buffer));
+
+        if (strcmp(buffer, "VOTAR") == 0) {
+            iniciar_votacion(id);
+        } else if (strcmp(buffer, "ELIMINAR") == 0) {
+            printf("Jugador %d (PID %d) está siendo eliminado.\n", id, getpid());
+            write(confirmacion_pipes[id - 1][1], "OK", 3); // Confirmar eliminación
+            exit(0); // El jugador se retira
+        }
     }
 }
 
-void iniciar_votacion(int sig) {
+void iniciar_votacion(int id) {
     printf("Jugador con PID %d está votando...\n", getpid());
 
     int pipe_fd = open(PIPE_NAME, O_WRONLY);
@@ -155,16 +161,16 @@ void iniciar_votacion(int sig) {
     write(pipe_fd, &voto, sizeof(voto));
     close(pipe_fd);
 
-    printf("Jugador con PID %d ha completado la votación y espera la siguiente ronda...\n", getpid());
-}
-
-void jugador_listo(int sig) {
-    jugadores_listos++;
+    // Confirmar al proceso principal que ha terminado de votar
+    write(confirmacion_pipes[id - 1][1], "OK", 3);
 }
 
 void recrear_pipes() {
-    system("rm -f " PIPE_NAME);
-    system("rm -f " RESULT_PIPE);
+    // Elimina los pipes si existen
+    unlink(PIPE_NAME);
+    unlink(RESULT_PIPE);
+
+    // Crea los pipes nuevamente
     if (mkfifo(PIPE_NAME, 0666) == -1) {
         perror("Error creando PIPE_NAME");
         exit(EXIT_FAILURE);
