@@ -6,35 +6,75 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <time.h>
+#include <sys/mman.h>
+#include <semaphore.h>
 
 #define PIPE_NAME "votos_pipe"
 #define RESULT_PIPE "resultado_pipe"
+#define SHARED_MEM_NAME "/mem_jugadores"
+
+typedef struct {
+    int num_jugadores;
+    int votos_completados;
+} SharedData;
+
+SharedData *shared_data;
+sem_t *sem_sync;
 
 void contar_votos(int num_jugadores);
 
 int main() {
-    int num_jugadores = 10;  // Número inicial de jugadores
-
-    while (num_jugadores > 1) {
-        contar_votos(num_jugadores);  // Contar votos con el número actual de jugadores
-        num_jugadores--;  // Reducir el número de jugadores después de cada eliminación
+    int shm_fd = shm_open(SHARED_MEM_NAME, O_RDWR, 0666);
+    if (shm_fd == -1) {
+        perror("Error accediendo a la memoria compartida");
+        exit(EXIT_FAILURE);
     }
+    shared_data = (SharedData *)mmap(0, sizeof(SharedData), PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
+    if (shared_data == MAP_FAILED) {
+        perror("Error mapeando la memoria compartida");
+        exit(EXIT_FAILURE);
+    }
+
+    sem_sync = sem_open("/sem_sync", 0);
+    if (sem_sync == SEM_FAILED) {
+        perror("Error abriendo semáforo");
+        exit(EXIT_FAILURE);
+    }
+
+    while (shared_data->num_jugadores > 1) {
+        while (1) {
+            sem_wait(sem_sync);
+            if (shared_data->votos_completados == shared_data->num_jugadores) {
+                sem_post(sem_sync);
+                break;
+            }
+            sem_post(sem_sync);
+            usleep(100000);
+        }
+
+        contar_votos(shared_data->num_jugadores);
+    }
+
     printf("Observador: ¡El juego ha terminado!\n");
+
+    munmap(shared_data, sizeof(SharedData));
+    shm_unlink(SHARED_MEM_NAME);
+    sem_close(sem_sync);
+    sem_unlink("/sem_sync");
+
     return 0;
 }
 
 void contar_votos(int num_jugadores) {
-    int votos[num_jugadores + 1];  // Array para contar votos de cada jugador
-    memset(votos, 0, sizeof(votos));  // Reiniciar conteo de votos
+    int votos[num_jugadores + 1];
+    memset(votos, 0, sizeof(votos));
 
-    // Abrir pipe para leer votos
     int pipe_fd = open(PIPE_NAME, O_RDONLY);
     if (pipe_fd == -1) {
         perror("Error abriendo el pipe de votos");
         exit(EXIT_FAILURE);
     }
 
-    // Leer exactamente num_jugadores votos
     int voto;
     int votos_recibidos = 0;
     while (votos_recibidos < num_jugadores) {
@@ -45,12 +85,11 @@ void contar_votos(int num_jugadores) {
                 printf("Observador: Jugador %d recibió un voto.\n", voto);
             }
         } else {
-            usleep(100000);  // Espera un poco si no hay datos para evitar bloqueo
+            usleep(100000);
         }
     }
     close(pipe_fd);
 
-    // Determinar el jugador con más votos
     int jugador_eliminado = 0;
     int max_votos = 0;
     int jugadores_empatados[num_jugadores];
@@ -68,7 +107,6 @@ void contar_votos(int num_jugadores) {
         }
     }
 
-    // Si hay empate, seleccionar un jugador al azar
     if (num_empatados > 1) {
         srand(time(NULL));
         jugador_eliminado = jugadores_empatados[rand() % num_empatados];
@@ -77,7 +115,6 @@ void contar_votos(int num_jugadores) {
 
     printf("Observador: Jugador %d fue el más votado y será eliminado.\n", jugador_eliminado);
 
-    // Enviar el jugador eliminado al pipe de resultados
     int result_pipe_fd = open(RESULT_PIPE, O_WRONLY);
     if (result_pipe_fd == -1) {
         perror("Error abriendo el pipe de resultados");
@@ -86,7 +123,6 @@ void contar_votos(int num_jugadores) {
     write(result_pipe_fd, &jugador_eliminado, sizeof(int));
     close(result_pipe_fd);
 
-    // Recrear los pipes para la siguiente ronda
     unlink(PIPE_NAME);
     unlink(RESULT_PIPE);
     mkfifo(PIPE_NAME, 0666);
