@@ -1,5 +1,5 @@
 attrs==24.1.0
-auto-cpufreq==1
+#auto-cpufreq==1
 autocommand==2.2.2
 build==1.2.2
 CacheControl==0.14.0
