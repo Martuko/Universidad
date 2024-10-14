@@ -54,6 +54,7 @@ poetry-dynamic-versioning==1.4.1
 poetry-plugin-export==1.8.0
 pooch==1.8.2
 psutil==6.0.0
+psycopg2==2.9.9
 ptyprocess==0.7.0
 pycairo==1.27.0
 pycparser==2.22
