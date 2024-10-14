@@ -1,4 +1,4 @@
-attrs==23.2.1.dev0
+attrs==24.1.0
 auto-cpufreq==1
 autocommand==2.2.2
 build==1.2.2
