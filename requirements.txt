@@ -58,7 +58,7 @@ psycopg2==2.9.9
 ptyprocess==0.7.0
 pycairo==1.27.0
 pycparser==2.22
-PyGObject==3.50.0
+#PyGObject==3.50.0
 pyinotify==0.9.6
 pyparsing==3.1.2
 pyproject_hooks==1.2.0
