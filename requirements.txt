@@ -14,7 +14,7 @@ cryptography==42.0.8
 cycler==0.12.1
 distlib==0.3.8
 distro==1.9.0
-dulwich==0.22.2
+dulwich==0.20.0
 dunamai==1.22.0
 fastjsonschema==2.20.0
 filelock==3.13.3
