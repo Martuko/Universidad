@@ -78,7 +78,7 @@ SecretStorage==3.3.3
 setuptools==69.5.1
 shellingham==1.5.4
 six==1.16.0
-TBB==0.2
+TBB==2021.13.1
 tomli==2.0.1
 tomlkit==0.13.2
 tqdm==4.66.5
