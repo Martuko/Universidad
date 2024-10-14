@@ -82,7 +82,7 @@ TBB==2021.13.1
 tomli==2.0.1
 tomlkit==0.13.2
 tqdm==4.66.5
-trove-classifiers==2024.9.17
+trove-classifiers==2024.10.13
 typing_extensions==4.12.2
 urllib3==1.26.20
 validate-pyproject==0.20.2
