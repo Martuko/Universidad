@@ -22,10 +22,15 @@ class VentanaCaja(QWidget):
         self.producto_combo = QComboBox(self)
         layout.addWidget(self.producto_combo)
 
+        # Botón para agregar producto al carrito
+        self.btn_agregar = QPushButton("Agregar al Carrito")
+        self.btn_agregar.clicked.connect(self.agregar_al_carrito)
+        layout.addWidget(self.btn_agregar)
+
         # Tabla de Carrito de Compras
         self.carrito_table = QTableWidget(self)
-        self.carrito_table.setColumnCount(3)
-        self.carrito_table.setHorizontalHeaderLabels(["Producto", "Cantidad", "Subtotal"])
+        self.carrito_table.setColumnCount(4)
+        self.carrito_table.setHorizontalHeaderLabels(["Producto", "Cantidad", "Subtotal", "Acciones"])
         layout.addWidget(self.carrito_table)
 
         # Total de la Compra
@@ -33,7 +38,7 @@ class VentanaCaja(QWidget):
         layout.addWidget(self.total_label)
 
         # Botón para Finalizar Compra
-        self.btn_finalizar = QPushButton("Finalizar Compra", self)
+        self.btn_finalizar = QPushButton("Finalizar Compra")
         self.btn_finalizar.clicked.connect(self.finalizar_compra)
         layout.addWidget(self.btn_finalizar)
 
@@ -101,7 +106,7 @@ class VentanaCaja(QWidget):
             if cantidad <= 0:
                 raise ValueError("La cantidad debe ser mayor a cero.")
             
-            subtotal = cantidad * valor
+            subtotal = cantidad * float(valor)
 
             # Agregar a la tabla del carrito
             row_position = self.carrito_table.rowCount()
@@ -110,6 +115,11 @@ class VentanaCaja(QWidget):
             self.carrito_table.setItem(row_position, 1, QTableWidgetItem(str(cantidad)))
             self.carrito_table.setItem(row_position, 2, QTableWidgetItem(f"$ {subtotal:.2f}"))
 
+            # Crear botón para eliminar producto
+            btn_eliminar = QPushButton("Eliminar")
+            btn_eliminar.clicked.connect(lambda: self.eliminar_producto(row_position))
+            self.carrito_table.setCellWidget(row_position, 3, btn_eliminar)
+
             # Actualizar el total
             self.total += subtotal
             self.total_label.setText(f"Total: $ {self.total:.2f}")
@@ -117,6 +127,14 @@ class VentanaCaja(QWidget):
             dialog.accept()
         except ValueError:
             QMessageBox.warning(self, "Error", "Ingrese una cantidad válida (número entero positivo).")
+
+    def eliminar_producto(self, row_position):
+        # Eliminar el producto del carrito
+        subtotal = float(self.carrito_table.item(row_position, 2).text().replace('$', '').replace(',', ''))
+        self.total -= subtotal  # Restar del total
+        self.total_label.setText(f"Total: $ {self.total:.2f}")
+        
+        self.carrito_table.removeRow(row_position)
 
     def finalizar_compra(self):
         # Lógica para finalizar la compra y descontar inventario
