@@ -78,9 +78,17 @@ class VentanaSeleccionRol(QWidget):
     def abrir_ventana_caja(self):
         # Lógica para abrir la ventana de Caja, pasando la sucursal seleccionada
         sucursal_seleccionada = self.sucursal_combo.currentData()  # Obtener el ID de la sucursal
-        self.ventana_caja = VentanaCaja(sucursal=sucursal_seleccionada)
-        self.ventana_caja.show()
-        self.close()
+        if sucursal_seleccionada is not None:  # Comprobar que se haya seleccionado una sucursal
+            try:
+                print(f"Sucursal seleccionada: {sucursal_seleccionada}")  # Debug
+                self.ventana_caja = VentanaCaja(sucursal_id=sucursal_seleccionada)  # Asegúrate de pasar el ID de sucursal
+                self.ventana_caja.show()
+                self.close()  # Cerrar la ventana de selección de rol
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"Ocurrió un error al abrir la ventana de Caja: {str(e)}")
+        else:
+            QMessageBox.warning(self, "Error", "Por favor, seleccione una sucursal antes de continuar.")
+
 
     def mostrar_campo_clave_admin(self):
         # Mostrar campo de clave y botón de confirmar para el rol de Administrador
