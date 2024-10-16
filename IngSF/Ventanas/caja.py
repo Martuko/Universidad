@@ -62,6 +62,11 @@ class VentanaCaja(QWidget):
         self.btn_finalizar.clicked.connect(self.finalizar_compra)
         layout.addWidget(self.btn_finalizar)
 
+        btn_cerrar_caja = QPushButton("Cerrar Caja")
+        btn_cerrar_caja.clicked.connect(self.abrir_cierre_caja)
+        layout.addWidget(btn_cerrar_caja)
+
+        # Botón para Cancelar Compra
         self.setLayout(layout)
 
         # Timers para las búsquedas con retraso
@@ -295,9 +300,12 @@ class VentanaCaja(QWidget):
                 """, (cantidad, id_producto, self.sucursal_id))
 
                 # Actualizar la cantidad en `self.productos_inventario`
-                for producto in self.productos_inventario:
+                for i, producto in enumerate(self.productos_inventario):
                     if producto[0] == id_producto:
-                        producto[3] -= cantidad
+                        # Convertir la tupla en una lista temporalmente para actualizarla
+                        producto_lista = list(producto)
+                        producto_lista[3] -= cantidad  # Actualizar la cantidad
+                        self.productos_inventario[i] = tuple(producto_lista)  # Reconvertir a tupla y reasignar
                         break
 
             conn.commit()
@@ -321,4 +329,154 @@ class VentanaCaja(QWidget):
         self.carrito_table.setRowCount(0)
         self.total = Decimal(0)
         self.total_label.setText("Total: $0.00")
+    def abrir_cierre_caja(self):
+        # Ventana emergente para el cierre de caja
+        
+        dialog = QDialog(self)
+        dialog.setWindowTitle("Cierre de Caja")
 
+        # Calcular totales del día
+        total_ventas, productos_vendidos = self.calcular_totales_dia()
+
+        # Layout para mostrar los totales del cierre
+        layout = QVBoxLayout()
+        layout.addWidget(QLabel(f"Total en dinero vendido: $ {total_ventas:.2f}"))
+        layout.addWidget(QLabel(f"Cantidad de productos vendidos: {productos_vendidos}"))
+
+        # Formulario para ventas manuales
+        form_layout = QFormLayout()
+        producto_input = QLineEdit()
+        cantidad_input = QLineEdit()
+        form_layout.addRow("Producto o Código:", producto_input)
+        form_layout.addRow("Cantidad Vendida:", cantidad_input)
+
+        # Botones
+        btn_agregar_venta = QPushButton("Agregar Venta Manual")
+        btn_agregar_venta.clicked.connect(
+            lambda: self.agregar_venta_manual(producto_input.text(), cantidad_input.text(), total_ventas, productos_vendidos, dialog)
+        )
+        layout.addLayout(form_layout)
+        layout.addWidget(btn_agregar_venta)
+
+        btn_confirmar_cierre = QPushButton("Confirmar Cierre de Caja")
+        btn_confirmar_cierre.clicked.connect(lambda: self.confirmar_cierre_caja(total_ventas, productos_vendidos, dialog))
+        layout.addWidget(btn_confirmar_cierre)
+
+        dialog.setLayout(layout)
+        dialog.exec_()
+
+    def agregar_venta_manual(self, producto, cantidad, total_ventas, productos_vendidos, dialog):
+        try:
+            cantidad = int(cantidad)
+
+            # Verificar si el producto existe
+            conn = obtener_conexion()
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT ID_Producto, Valor_Producto FROM Producto
+                WHERE Codigo_Producto = %s OR Nombre_Producto = %s
+            """, (producto, producto))
+            resultado = cursor.fetchone()
+
+            if not resultado:
+                QMessageBox.warning(self, "Error", "Producto no encontrado.")
+                return
+
+            id_producto, valor_producto = resultado
+            subtotal = valor_producto * cantidad
+
+            # Registrar la venta manual en la base de datos
+            cursor.execute("""
+                INSERT INTO Venta (fecha_venta, id_sucursal, id_metodo, total_venta)
+                VALUES (CURRENT_DATE, %s, NULL, %s) RETURNING id_venta
+            """, (self.sucursal_id, subtotal))
+            id_venta = cursor.fetchone()[0]
+
+            # Registrar el detalle de la venta manual
+            cursor.execute("""
+                INSERT INTO Detalle_Venta (id_venta, id_producto, cantidad_vendida, subtotal)
+                VALUES (%s, %s, %s, %s)
+            """, (id_venta, id_producto, cantidad, subtotal))
+
+            # Actualizar el inventario
+            cursor.execute("""
+                UPDATE Inventario SET Cantidad = Cantidad - %s
+                WHERE ID_Producto = %s AND ID_Sucursal = %s
+            """, (cantidad, id_producto, self.sucursal_id))
+
+            # Actualizar totales del cierre
+            total_ventas += subtotal
+            productos_vendidos += cantidad
+
+            conn.commit()
+            cursor.close()
+            conn.close()
+
+            QMessageBox.information(self, "Éxito", f"Venta manual agregada: {cantidad} x {producto}")
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Ocurrió un error: {str(e)}")
+
+    def confirmar_cierre_caja(self, total_ventas, productos_vendidos, dialog):
+        try:
+            # Registrar el cierre de caja en la base de datos
+            conn = obtener_conexion()
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT INTO Cierre_Caja (id_sucursal, fecha_cierre, total_ventas, productos_vendidos)
+                VALUES (%s, CURRENT_DATE, %s, %s)
+            """, (self.sucursal_id, total_ventas, productos_vendidos))
+
+            conn.commit()
+            cursor.close()
+            conn.close()
+
+            QMessageBox.information(self, "Éxito", "Cierre de caja confirmado.")
+            self.reset_caja()  # Limpiar datos cargados
+            dialog.accept()  # Cerrar ventana emergente
+            self.cerrar_sesion()  # Volver a inicio de sesión
+
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"No se pudo confirmar el cierre de caja: {str(e)}")
+
+    def calcular_totales_dia(self):
+        try:
+            # Conectar a la base de datos
+            conn = obtener_conexion()
+            cursor = conn.cursor()
+
+            # Calcular el total de dinero recaudado del día desde la tabla `detalle_venta`
+            cursor.execute("""
+                SELECT SUM(subtotal) FROM Detalle_Venta dv
+                JOIN Venta v ON dv.id_venta = v.id_venta
+                WHERE v.fecha_venta = CURRENT_DATE AND v.id_sucursal = %s
+            """, (self.sucursal_id,))
+            total_dinero = cursor.fetchone()[0] or 0  # Asegurarse de que no sea None
+
+            # Calcular la cantidad total de productos vendidos del día
+            cursor.execute("""
+                SELECT SUM(cantidad_vendida) FROM Detalle_Venta dv
+                JOIN Venta v ON dv.id_venta = v.id_venta
+                WHERE v.fecha_venta = CURRENT_DATE AND v.id_sucursal = %s
+            """, (self.sucursal_id,))
+            productos_vendidos = cursor.fetchone()[0] or 0  # Asegurarse de que no sea None
+
+            cursor.close()
+            conn.close()
+
+            return total_dinero, productos_vendidos
+
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"No se pudieron calcular los totales: {str(e)}")
+            return 0, 0  # Devolver 0 si ocurre algún error
+
+
+    def reset_caja(self):
+        # Limpiar los datos cargados en memoria
+        self.productos_inventario = []
+
+    def cerrar_sesion(self):
+        # Volver a la ventana de inicio de sesión
+        from Ventanas.inicio_sesion import VentanaInicio
+        self.inicio_sesion = VentanaInicio()
+        self.inicio_sesion.show()
+        self.close()
