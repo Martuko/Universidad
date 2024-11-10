@@ -6,8 +6,9 @@ from boleta import BoletaPDF
 from db import obtener_conexion
 
 class VentanaCaja(QWidget):
-    def __init__(self, sucursal_id,ventana_anterior=None):
+    def __init__(self, usuario,sucursal_id, ventana_anterior=None):
         super().__init__()
+        self.usuario = usuario
         self.sucursal_id = sucursal_id  # Almacenar la sucursal seleccionada
         self.setWindowTitle("Caja - Realizar Venta")
         self.setGeometry(100, 100, 600, 600)
@@ -290,7 +291,6 @@ class VentanaCaja(QWidget):
 
 
     def finalizar_compra(self):
-        # Lógica para finalizar la compra y registrar en la base de datos
         if self.carrito_table.rowCount() == 0:
             QMessageBox.warning(self, "Error", "El carrito está vacío.")
             return
@@ -301,24 +301,21 @@ class VentanaCaja(QWidget):
             conn = obtener_conexion()
             cursor = conn.cursor()
 
-            # Registrar la venta en la tabla "venta"
+            # Registrar la venta en la tabla "ventas"
             cursor.execute("""
                 INSERT INTO ventas (fecha, idSucursal, idMetodo, totalVenta)
                 VALUES (CURRENT_TIMESTAMP, %s, %s, %s) RETURNING idVentas
             """, (self.sucursal_id, id_metodo_pago, self.total))
 
-            id_venta = cursor.fetchone()[0]  # Obtener el ID de la venta recién creada
+            id_venta = cursor.fetchone()[0]
 
-            # Recorrer el carrito y registrar en "detalle_venta" y actualizar inventario
             for row in range(self.carrito_table.rowCount()):
                 nombre = self.carrito_table.item(row, 0).text()
                 cantidad = int(self.carrito_table.item(row, 1).text())
                 subtotal = float(self.carrito_table.item(row, 2).text().replace("$", "").strip())
 
                 # Obtener el ID del producto
-                cursor.execute("""
-                    SELECT idproducto FROM productos WHERE nproducto = %s
-                """, (nombre,))
+                cursor.execute("SELECT idProducto FROM productos WHERE nProducto = %s", (nombre,))
                 id_producto = cursor.fetchone()[0]
 
                 # Registrar el detalle de la venta
@@ -327,33 +324,30 @@ class VentanaCaja(QWidget):
                     VALUES (%s, %s, %s, %s)
                 """, (id_venta, id_producto, cantidad, subtotal))
 
+                # Actualizar o eliminar el inventario según la cantidad
+                cursor.execute("SELECT cantStock FROM inventario WHERE idProducto = %s AND idSucursal = %s", (id_producto, self.sucursal_id))
+                stock_actual = cursor.fetchone()[0]
 
-                # Actualizar el inventario en la base de datos
-                cursor.execute("""
-                    UPDATE inventario SET cantStock = cantStock - %s
-                    WHERE idProducto = %s AND idSucursal = %s
-                """, (cantidad, id_producto, self.sucursal_id))
-
-                # Actualizar la cantidad en `self.productos_inventario`
-                for i, producto in enumerate(self.productos_inventario):
-                    if producto[0] == id_producto:
-                        # Convertir la tupla en una lista temporalmente para actualizarla
-                        producto_lista = list(producto)
-                        producto_lista[3] -= cantidad  # Actualizar la cantidad
-                        self.productos_inventario[i] = tuple(producto_lista)  # Reconvertir a tupla y reasignar
-                        break
+                if stock_actual - cantidad > 0:
+                    cursor.execute("""
+                        UPDATE inventario SET cantStock = cantStock - %s
+                        WHERE idProducto = %s AND idSucursal = %s
+                    """, (cantidad, id_producto, self.sucursal_id))
+                else:
+                    cursor.execute("""
+                        DELETE FROM inventario
+                        WHERE idProducto = %s AND idSucursal = %s
+                    """, (id_producto, self.sucursal_id))
 
             conn.commit()
             cursor.close()
             conn.close()
 
-            # Generar la boleta usando la clase BoletaPDF
+            # Generar la boleta y reiniciar el carrito
             boleta = BoletaPDF(id_venta, self.total)
             output_path = boleta.generar_boleta()
-
             if output_path:
                 QMessageBox.information(self, "Éxito", f"Compra finalizada y boleta generada exitosamente.\nBoleta: {output_path}")
-
             self.reset_carrito()
 
         except Exception as e:

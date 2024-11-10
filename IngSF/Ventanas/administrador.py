@@ -320,33 +320,55 @@ class VentanaAdministrador(QWidget):
             cursor = conn.cursor()
 
             if self.eliminar_todo_checkbox.isChecked():
-                cursor.execute(
-                    "DELETE FROM inventario WHERE idProducto IN (SELECT idProducto FROM productos WHERE codProducto = %s) AND idSucursal = %s",
-                    (codigo, self.sucursal_id)
-                )
-                cursor.execute(
-                    "DELETE FROM productos WHERE codProducto = %s",
-                    (codigo,)
-                )
+                # Eliminar completamente el producto tanto de 'inventario' como de 'productos'
+                cursor.execute("""
+                    DELETE FROM inventario WHERE idProducto IN (SELECT idProducto FROM productos WHERE codProducto = %s) AND idSucursal = %s
+                """, (codigo, self.sucursal_id))
+                cursor.execute("DELETE FROM productos WHERE codProducto = %s", (codigo,))
 
                 conn.commit()
-                QMessageBox.information(self, "Éxito", "Producto eliminado exitosamente")
+                QMessageBox.information(self, "Éxito", "Producto eliminado completamente de la base de datos.")
             else:
-                cursor.execute(
-                    "UPDATE inventario SET cantstock = cantstock - %s WHERE idproducto IN (SELECT idproducto FROM productos WHERE codproducto = %s) AND idsucursal = %s",
-                    (cantidad, codigo, self.sucursal_id)
-                )
+                # Verificar el stock actual
+                cursor.execute("""
+                    SELECT cantStock FROM inventario
+                    WHERE idProducto IN (SELECT idProducto FROM productos WHERE codProducto = %s) AND idSucursal = %s
+                """, (codigo, self.sucursal_id))
+                resultado = cursor.fetchone()
 
-                conn.commit()
-                QMessageBox.information(self, "Éxito", "Cantidad eliminada exitosamente")
+                if not resultado:
+                    QMessageBox.warning(self, "Error", "El producto no existe en el inventario de esta sucursal.")
+                    return
 
+                stock_actual = resultado[0]
+
+                # Verificar que haya suficiente stock para eliminar
+                if stock_actual < int(cantidad):
+                    QMessageBox.warning(self, "Error", "No hay suficiente stock para eliminar la cantidad especificada.")
+                    return
+
+                # Reducir la cantidad o eliminar el producto si la cantidad llega a 0
+                nuevo_stock = stock_actual - int(cantidad)
+                if nuevo_stock > 0:
+                    cursor.execute("""
+                        UPDATE inventario SET cantStock = %s
+                        WHERE idProducto IN (SELECT idProducto FROM productos WHERE codProducto = %s) AND idSucursal = %s
+                    """, (nuevo_stock, codigo, self.sucursal_id))
+                    QMessageBox.information(self, "Éxito", "Cantidad eliminada exitosamente.")
+                else:
+                    # Eliminar el producto del inventario y de la tabla productos si el stock llega a 0
+                    cursor.execute("""
+                        DELETE FROM inventario WHERE idProducto IN (SELECT idProducto FROM productos WHERE codProducto = %s) AND idSucursal = %s
+                    """, (codigo, self.sucursal_id))
+                    cursor.execute("DELETE FROM productos WHERE codProducto = %s", (codigo,))
+                    QMessageBox.information(self, "Éxito", "Producto eliminado completamente de la base de datos.")
+
+            conn.commit()
             cursor.close()
             conn.close()
             dialog.accept()
         except Exception as e:
             QMessageBox.critical(self, "Error", str(e))
-
-
 
     def ver_inventario_cocina(self):
         try:

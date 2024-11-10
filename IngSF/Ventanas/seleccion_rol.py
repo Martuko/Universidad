@@ -77,11 +77,14 @@ class VentanaSeleccionRol(QWidget):
             QMessageBox.critical(self, "Error", f"No se pudo conectar a la base de datos: {str(e)}")
 
     def abrir_ventana_caja(self):
-        # Lógica para abrir la ventana de Caja, pasando la sucursal seleccionada
-        sucursal_seleccionada = self.sucursal_combo.currentData()  # Obtener el ID de la sucursal
-        if sucursal_seleccionada is not None:  # Comprobar que se haya seleccionado una sucursal
+    # Obtener el ID de la sucursal seleccionada
+        self.sucursal_id = self.sucursal_combo.currentData() 
+
+        # Comprobar que se haya seleccionado una sucursal
+        if self.sucursal_id is not None:
             try:
-                print(f"Sucursal seleccionada: {sucursal_seleccionada}")  # Debug
+                print(f"Sucursal seleccionada: {self.sucursal_id}")  # Debug
+                # Abrir la ventana de Caja, pasando el usuario, la sucursal y la ventana anterior
                 self.ventana_caja = VentanaCaja(self.usuario, self.sucursal_id, ventana_anterior=self)
                 self.ventana_caja.show()
                 self.close()  # Cerrar la ventana de selección de rol
