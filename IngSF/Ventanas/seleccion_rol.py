@@ -10,7 +10,7 @@ class VentanaSeleccionRol(QWidget):
         self.usuario = usuario
         self.setWindowTitle("Seleccionar Rol")
         self.setGeometry(100, 100, 300, 300)
-
+        self.sucursal_id = None
         layout = QVBoxLayout()
 
         # Etiqueta de bienvenida con el nombre del usuario
@@ -111,7 +111,7 @@ class VentanaSeleccionRol(QWidget):
 
             if clave_real and clave_real[0] == clave_ingresada:
                 # Obtener el ID de la sucursal seleccionada
-                sucursal_id = self.sucursal_combo.currentData()  # Asegúrate de que la sucursal_combo tenga datos
+                self.sucursal_id = self.sucursal_combo.currentData()  # Asegúrate de que la sucursal_combo tenga datos
 
                 # Pasar el ID de la sucursal y el usuario a la ventana del administrador
                 # Ventanas/seleccion_rol.py

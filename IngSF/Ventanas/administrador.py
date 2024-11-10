@@ -69,7 +69,7 @@ class VentanaAdministrador(QWidget):
 
         if self.ventana_anterior:
             btn_regresar = QPushButton("Regresar")
-            btn_regresar.clicked.connect(self.regresar_a_ventana_anterior)
+            btn_regresar.clicked.connect(self.regresar)
             layout.addWidget(btn_regresar)
 
         self.setLayout(layout)
