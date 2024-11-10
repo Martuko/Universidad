@@ -49,7 +49,7 @@ class VentanaInicio(QWidget):
         try:
             conn = obtener_conexion()
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM usuario WHERE nombre = %s AND clave = %s", (usuario, clave))
+            cursor.execute("SELECT * FROM usuario WHERE username = %s AND password = %s", (usuario, clave))
             result = cursor.fetchone()
             cursor.close()
             conn.close()

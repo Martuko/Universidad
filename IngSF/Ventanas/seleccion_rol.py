@@ -58,9 +58,10 @@ class VentanaSeleccionRol(QWidget):
             conn = obtener_conexion()
             cursor = conn.cursor()
             cursor.execute(
-            "SELECT s.id_sucursal, s.nombre_sucursal FROM usuario_sucursal us JOIN sucursal s ON us.id_sucursal = s.id_sucursal WHERE us.id_usuario = %s",
-            (self.usuario[0],)  # Suponiendo que el ID de usuario está en el índice 0
+                "SELECT s.idSucursal, s.nombre FROM us_su us JOIN sucursal s ON us.idSucursal = s.idSucursal WHERE us.idUsuario = %s",
+                (self.usuario[0],)
             )
+
             sucursales = cursor.fetchall()
 
         # Limpiar el combo box antes de agregar nuevas sucursales
@@ -81,7 +82,7 @@ class VentanaSeleccionRol(QWidget):
         if sucursal_seleccionada is not None:  # Comprobar que se haya seleccionado una sucursal
             try:
                 print(f"Sucursal seleccionada: {sucursal_seleccionada}")  # Debug
-                self.ventana_caja = VentanaCaja(sucursal_id=sucursal_seleccionada)  # Asegúrate de pasar el ID de sucursal
+                self.ventana_caja = VentanaCaja(self.usuario, self.sucursal_id, ventana_anterior=self)
                 self.ventana_caja.show()
                 self.close()  # Cerrar la ventana de selección de rol
             except Exception as e:
@@ -103,7 +104,7 @@ class VentanaSeleccionRol(QWidget):
         try:
             conn = obtener_conexion()
             cursor = conn.cursor()
-            cursor.execute("SELECT clave FROM usuario WHERE nombre = %s", (self.usuario[1],))
+            cursor.execute("SELECT password FROM usuario WHERE username = %s", (self.usuario[1],))
             clave_real = cursor.fetchone()
             cursor.close()
             conn.close()
@@ -113,9 +114,11 @@ class VentanaSeleccionRol(QWidget):
                 sucursal_id = self.sucursal_combo.currentData()  # Asegúrate de que la sucursal_combo tenga datos
 
                 # Pasar el ID de la sucursal y el usuario a la ventana del administrador
-                self.ventana_admin = VentanaAdministrador(self.usuario, sucursal_id) 
+                # Ventanas/seleccion_rol.py
+                self.ventana_admin = VentanaAdministrador(self.usuario, self.sucursal_id, ventana_anterior=self)
                 self.ventana_admin.show()
                 self.close()
+
             else:
                 QMessageBox.warning(self, "Error", "Clave incorrecta.")
         except Exception as e:

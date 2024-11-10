@@ -28,32 +28,32 @@ void generarSeries(int *series, const char *plataforma) {
     printf("[DEBUG] Se generaron %d series nuevas en %s. Total ahora: %d\n", nuevasSeries, plataforma, *series);
 }
 
-// Función que simula el comportamiento de un profesor con deadlock
+
 void *verSeries(void *arg) {
     Profesor *profesor = (Profesor *)arg;
     for (int semana = 0; semana <= profesor->semanas; semana++) {
         float seriesPorSemana = (rand() % 4 + 1) * 0.5;
 
         if (profesor->id % 2 == 0) {
-            // Profesores con ID par: bloquean Dasney primero, luego Betflix
+            
             pthread_mutex_lock(&mutexDasney);
-            sleep(1); // Simular un pequeño retraso
+            sleep(1); 
             pthread_mutex_lock(&mutexBetflix);
         } else {
-            // Profesores con ID impar: bloquean Betflix primero, luego Dasney
+            
             pthread_mutex_lock(&mutexBetflix);
-            sleep(1); // Simular un pequeño retraso
+            sleep(1); 
             pthread_mutex_lock(&mutexDasney);
         }
 
-        // Simular el consumo de series
+        
         printf("[DEBUG] Profesor %d ve %.1f series en %s.\n", profesor->id, seriesPorSemana, profesor->plataforma);
 
-        // Desbloquear los mutexes
+        
         pthread_mutex_unlock(&mutexDasney);
         pthread_mutex_unlock(&mutexBetflix);
 
-        sleep(1); // Simular tiempo de espera de una semana
+        sleep(1); 
     }
     pthread_exit(NULL);
 }
@@ -71,7 +71,7 @@ int main() {
 
     int semanas = meses * 4;
 
-    // Inicializar profesores y asignar plataformas y semanas
+    
     for (int i = 0; i < NUM_PROFESORES; i++) {
         profesores[i].id = i;
         profesores[i].plataforma = (i < 6) ? "Dasney" : "Betflix";
@@ -79,12 +79,12 @@ int main() {
         printf("[DEBUG] Profesor %d asignado a %s\n", i, profesores[i].plataforma);
     }
 
-    // Crear threads
+    
     for (int i = 0; i < NUM_PROFESORES; i++) {
         pthread_create(&threads[i], NULL, verSeries, (void *)&profesores[i]);
     }
 
-    // Simulación de generación semanal de series
+    
     for (int i = 0; i < semanas; i++) {
         pthread_mutex_lock(&mutexDasney);
         pthread_mutex_lock(&mutexBetflix);
@@ -95,7 +95,7 @@ int main() {
         sleep(1);
     }
 
-    // Esperar a que terminen todos los threads
+    
     for (int i = 0; i < NUM_PROFESORES; i++) {
         pthread_join(threads[i], NULL);
     }

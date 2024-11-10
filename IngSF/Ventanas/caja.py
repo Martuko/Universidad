@@ -6,11 +6,12 @@ from boleta import BoletaPDF
 from db import obtener_conexion
 
 class VentanaCaja(QWidget):
-    def __init__(self, sucursal_id):
+    def __init__(self, sucursal_id,ventana_anterior=None):
         super().__init__()
         self.sucursal_id = sucursal_id  # Almacenar la sucursal seleccionada
         self.setWindowTitle("Caja - Realizar Venta")
         self.setGeometry(100, 100, 600, 600)
+        self.ventana_anterior = ventana_anterior
 
         # Cargar inventario en memoria
         self.productos_inventario = self.cargar_inventario()
@@ -66,6 +67,10 @@ class VentanaCaja(QWidget):
         btn_cerrar_caja.clicked.connect(self.abrir_cierre_caja)
         layout.addWidget(btn_cerrar_caja)
 
+        if self.ventana_anterior:
+            btn_regresar = QPushButton("Regresar")
+            btn_regresar.clicked.connect(self.verificar_clave_para_regresar)
+            layout.addWidget(btn_regresar)
         # Botón para Cancelar Compra
         self.setLayout(layout)
 
@@ -79,16 +84,44 @@ class VentanaCaja(QWidget):
         self.timer_codigo.timeout.connect(self.buscar_producto_codigo)
 
 
+    def verificar_clave_para_regresar(self):
+        # Crear un diálogo para ingresar la clave
+        dialogo_clave = QDialog(self)
+        dialogo_clave.setWindowTitle("Confirmar Clave")
+        form_layout = QFormLayout(dialogo_clave)
+
+        # Campo para ingresar la clave
+        clave_input = QLineEdit()
+        clave_input.setEchoMode(QLineEdit.Password)
+        form_layout.addRow("Ingrese su clave:", clave_input)
+
+        # Botón de confirmar
+        btn_confirmar = QPushButton("Confirmar")
+        btn_confirmar.clicked.connect(lambda: self.confirmar_clave(clave_input.text(), dialogo_clave))
+        form_layout.addWidget(btn_confirmar)
+
+        dialogo_clave.setLayout(form_layout)
+        dialogo_clave.exec_()
+
+    def confirmar_clave(self, clave_ingresada, dialogo):
+        # Verificar la clave ingresada con la de usuario en la base de datos o en memoria
+        if clave_ingresada == self.usuario[1]:  # Suponiendo que la clave está en el índice 1
+            if self.ventana_anterior:
+                self.ventana_anterior.show()
+            self.close()
+            dialogo.accept()
+        else:
+            QMessageBox.warning(self, "Error", "Clave incorrecta.")
     def cargar_inventario(self):
         # Cargar el inventario de la sucursal al iniciar la ventana
         try:
             conn = obtener_conexion()
             cursor = conn.cursor()
             cursor.execute("""
-                SELECT p.ID_Producto, p.Codigo_Producto, p.Nombre_Producto, i.Cantidad, p.Valor_Producto
-                FROM Producto p
-                JOIN Inventario i ON p.ID_Producto = i.ID_Producto
-                WHERE i.ID_Sucursal = %s
+                SELECT p.idProducto, p.codProducto, p.nProducto, i.cantStock, p.valor
+                FROM productos p
+                JOIN inventario i ON p.idProducto = i.idProducto
+                WHERE i.idSucursal = %s
             """, (self.sucursal_id,))
             productos = cursor.fetchall()
             cursor.close()
@@ -103,7 +136,7 @@ class VentanaCaja(QWidget):
         try:
             conn = obtener_conexion()
             cursor = conn.cursor()
-            cursor.execute("SELECT id_metodo, nombre_metodo FROM metodo_pago")
+            cursor.execute("SELECT idMetodo, nMetodo FROM metodopago")
             metodos = cursor.fetchall()
 
             for metodo in metodos:
@@ -270,9 +303,10 @@ class VentanaCaja(QWidget):
 
             # Registrar la venta en la tabla "venta"
             cursor.execute("""
-                INSERT INTO Venta (fecha_venta, id_sucursal, id_metodo, total_venta)
-                VALUES (CURRENT_DATE, %s, %s, %s) RETURNING id_venta
+                INSERT INTO ventas (fecha, idSucursal, idMetodo, totalVenta)
+                VALUES (CURRENT_TIMESTAMP, %s, %s, %s) RETURNING idVentas
             """, (self.sucursal_id, id_metodo_pago, self.total))
+
             id_venta = cursor.fetchone()[0]  # Obtener el ID de la venta recién creada
 
             # Recorrer el carrito y registrar en "detalle_venta" y actualizar inventario
@@ -283,20 +317,21 @@ class VentanaCaja(QWidget):
 
                 # Obtener el ID del producto
                 cursor.execute("""
-                    SELECT ID_Producto FROM Producto WHERE Nombre_Producto = %s
+                    SELECT idproducto FROM productos WHERE nproducto = %s
                 """, (nombre,))
                 id_producto = cursor.fetchone()[0]
 
                 # Registrar el detalle de la venta
                 cursor.execute("""
-                    INSERT INTO Detalle_Venta (id_venta, id_producto, cantidad_vendida, subtotal)
+                    INSERT INTO ventadetalle (idVentas, idProducto, cantidad_vendida, subTotal)
                     VALUES (%s, %s, %s, %s)
                 """, (id_venta, id_producto, cantidad, subtotal))
 
+
                 # Actualizar el inventario en la base de datos
                 cursor.execute("""
-                    UPDATE Inventario SET Cantidad = Cantidad - %s
-                    WHERE ID_Producto = %s AND ID_Sucursal = %s
+                    UPDATE inventario SET cantStock = cantStock - %s
+                    WHERE idProducto = %s AND idSucursal = %s
                 """, (cantidad, id_producto, self.sucursal_id))
 
                 # Actualizar la cantidad en `self.productos_inventario`
@@ -373,9 +408,10 @@ class VentanaCaja(QWidget):
             conn = obtener_conexion()
             cursor = conn.cursor()
             cursor.execute("""
-                SELECT ID_Producto, Valor_Producto FROM Producto
-                WHERE Codigo_Producto = %s OR Nombre_Producto = %s
+                SELECT idProducto, valor FROM productos
+                WHERE codProducto = %s OR nProducto = %s
             """, (producto, producto))
+
             resultado = cursor.fetchone()
 
             if not resultado:
@@ -387,9 +423,10 @@ class VentanaCaja(QWidget):
 
             # Registrar la venta manual en la base de datos
             cursor.execute("""
-                INSERT INTO Venta (fecha_venta, id_sucursal, id_metodo, total_venta)
-                VALUES (CURRENT_DATE, %s, NULL, %s) RETURNING id_venta
+                INSERT INTO ventas (fecha, idSucursal, idMetodo, totalVenta)
+                VALUES (CURRENT_TIMESTAMP, %s, NULL, %s) RETURNING idVentas
             """, (self.sucursal_id, subtotal))
+
             id_venta = cursor.fetchone()[0]
 
             # Registrar el detalle de la venta manual
@@ -446,10 +483,11 @@ class VentanaCaja(QWidget):
 
             # Calcular el total de dinero recaudado del día desde la tabla `detalle_venta`
             cursor.execute("""
-                SELECT SUM(subtotal) FROM Detalle_Venta dv
-                JOIN Venta v ON dv.id_venta = v.id_venta
-                WHERE v.fecha_venta = CURRENT_DATE AND v.id_sucursal = %s
+                SELECT SUM(subTotal) FROM ventadetalle dv
+                JOIN ventas v ON dv.idVentas = v.idVentas
+                WHERE v.fecha = CURRENT_DATE AND v.idSucursal = %s
             """, (self.sucursal_id,))
+
             total_dinero = cursor.fetchone()[0] or 0  # Asegurarse de que no sea None
 
             # Calcular la cantidad total de productos vendidos del día

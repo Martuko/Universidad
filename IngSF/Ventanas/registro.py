@@ -77,9 +77,10 @@ class VentanaRegistro(QWidget):
             conn = psycopg2.connect("postgres://u704a5ln8sar5c:pb91fd1049f61702a300d7ed31f7984963e5837e9788c2febf90465f105ef05a3@ce0lkuo944ch99.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d4ra8hg5s8stsv")
             cursor = conn.cursor()
             cursor.execute(
-                sql.SQL("INSERT INTO sucursal (Nombre_Sucursal, Ubicacion) VALUES (%s, %s) RETURNING id_sucursal"),
+                sql.SQL("INSERT INTO sucursal (nombre, ubicacion) VALUES (%s, %s) RETURNING idSucursal"),
                 [nombre, direccion]
             )
+
             id_sucursal = cursor.fetchone()[0]  # Obtener el ID de la sucursal creada
             self.sucursales_asociadas.append(id_sucursal)  # Agregar a la lista de sucursales asociadas
             conn.commit()
@@ -105,18 +106,21 @@ class VentanaRegistro(QWidget):
             conn = psycopg2.connect("postgres://u704a5ln8sar5c:pb91fd1049f61702a300d7ed31f7984963e5837e9788c2febf90465f105ef05a3@ce0lkuo944ch99.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d4ra8hg5s8stsv")
             cursor = conn.cursor()
             cursor.execute(
-                sql.SQL("INSERT INTO usuario (nombre, clave, rol) VALUES (%s, %s, %s) RETURNING id_usuario"),
+                sql.SQL("INSERT INTO usuario (username, password, type) VALUES (%s, %s, %s) RETURNING idUsuario"),
                 [nombre, clave, rol]
             )
+
             id_usuario = cursor.fetchone()[0]  # Obtener el ID del usuario creado
             conn.commit()
 
             # Asociar el usuario a las sucursales
             for id_sucursal in self.sucursales_asociadas:
                 cursor.execute(
-                    sql.SQL("INSERT INTO usuario_sucursal (id_usuario, id_sucursal) VALUES (%s, %s)"),
+                    sql.SQL("INSERT INTO us_su (idUsuario, idSucursal) VALUES (%s, %s)"),
                     [id_usuario, id_sucursal]
                 )
+
+
 
             conn.commit()  # Confirmar las inserciones de la tabla intermedia
             cursor.close()

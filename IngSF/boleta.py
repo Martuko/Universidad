@@ -38,11 +38,12 @@ class BoletaPDF:
 
             # Obtener los detalles de la venta desde `detalle_venta`
             cursor.execute("""
-                SELECT p.Nombre_Producto, dv.cantidad_vendida, dv.subtotal
-                FROM Detalle_Venta dv
-                JOIN Producto p ON dv.id_producto = p.ID_Producto
-                WHERE dv.id_venta = %s
+                SELECT p.nProducto, dv.cantidad_vendida, dv.subTotal
+                FROM ventadetalle dv
+                JOIN productos p ON dv.idProducto = p.idProducto
+                WHERE dv.idVentas = %s
             """, (self.id_venta,))
+
             detalles = cursor.fetchall()
 
             # Llenar la tabla con los productos vendidos
