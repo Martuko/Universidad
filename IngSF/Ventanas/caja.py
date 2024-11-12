@@ -105,14 +105,26 @@ class VentanaCaja(QWidget):
         dialogo_clave.exec_()
 
     def confirmar_clave(self, clave_ingresada, dialogo):
-        # Verificar la clave ingresada con la de usuario en la base de datos o en memoria
-        if clave_ingresada == self.usuario[1]:  # Suponiendo que la clave está en el índice 1
-            if self.ventana_anterior:
-                self.ventana_anterior.show()
-            self.close()
-            dialogo.accept()
-        else:
-            QMessageBox.warning(self, "Error", "Clave incorrecta.")
+        try:
+            # Conectar a la base de datos y verificar la clave
+            conn = obtener_conexion()
+            cursor = conn.cursor()
+            cursor.execute("SELECT password FROM usuario WHERE username = %s", (self.usuario[1],))
+            clave_real = cursor.fetchone()
+            cursor.close()
+            conn.close()
+
+            # Comprobar si la clave ingresada coincide con la clave real
+            if clave_real and clave_real[0] == clave_ingresada:
+                if self.ventana_anterior:
+                    self.ventana_anterior.show()
+                self.close()
+                dialogo.accept()
+            else:
+                QMessageBox.warning(self, "Error", "Clave incorrecta.")
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"No se pudo conectar a la base de datos: {str(e)}")
+
     def cargar_inventario(self):
         # Cargar el inventario de la sucursal al iniciar la ventana
         try:
@@ -307,7 +319,11 @@ class VentanaCaja(QWidget):
                 VALUES (CURRENT_TIMESTAMP, %s, %s, %s) RETURNING idVentas
             """, (self.sucursal_id, id_metodo_pago, self.total))
 
-            id_venta = cursor.fetchone()[0]
+            resultado = cursor.fetchone()
+            if resultado is None:
+                QMessageBox.critical(self, "Error", "No se pudo obtener el ID de la venta.")
+                return
+            id_venta = resultado[0]
 
             for row in range(self.carrito_table.rowCount()):
                 nombre = self.carrito_table.item(row, 0).text()
@@ -316,7 +332,11 @@ class VentanaCaja(QWidget):
 
                 # Obtener el ID del producto
                 cursor.execute("SELECT idProducto FROM productos WHERE nProducto = %s", (nombre,))
-                id_producto = cursor.fetchone()[0]
+                producto_resultado = cursor.fetchone()
+                if producto_resultado is None:
+                    QMessageBox.critical(self, "Error", f"No se pudo encontrar el producto '{nombre}' en la base de datos.")
+                    return
+                id_producto = producto_resultado[0]
 
                 # Registrar el detalle de la venta
                 cursor.execute("""
@@ -326,7 +346,11 @@ class VentanaCaja(QWidget):
 
                 # Actualizar o eliminar el inventario según la cantidad
                 cursor.execute("SELECT cantStock FROM inventario WHERE idProducto = %s AND idSucursal = %s", (id_producto, self.sucursal_id))
-                stock_actual = cursor.fetchone()[0]
+                stock_resultado = cursor.fetchone()
+                if stock_resultado is None:
+                    QMessageBox.critical(self, "Error", f"No se encontró inventario para el producto '{nombre}' en la sucursal seleccionada.")
+                    return
+                stock_actual = stock_resultado[0]
 
                 if stock_actual - cantidad > 0:
                     cursor.execute("""
@@ -475,21 +499,22 @@ class VentanaCaja(QWidget):
             conn = obtener_conexion()
             cursor = conn.cursor()
 
-            # Calcular el total de dinero recaudado del día desde la tabla `detalle_venta`
+            # Calcular el total de dinero recaudado del día desde la tabla `ventadetalle`
             cursor.execute("""
-                SELECT SUM(subTotal) FROM ventadetalle dv
-                JOIN ventas v ON dv.idVentas = v.idVentas
-                WHERE v.fecha = CURRENT_DATE AND v.idSucursal = %s
+                SELECT SUM(subtotal) FROM ventadetalle dv
+                JOIN ventas v ON dv.idventas = v.idventas
+                WHERE DATE(v.fecha) = CURRENT_DATE AND v.idsucursal = %s
             """, (self.sucursal_id,))
 
             total_dinero = cursor.fetchone()[0] or 0  # Asegurarse de que no sea None
 
             # Calcular la cantidad total de productos vendidos del día
             cursor.execute("""
-                SELECT SUM(cantidad_vendida) FROM Detalle_Venta dv
-                JOIN Venta v ON dv.id_venta = v.id_venta
-                WHERE v.fecha_venta = CURRENT_DATE AND v.id_sucursal = %s
+                SELECT SUM(cantidad_vendida) FROM ventadetalle dv
+                JOIN ventas v ON dv.idventas = v.idventas
+                WHERE DATE(v.fecha) = CURRENT_DATE AND v.idsucursal = %s
             """, (self.sucursal_id,))
+            
             productos_vendidos = cursor.fetchone()[0] or 0  # Asegurarse de que no sea None
 
             cursor.close()
@@ -500,7 +525,6 @@ class VentanaCaja(QWidget):
         except Exception as e:
             QMessageBox.critical(self, "Error", f"No se pudieron calcular los totales: {str(e)}")
             return 0, 0  # Devolver 0 si ocurre algún error
-
 
     def reset_caja(self):
         # Limpiar los datos cargados en memoria
