@@ -2,55 +2,104 @@
 QWidget {
     background: qlineargradient(
         spread:pad, x1:0, y1:0, x2:1, y2:1,
-        stop:0 rgba(255, 140, 0, 255), /* Naranja */
-        stop:1 rgba(255, 215, 0, 255) /* Amarillo */
+        stop:0 rgba(210, 180, 140, 255), /* Pastel café claro */
+        stop:1 rgba(245, 245, 245, 255)  /* Gris claro */
     );
-    color: white;
     font-family: 'Arial';
     font-size: 14px;
-    border: 1px solid #ffffff;
-    border-radius: 15px;
-}
-
-/* Botones */
-QPushButton {
-    background-color: #ff8c00;
-    color: white;
     border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-}
-QPushButton:hover {
-    background-color: #ffa500;
-}
-QPushButton:pressed {
-    background-color: #cc8400;
 }
 
-/* Campos de entrada */
-QLineEdit {
-    border: 1px solid #ffffff;
-    border-radius: 8px;
-    padding: 8px;
-    font-size: 14px;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: black;
-}
-QLineEdit:focus {
-    border: 2px solid #ffa500;
+/* Logo */
+QLabel#logoLabel {
+    background-color: transparent;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
-/* Etiquetas */
+/* Etiquetas generales */
 QLabel {
     font-weight: bold;
+    color: #000000; /* Negro */
     font-size: 16px;
-    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+/* Etiqueta de bienvenida */
+#bienvenidaLabel {
+    font-size: 18px;
+    color: #000000; /* Negro */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Etiqueta de selección de sucursal */
+#sucursalLabel {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #000000; /* Negro */
+}
+
+/* Campos de texto */
+QLineEdit {
+    border: 2px solid #d3b38c; /* Pastel café suave */
+    border-radius: 15px; /* Esquinas redondeadas */
+    padding: 8px;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco translúcido */
+    color: black;
+    margin-bottom: 20px;
+}
+
+QLineEdit:focus {
+    border: 2px solid #a67c52; /* Café oscuro */
+}
+
+/* Botones generales */
+QPushButton {
+    background-color: #d3b38c; /* Pastel café suave */
+    color: white;
+    border: 1px solid #a67c52; /* Café oscuro */
+    border-radius: 15px; /* Esquinas redondeadas */
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+QPushButton:hover {
+    background-color: #a67c52; /* Café oscuro */
+    color: white;
+}
+
+QPushButton:pressed {
+    background-color: #8b5e3c; /* Café más oscuro */
+    color: white;
+}
+
+/* ComboBox */
+QComboBox {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 15px; /* Esquinas redondeadas */
+    border: 1px solid #d3b38c; /* Pastel café suave */
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+QComboBox:hover {
+    border: 2px solid #a67c52; /* Café oscuro */
+}
+
+/* ComboBox desplegado */
+QComboBox QAbstractItemView {
+    border: 1px solid #a67c52; /* Café oscuro */
+    background-color: rgba(255, 255, 255, 0.9);
+    selection-background-color: #d3b38c; /* Pastel café suave */
+    selection-color: black;
 }
 
 /* Pie de página */
 QStatusBar {
-    background-color: #444444;
-    color: white;
+    background-color: #f0f8ff; /* Gris muy claro */
+    color: black;
     font-size: 12px;
 }

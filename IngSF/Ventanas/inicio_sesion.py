@@ -1,10 +1,13 @@
 from PyQt5.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QFormLayout, QDialog
 )
+import os
+
 from PyQt5.QtGui import QPixmap
+from PyQt5.QtCore import QFile, QTextStream
 from PyQt5.QtCore import Qt
 from db import obtener_conexion  # Asegúrate de que esta función esté correctamente implementada
-
+from Ventanas.seleccion_rol import VentanaSeleccionRol
 
 class VentanaInicio(QWidget):
     def __init__(self):
@@ -12,24 +15,34 @@ class VentanaInicio(QWidget):
         self.setWindowTitle("Inicio de Sesión")
         self.setGeometry(100, 100, 800, 600)
 
+        
         # Layout principal
         layout_principal = QVBoxLayout(self)
 
         # Barra superior (botones y logo)
         barra_superior = QHBoxLayout()
 
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        logo_path = os.path.join(base_dir, "../Recursos/logo.png")
+
         # Logo
         logo_label = QLabel()
-        try:
-            logo_pixmap = QPixmap("Recursos/logo.png").scaled(100, 100, Qt.KeepAspectRatio, Qt.SmoothTransformation)
-            logo_label.setPixmap(logo_pixmap)
-        except Exception:
-            logo_label.setText("Logo")
+        if os.path.exists(logo_path):  # Verifica si el archivo existe
+            logo_pixmap = QPixmap(logo_path).scaled(100, 100, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+            if not logo_pixmap.isNull():  # Verifica si el logo se cargó correctamente
+                logo_label.setPixmap(logo_pixmap)
+                 # Centra el logo en el QLabel
+            else:
+                logo_label.setText("Error al cargar el logo")
+        else:
+            logo_label.setText("Archivo logo no encontrado")
 
+        # Establece el fondo del QLabel como transparente
+        logo_label.setStyleSheet("background-color: transparent; border: none;")
+
+        # Agrega el logo al layout
         barra_superior.addWidget(logo_label)
 
-        # Espaciador entre logo y botones
-        barra_superior.addStretch()
 
         # Botones
         self.btn_iniciar = QPushButton("Iniciar Sesión")
@@ -45,7 +58,7 @@ class VentanaInicio(QWidget):
         # Mensaje de bienvenida
         mensaje_bienvenida = QLabel("¡Bienvenido al sistema del Casino!")
         mensaje_bienvenida.setAlignment(Qt.AlignCenter)
-        mensaje_bienvenida.setStyleSheet("font-size: 24px; font-weight: bold; margin-top: 20px;")
+        mensaje_bienvenida.setStyleSheet("font-size: 36px; font-weight: bold; margin-top: 20px;")
         layout_principal.addWidget(mensaje_bienvenida)
 
         # Contenedor para los formularios
@@ -112,11 +125,23 @@ class VentanaInicio(QWidget):
         self.formulario_contenedor.addLayout(formulario)
 
     def limpiar_formulario(self):
+        """Limpia todos los widgets existentes en el contenedor de formularios"""
         while self.formulario_contenedor.count():
             item = self.formulario_contenedor.takeAt(0)
-            widget = item.widget()
-            if widget:
-                widget.deleteLater()
+            if item:
+                if item.widget():
+                    item.widget().deleteLater()
+                elif item.layout():
+                    self.limpiar_layout(item.layout())
+
+    def limpiar_layout(self, layout):
+        """Limpia los layouts anidados para evitar superposición de formularios"""
+        while layout.count():
+            item = layout.takeAt(0)
+            if item.widget():
+                item.widget().deleteLater()
+            elif item.layout():
+                self.limpiar_layout(item.layout())
 
     def agregar_sucursales(self):
         cantidad = int(self.sucursal_input.text())
@@ -177,6 +202,9 @@ class VentanaInicio(QWidget):
 
             if resultado:
                 QMessageBox.information(self, "Éxito", f"Bienvenido, {usuario}!")
+                self.ventana_seleccion_rol = VentanaSeleccionRol(resultado)
+                self.ventana_seleccion_rol.show()
+                self.close()
             else:
                 QMessageBox.warning(self, "Error", "Usuario o clave incorrecta.")
         except Exception as e:

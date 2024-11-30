@@ -1,10 +1,14 @@
 # main.py
 import sys
+import os
+
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QStackedWidget, QLabel, QHBoxLayout
+from PyQt5.QtCore import QFile, QTextStream
+
 from Ventanas.inicio_sesion import VentanaInicio
 from Ventanas.caja import VentanaCaja
 from Ventanas.administrador import VentanaAdministrador
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 class VentanaPrincipal(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -19,19 +23,12 @@ class VentanaPrincipal(QMainWindow):
         main_layout = QHBoxLayout(central_widget)
 
         # Menú lateral
-        self.menu_lateral = QVBoxLayout()
-        self.btn_inicio = QPushButton("Inicio de Sesión")
-        self.btn_caja = QPushButton("Caja")
-        self.btn_administrador = QPushButton("Administrador")
         
+
         # Conectar botones del menú
-        self.btn_inicio.clicked.connect(lambda: self.cambiar_vista(0))
-        self.btn_caja.clicked.connect(lambda: self.cambiar_vista(1))
-        self.btn_administrador.clicked.connect(lambda: self.cambiar_vista(2))
+        
 
-       
-
-        main_layout.addLayout(self.menu_lateral)
+        # Agregar el menú lateral al layout principal
 
         # Vistas dinámicas
         self.stack = QStackedWidget()
@@ -52,6 +49,19 @@ class VentanaPrincipal(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+
+    # Cargar el archivo de estilos
+    style_file = QFile(os.path.join(BASE_DIR, "Recursos/styles.qss"))
+    if style_file.open(QFile.ReadOnly | QFile.Text):
+        print("Styles cargados exitosamente")
+        stream = QTextStream(style_file)
+        app.setStyleSheet(stream.readAll())
+    else:
+        print(f"Error al cargar styles.qss. Ruta: {os.path.join(BASE_DIR, 'Recursos/styles.qss')}")
+
+
+    # Iniciar la ventana principal
     ventana_principal = VentanaPrincipal()
     ventana_principal.show()
+
     sys.exit(app.exec_())
