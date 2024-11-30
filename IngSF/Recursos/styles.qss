@@ -1,0 +1,56 @@
+/* Fondo de ventana */
+QWidget {
+    background: qlineargradient(
+        spread:pad, x1:0, y1:0, x2:1, y2:1,
+        stop:0 rgba(255, 140, 0, 255), /* Naranja */
+        stop:1 rgba(255, 215, 0, 255) /* Amarillo */
+    );
+    color: white;
+    font-family: 'Arial';
+    font-size: 14px;
+    border: 1px solid #ffffff;
+    border-radius: 15px;
+}
+
+/* Botones */
+QPushButton {
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+QPushButton:hover {
+    background-color: #ffa500;
+}
+QPushButton:pressed {
+    background-color: #cc8400;
+}
+
+/* Campos de entrada */
+QLineEdit {
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+}
+QLineEdit:focus {
+    border: 2px solid #ffa500;
+}
+
+/* Etiquetas */
+QLabel {
+    font-weight: bold;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+/* Pie de página */
+QStatusBar {
+    background-color: #444444;
+    color: white;
+    font-size: 12px;
+}

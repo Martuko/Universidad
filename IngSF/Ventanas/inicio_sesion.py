@@ -1,100 +1,210 @@
-# ventanas/inicio_sesion.py
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QFormLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QComboBox
-from .caja import VentanaCaja
-from .administrador import VentanaAdministrador
-from .seleccion_rol import VentanaSeleccionRol
-from db import obtener_conexion  # Asegúrate de importar tu función de conexión
+from PyQt5.QtWidgets import (
+    QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QFormLayout, QDialog
+)
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtCore import Qt
+from db import obtener_conexion  # Asegúrate de que esta función esté correctamente implementada
+
 
 class VentanaInicio(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Inicio de Sesión")
-        self.setGeometry(100, 100, 300, 300)
+        self.setGeometry(100, 100, 800, 600)
 
         # Layout principal
-        layout = QVBoxLayout()
+        layout_principal = QVBoxLayout(self)
 
-        # Usar un formulario para la disposición
-        form_layout = QFormLayout()
+        # Barra superior (botones y logo)
+        barra_superior = QHBoxLayout()
 
-        # Campo de Usuario
-        self.usuario_label = QLabel("Usuario:")
+        # Logo
+        logo_label = QLabel()
+        try:
+            logo_pixmap = QPixmap("Recursos/logo.png").scaled(100, 100, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+            logo_label.setPixmap(logo_pixmap)
+        except Exception:
+            logo_label.setText("Logo")
+
+        barra_superior.addWidget(logo_label)
+
+        # Espaciador entre logo y botones
+        barra_superior.addStretch()
+
+        # Botones
+        self.btn_iniciar = QPushButton("Iniciar Sesión")
+        self.btn_iniciar.clicked.connect(self.mostrar_formulario_inicio)
+        self.btn_registrar = QPushButton("Registrar")
+        self.btn_registrar.clicked.connect(self.mostrar_formulario_registro)
+
+        barra_superior.addWidget(self.btn_iniciar)
+        barra_superior.addWidget(self.btn_registrar)
+
+        layout_principal.addLayout(barra_superior)
+
+        # Mensaje de bienvenida
+        mensaje_bienvenida = QLabel("¡Bienvenido al sistema del Casino!")
+        mensaje_bienvenida.setAlignment(Qt.AlignCenter)
+        mensaje_bienvenida.setStyleSheet("font-size: 24px; font-weight: bold; margin-top: 20px;")
+        layout_principal.addWidget(mensaje_bienvenida)
+
+        # Contenedor para los formularios
+        self.formulario_contenedor = QVBoxLayout()
+        layout_principal.addLayout(self.formulario_contenedor)
+
+        # Variable para almacenar sucursales asociadas
+        self.sucursales_asociadas = []
+
+    def mostrar_formulario_inicio(self):
+        self.limpiar_formulario()
+        formulario = QVBoxLayout()
+
+        usuario_label = QLabel("Usuario:")
         self.usuario_input = QLineEdit()
-        form_layout.addRow(self.usuario_label, self.usuario_input)
+        self.usuario_input.setPlaceholderText("Ingrese su usuario")
+        formulario.addWidget(usuario_label)
+        formulario.addWidget(self.usuario_input)
 
-        # Campo de Clave
-        self.clave_label = QLabel("Clave:")
+        clave_label = QLabel("Clave:")
         self.clave_input = QLineEdit()
         self.clave_input.setEchoMode(QLineEdit.Password)
-        form_layout.addRow(self.clave_label, self.clave_input)
+        self.clave_input.setPlaceholderText("Ingrese su clave")
+        formulario.addWidget(clave_label)
+        formulario.addWidget(self.clave_input)
 
-        # Botón para iniciar sesión
-        self.btn_iniciar = QPushButton("Iniciar Sesión")
-        self.btn_iniciar.clicked.connect(self.iniciar_sesion)
-        form_layout.addRow(self.btn_iniciar)
+        btn_entrar = QPushButton("Entrar")
+        btn_entrar.clicked.connect(self.iniciar_sesion)
+        formulario.addWidget(btn_entrar)
 
-        # Botón para Registro
-        self.btn_registro = QPushButton("Registrarse")
-        self.btn_registro.clicked.connect(self.mostrar_registro)
-        form_layout.addRow(self.btn_registro)
+        self.formulario_contenedor.addLayout(formulario)
 
-        layout.addLayout(form_layout)
-        self.setLayout(layout)
+    def mostrar_formulario_registro(self):
+        self.limpiar_formulario()
+        formulario = QVBoxLayout()
+
+        nombre_label = QLabel("Nombre:")
+        self.nombre_input = QLineEdit()
+        self.nombre_input.setPlaceholderText("Ingrese su nombre")
+        formulario.addWidget(nombre_label)
+        formulario.addWidget(self.nombre_input)
+
+        clave_label = QLabel("Clave:")
+        self.clave_input = QLineEdit()
+        self.clave_input.setEchoMode(QLineEdit.Password)
+        self.clave_input.setPlaceholderText("Ingrese su clave")
+        formulario.addWidget(clave_label)
+        formulario.addWidget(self.clave_input)
+
+        sucursales_label = QLabel("Cantidad de Sucursales:")
+        self.sucursal_input = QLineEdit()
+        self.sucursal_input.setPlaceholderText("Ingrese la cantidad de sucursales")
+        formulario.addWidget(sucursales_label)
+        formulario.addWidget(self.sucursal_input)
+
+        btn_agregar_sucursales = QPushButton("Agregar Sucursales")
+        btn_agregar_sucursales.clicked.connect(self.agregar_sucursales)
+        formulario.addWidget(btn_agregar_sucursales)
+
+        btn_registrar = QPushButton("Registrar")
+        btn_registrar.clicked.connect(self.registrar_usuario)
+        formulario.addWidget(btn_registrar)
+
+        self.formulario_contenedor.addLayout(formulario)
+
+    def limpiar_formulario(self):
+        while self.formulario_contenedor.count():
+            item = self.formulario_contenedor.takeAt(0)
+            widget = item.widget()
+            if widget:
+                widget.deleteLater()
+
+    def agregar_sucursales(self):
+        cantidad = int(self.sucursal_input.text())
+        for _ in range(cantidad):
+            dialog = QDialog(self)
+            dialog.setWindowTitle("Agregar Sucursal")
+            form_layout = QFormLayout()
+
+            nombre_sucursal_input = QLineEdit()
+            direccion_sucursal_input = QLineEdit()
+
+            form_layout.addRow("Nombre de Sucursal:", nombre_sucursal_input)
+            form_layout.addRow("Dirección de Sucursal:", direccion_sucursal_input)
+
+            btn_guardar = QPushButton("Guardar")
+            btn_guardar.clicked.connect(lambda: self.guardar_sucursal(nombre_sucursal_input.text(), direccion_sucursal_input.text(), dialog))
+            form_layout.addRow(btn_guardar)
+
+            dialog.setLayout(form_layout)
+            dialog.exec_()
+
+    def guardar_sucursal(self, nombre, direccion, dialog):
+        if not nombre or not direccion:
+            QMessageBox.warning(self, "Error", "Por favor complete todos los campos.")
+            return
+
+        try:
+            conn = obtener_conexion()
+            cursor = conn.cursor()
+            query = "INSERT INTO sucursal (nombre, ubicacion) VALUES (%s, %s) RETURNING idSucursal"
+            cursor.execute(query, (nombre, direccion))
+            id_sucursal = cursor.fetchone()[0]
+            self.sucursales_asociadas.append(id_sucursal)
+            conn.commit()
+            cursor.close()
+            conn.close()
+            QMessageBox.information(self, "Éxito", f"Sucursal '{nombre}' agregada exitosamente.")
+            dialog.accept()
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"No se pudo registrar la sucursal: {str(e)}")
 
     def iniciar_sesion(self):
         usuario = self.usuario_input.text()
         clave = self.clave_input.text()
-        
-        # Conexión a la base de datos
+
+        if not usuario or not clave:
+            QMessageBox.warning(self, "Error", "Por favor complete todos los campos.")
+            return
+
         try:
             conn = obtener_conexion()
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM usuario WHERE username = %s AND password = %s", (usuario, clave))
-            result = cursor.fetchone()
+            query = "SELECT * FROM usuario WHERE username = %s AND password = %s"
+            cursor.execute(query, (usuario, clave))
+            resultado = cursor.fetchone()
             cursor.close()
             conn.close()
 
-            if result:
-                # Abrir ventana de selección de rol
-                self.ventana_seleccion_rol = VentanaSeleccionRol(result)
-                self.ventana_seleccion_rol.show()
-                self.close()
+            if resultado:
+                QMessageBox.information(self, "Éxito", f"Bienvenido, {usuario}!")
             else:
                 QMessageBox.warning(self, "Error", "Usuario o clave incorrecta.")
         except Exception as e:
             QMessageBox.critical(self, "Error", f"No se pudo conectar a la base de datos: {str(e)}")
 
+    def registrar_usuario(self):
+        nombre = self.nombre_input.text()
+        clave = self.clave_input.text()
 
-    def seleccion_rol(self):
-        # Crear una ventana emergente para seleccionar el rol (Caja o Administrador)
-        rol_dialog = QWidget()
-        rol_dialog.setWindowTitle("Seleccionar Rol")
-        rol_dialog.setGeometry(100, 100, 300, 150)
+        if not nombre or not clave:
+            QMessageBox.warning(self, "Error", "Por favor complete todos los campos.")
+            return
 
-        layout = QVBoxLayout()
-        
-        # Botones para seleccionar rol
-        btn_admin = QPushButton("Ir a Administrador")
-        btn_admin.clicked.connect(self.ir_administrador)
-        layout.addWidget(btn_admin)
+        try:
+            conn = obtener_conexion()
+            cursor = conn.cursor()
+            query = "INSERT INTO usuario (username, password, type) VALUES (%s, %s, %s) RETURNING idUsuario"
+            cursor.execute(query, (nombre, clave, "Administrador"))
+            id_usuario = cursor.fetchone()[0]
 
-        btn_caja = QPushButton("Ir a Caja")
-        btn_caja.clicked.connect(self.ir_caja)
-        layout.addWidget(btn_caja)
+            for id_sucursal in self.sucursales_asociadas:
+                query = "INSERT INTO us_su (idUsuario, idSucursal) VALUES (%s, %s)"
+                cursor.execute(query, (id_usuario, id_sucursal))
 
-        rol_dialog.setLayout(layout)
-        rol_dialog.show()
+            conn.commit()
+            cursor.close()
+            conn.close()
 
-    def ir_administrador(self):
-        self.admin_ventana = VentanaAdministrador()
-        self.admin_ventana.show()
-
-    def ir_caja(self):
-        self.caja_ventana = VentanaCaja()
-        self.caja_ventana.show()
-
-    def mostrar_registro(self):
-        # Implementar lógica para mostrar ventana de registro
-        from .registro import VentanaRegistro  # Importa la ventana de registro
-        self.registro_ventana = VentanaRegistro()
-        self.registro_ventana.show()
+            QMessageBox.information(self, "Éxito", "Usuario registrado correctamente.")
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"No se pudo registrar el usuario: {str(e)}")
