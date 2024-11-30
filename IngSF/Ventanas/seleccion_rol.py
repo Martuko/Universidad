@@ -161,7 +161,7 @@ class VentanaSeleccionRol(QWidget):
         self.sucursal_id = self.sucursal_combo.currentData()
         if self.sucursal_id is not None:
             try:
-                self.ventana_caja = VentanaCaja(self.usuario, self.sucursal_id)
+                self.ventana_caja = VentanaCaja(self.usuario, self.sucursal_id,ventana_anterior=self)
                 self.ventana_caja.show()
                 self.close()
             except Exception as e:
