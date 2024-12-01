@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import (
-    QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QComboBox, QHBoxLayout , QFrame
+    QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QComboBox, QHBoxLayout, QStackedLayout, QMessageBox
 )
 from PyQt5.QtCore import Qt
 import os
@@ -17,27 +17,35 @@ class VentanaSeleccionRol(QWidget):
         self.setGeometry(100, 100, 900, 700)  # Tamaño de la ventana ajustado
         self.sucursal_id = None
 
-        # Layout principal
-        layout_principal = QVBoxLayout()
-        layout_principal.setContentsMargins(0, 30, 0, 0)  # Reducir el margen superior para subir todo (30 píxeles)
-        layout_principal.setSpacing(10)  # Espaciado entre layouts internos
-        layout_principal.setAlignment(Qt.AlignTop)
-        # Barra superior con el logo
-        barra_superior = QHBoxLayout()
-        barra_superior.setContentsMargins(20, 5, 20, 0)  # Ajustar márgenes para acercar el logo al borde superior
-        barra_superior.setSpacing(5)  # Espaciado entre los elementos en la barra superior
+        # Layout principal con StackedLayout
+        self.layout_principal = QVBoxLayout()
+        self.layout_principal.setContentsMargins(0, 30, 0, 0)  # Reducir el margen superior
+        self.layout_principal.setSpacing(10)
 
-        # Agregar barra superior al layout principal
-        layout_principal.addLayout(barra_superior)
+        self.stacked_layout = QStackedLayout()  # Crear el StackedLayout
 
-        # Layout central para los widgets
-        layout_central = QVBoxLayout()
-        layout_central.setAlignment(Qt.AlignTop)  # Alinear elementos al tope
-        layout_central.setSpacing(20)  # Espaciado entre widgets
-        layout_principal.addLayout(layout_central)
+        # Crear vista principal (selección de roles)
+        self.vista_principal = self.crear_vista_principal()
+        self.stacked_layout.addWidget(self.vista_principal)
 
-        self.setLayout(layout_principal)  # Establecer layout principal
+        # Crear vista de ingreso de clave
+        self.vista_clave = self.crear_vista_clave()
+        self.stacked_layout.addWidget(self.vista_clave)
+
+        # Agregar el stacked_layout al layout principal
+        self.layout_principal.addLayout(self.stacked_layout)
+        self.setLayout(self.layout_principal)
+
+    def crear_vista_principal(self):
+        """Crea la vista principal para seleccionar roles."""
+        widget = QWidget()
+        layout = QVBoxLayout()
+        layout.setAlignment(Qt.AlignTop)
+        layout.setSpacing(20)
+
         # Logo
+        barra_superior = QHBoxLayout()
+        barra_superior.setContentsMargins(20, 5, 20, 0)  # Ajustar márgenes
         base_dir = os.path.dirname(os.path.abspath(__file__))
         logo_path = os.path.join(base_dir, "../Recursos/logo.png")
         logo_label = QLabel()
@@ -46,20 +54,12 @@ class VentanaSeleccionRol(QWidget):
             logo_label.setPixmap(logo_pixmap)
         else:
             logo_label.setText("Logo no encontrado")
-
-        # Estilo transparente para el QLabel del logo
         logo_label.setStyleSheet("background-color: transparent; border: none;")
         barra_superior.addWidget(logo_label)
-
-        # Espaciador para empujar el logo hacia la esquina superior izquierda
         barra_superior.addStretch()
+        layout.addLayout(barra_superior)
 
-        # Contenedor central para los elementos
-        layout_central = QVBoxLayout()
-        layout_central.setAlignment(Qt.AlignCenter)
-        layout_central.setSpacing(20)  # Espaciado entre elementos
-
-        # Etiqueta de bienvenida (sin caja)
+        # Etiqueta de bienvenida
         bienvenida_label = QLabel(f"Bienvenido, {self.usuario[1]}")
         bienvenida_label.setAlignment(Qt.AlignCenter)
         bienvenida_label.setStyleSheet("""
@@ -68,9 +68,9 @@ class VentanaSeleccionRol(QWidget):
             color: #6b4226;  /* Café oscuro */
             background-color: transparent;
         """)
-        layout_central.addWidget(bienvenida_label)
+        layout.addWidget(bienvenida_label)
 
-        # ComboBox para seleccionar sucursal (sin "contenedor")
+        # ComboBox para seleccionar sucursal
         sucursal_label = QLabel("Selecciona una Sucursal:")
         sucursal_label.setAlignment(Qt.AlignCenter)
         sucursal_label.setStyleSheet("""
@@ -78,10 +78,9 @@ class VentanaSeleccionRol(QWidget):
             color: #6b4226; /* Café oscuro */
             background-color: transparent;
         """)
-        layout_central.addWidget(sucursal_label)
+        layout.addWidget(sucursal_label)
 
         self.sucursal_combo = QComboBox()
-        self.sucursal_combo.setObjectName("sucursalCombo")
         self.sucursal_combo.setStyleSheet("""
             QComboBox {
                 font-size: 16px;
@@ -90,18 +89,12 @@ class VentanaSeleccionRol(QWidget):
                 border: 1px solid #b38b6d; /* Café suave */
                 background-color: #fff5ee; /* Fondo blanco */
             }
-            QComboBox::drop-down {
-                border: none;
-            }
         """)
-        layout_central.addWidget(self.sucursal_combo)
-
-        # Cargar sucursales asociadas al usuario
+        layout.addWidget(self.sucursal_combo)
         self.cargar_sucursales()
 
         # Botón para seleccionar Caja
         self.btn_caja = QPushButton("Ingresar como Caja")
-        self.btn_caja.setObjectName("btnCaja")
         self.btn_caja.setStyleSheet("""
             QPushButton {
                 font-size: 18px;
@@ -115,11 +108,10 @@ class VentanaSeleccionRol(QWidget):
             }
         """)
         self.btn_caja.clicked.connect(self.abrir_ventana_caja)
-        layout_central.addWidget(self.btn_caja)
+        layout.addWidget(self.btn_caja)
 
         # Botón para seleccionar Administrador
         self.btn_administrador = QPushButton("Ingresar como Administrador")
-        self.btn_administrador.setObjectName("btnAdmin")
         self.btn_administrador.setStyleSheet("""
             QPushButton {
                 font-size: 18px;
@@ -133,12 +125,10 @@ class VentanaSeleccionRol(QWidget):
             }
         """)
         self.btn_administrador.clicked.connect(self.mostrar_campo_clave_admin)
-        layout_central.addWidget(self.btn_administrador)
+        layout.addWidget(self.btn_administrador)
 
-        # Agregar layouts al principal
-        layout_principal.addLayout(barra_superior)
-        layout_principal.addLayout(layout_central)
-        self.setLayout(layout_principal)
+        widget.setLayout(layout)
+        return widget
 
     def cargar_sucursales(self):
         try:
@@ -169,10 +159,76 @@ class VentanaSeleccionRol(QWidget):
         else:
             QMessageBox.warning(self, "Error", "Por favor, seleccione una sucursal antes de continuar.")
 
+    
+    def crear_vista_clave(self):
+        """Crea la vista para ingresar la clave."""
+        widget = QWidget()
+        layout = QVBoxLayout()
+        layout.setAlignment(Qt.AlignCenter)
+        layout.setSpacing(20)
+
+        clave_label = QLabel("Ingrese su clave de Administrador:")
+        clave_label.setAlignment(Qt.AlignCenter)
+        clave_label.setStyleSheet("""
+            font-size: 16px;
+            color: #6b4226; /* Café oscuro */
+        """)
+        layout.addWidget(clave_label)
+
+        self.clave_input = QLineEdit()
+        self.clave_input.setEchoMode(QLineEdit.Password)
+        self.clave_input.setStyleSheet("""
+            QLineEdit {
+                font-size: 16px;
+                padding: 8px;
+                border-radius: 10px;
+                border: 1px solid #b38b6d; /* Café suave */
+                background-color: #fff5ee; /* Fondo blanco */
+            }
+        """)
+        layout.addWidget(self.clave_input)
+
+        btn_confirmar_admin = QPushButton("Confirmar")
+        btn_confirmar_admin.setStyleSheet("""
+            QPushButton {
+                font-size: 18px;
+                color: white;
+                background-color: #b38b6d; /* Café suave */
+                border-radius: 12px;
+                padding: 10px 20px;
+            }
+            QPushButton:hover {
+                background-color: #6b4226; /* Café oscuro */
+            }
+        """)
+        btn_confirmar_admin.clicked.connect(self.verificar_clave_admin)
+        layout.addWidget(btn_confirmar_admin)
+
+        btn_volver = QPushButton("Volver")
+        btn_volver.setStyleSheet("""
+            QPushButton {
+                font-size: 18px;
+                color: white;
+                background-color: #b38b6d; /* Café suave */
+                border-radius: 12px;
+                padding: 10px 20px;
+            }
+            QPushButton:hover {
+                background-color: #6b4226; /* Café oscuro */
+            }
+        """)
+        btn_volver.clicked.connect(self.mostrar_vista_principal)
+        layout.addWidget(btn_volver)
+
+        widget.setLayout(layout)
+        return widget
+
     def mostrar_campo_clave_admin(self):
-        self.clave_label.show()
-        self.clave_input.show()
-        self.btn_confirmar_admin.show()
+        self.stacked_layout.setCurrentWidget(self.vista_clave)
+
+    def mostrar_vista_principal(self):
+        self.stacked_layout.setCurrentWidget(self.vista_principal)
+
 
     def verificar_clave_admin(self):
         clave_ingresada = self.clave_input.text()
