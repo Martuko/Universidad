@@ -8,6 +8,7 @@ from PyQt5.QtCore import QFile, QTextStream
 from PyQt5.QtCore import Qt
 from db import obtener_conexion  # Asegúrate de que esta función esté correctamente implementada
 from Ventanas.seleccion_rol import VentanaSeleccionRol
+from utils import ruta_recurso
 
 class VentanaInicio(QWidget):
     def __init__(self):
@@ -22,16 +23,18 @@ class VentanaInicio(QWidget):
         # Barra superior (botones y logo)
         barra_superior = QHBoxLayout()
 
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        logo_path = os.path.join(base_dir, "../Recursos/logo.png")
-
+        
+        
         # Logo
+        logo_path = ruta_recurso("Recursos/logo.png")  # Usa ruta_recurso para obtener la ruta del logo
+        print(f"Ruta del logo generada: {logo_path}")
+        print(f"Ruta del logo generada: {ruta_recurso('Recursos/logo.png')}")
+
         logo_label = QLabel()
         if os.path.exists(logo_path):  # Verifica si el archivo existe
             logo_pixmap = QPixmap(logo_path).scaled(100, 100, Qt.KeepAspectRatio, Qt.SmoothTransformation)
             if not logo_pixmap.isNull():  # Verifica si el logo se cargó correctamente
                 logo_label.setPixmap(logo_pixmap)
-                 # Centra el logo en el QLabel
             else:
                 logo_label.setText("Error al cargar el logo")
         else:

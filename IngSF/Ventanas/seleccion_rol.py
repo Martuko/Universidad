@@ -7,7 +7,7 @@ from PyQt5.QtGui import QPixmap
 from .caja import VentanaCaja
 from .administrador import VentanaAdministrador
 from db import obtener_conexion
-
+from utils import ruta_recurso
 
 class VentanaSeleccionRol(QWidget):
     def __init__(self, usuario):
@@ -46,17 +46,25 @@ class VentanaSeleccionRol(QWidget):
         # Logo
         barra_superior = QHBoxLayout()
         barra_superior.setContentsMargins(20, 5, 20, 0)  # Ajustar márgenes
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        logo_path = os.path.join(base_dir, "../Recursos/logo.png")
+
+        logo_path = ruta_recurso("Recursos/logo.png")  # Usar ruta_recurso para la ruta del logo
         logo_label = QLabel()
+
         if os.path.exists(logo_path):  # Verifica si el archivo existe
             logo_pixmap = QPixmap(logo_path).scaled(100, 100, Qt.KeepAspectRatio, Qt.SmoothTransformation)
-            logo_label.setPixmap(logo_pixmap)
+            if not logo_pixmap.isNull():  # Verifica si el logo se cargó correctamente
+                logo_label.setPixmap(logo_pixmap)
+            else:
+                logo_label.setText("Error al cargar el logo")
         else:
             logo_label.setText("Logo no encontrado")
+
+        # Estilo del QLabel para el logo
         logo_label.setStyleSheet("background-color: transparent; border: none;")
+
+        # Agregar elementos al layout de la barra superior
         barra_superior.addWidget(logo_label)
-        barra_superior.addStretch()
+        barra_superior.addStretch()  # Espaciador flexible para alineación
         layout.addLayout(barra_superior)
 
         # Etiqueta de bienvenida

@@ -5,6 +5,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
+from utils import ruta_recurso
 import random
 import os
 class VentanaAdministrador(QWidget):
@@ -25,15 +26,14 @@ class VentanaAdministrador(QWidget):
         encabezado_layout = QHBoxLayout()
         encabezado_layout.setContentsMargins(10, 10, 10, 10)
 
-        # Logo
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        logo_path = os.path.join(base_dir, "../Recursos/logo.png")
+        logo_path = ruta_recurso("Recursos/logo.png")  # Usa ruta_recurso para obtener la ruta del logo
         logo_label = QLabel()
         if os.path.exists(logo_path):  # Verifica si el archivo existe
             pixmap = QPixmap(logo_path).scaled(60, 60, Qt.KeepAspectRatio, Qt.SmoothTransformation)
             logo_label.setPixmap(pixmap)
         else:
             logo_label.setText("Logo no encontrado")
+            
         logo_label.setStyleSheet("background-color: transparent; border: none; margin-left: 10px;")
         encabezado_layout.addWidget(logo_label)
 

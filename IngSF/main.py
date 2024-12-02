@@ -9,6 +9,7 @@ from Ventanas.inicio_sesion import VentanaInicio
 from Ventanas.caja import VentanaCaja
 from Ventanas.administrador import VentanaAdministrador
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+from utils import ruta_recurso
 class VentanaPrincipal(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -49,6 +50,7 @@ class VentanaPrincipal(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    print(f"Directorio base: {BASE_DIR}")
 
     # Cargar el archivo de estilos
     style_file = QFile(os.path.join(BASE_DIR, "Recursos/styles.qss"))
