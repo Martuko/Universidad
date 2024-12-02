@@ -15,15 +15,19 @@ QLabel#logoLabel {
     background-color: transparent;
     margin-left: 20px;
     margin-top: 20px;
+    min-width: 120px; /* Tamaño mínimo */
+    min-height: 120px;
 }
 
 /* Etiquetas generales */
 QLabel {
-    font-weight: bold;
-    color: #000000; /* Negro */
-    font-size: 16px;
-    margin-bottom: 8px;
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin bordes */
+    font-size: 16px; /* Ajusta el tamaño si es necesario */
+    font-weight: bold; /* Opcional, para resaltar el texto */
+    color: #6d4229; /* Ajusta el color según tu diseño */
 }
+
 
 /* Etiqueta de bienvenida */
 #bienvenidaLabel {
@@ -33,16 +37,46 @@ QLabel {
     text-align: center;
 }
 
+/* Contenedor de la sucursal */
+QWidget#sucursalContainer {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco translúcido */
+    border: 1px solid #b28a68; /* Café intermedio */
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
 /* Etiqueta de selección de sucursal */
-#sucursalLabel {
+QLabel#sucursalLabel {
     margin-bottom: 10px;
     font-size: 14px;
     color: #000000; /* Negro */
 }
 
+/* ComboBox */
+QComboBox {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 15px; /* Esquinas redondeadas */
+    border: 1px solid #b28a68; /* Café intermedio */
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+QComboBox:hover {
+    border: 2px solid #a67c52; /* Café oscuro */
+}
+
+/* ComboBox desplegado */
+QComboBox QAbstractItemView {
+    border: 1px solid #a67c52; /* Café oscuro */
+    background-color: rgba(255, 255, 255, 0.9);
+    selection-background-color: #b28a68; /* Café intermedio */
+    selection-color: black;
+}
+
 /* Campos de texto */
 QLineEdit {
-    border: 2px solid #d3b38c; /* Pastel café suave */
+    border: 2px solid #b28a68; /* Café intermedio */
     border-radius: 15px; /* Esquinas redondeadas */
     padding: 8px;
     font-size: 14px;
@@ -57,49 +91,184 @@ QLineEdit:focus {
 
 /* Botones generales */
 QPushButton {
-    background-color: #d3b38c; /* Pastel café suave */
+    background-color: #a67c52; /* Café oscuro */
     color: white;
-    border: 1px solid #a67c52; /* Café oscuro */
+    border: 1px solid #8b5e3c; /* Café más oscuro */
     border-radius: 15px; /* Esquinas redondeadas */
     padding: 10px 20px;
     font-size: 16px;
     margin-top: 10px;
+    min-height: 40px; /* Altura mínima */
 }
 
 QPushButton:hover {
-    background-color: #a67c52; /* Café oscuro */
-    color: white;
-}
-
-QPushButton:pressed {
     background-color: #8b5e3c; /* Café más oscuro */
     color: white;
 }
 
-/* ComboBox */
-QComboBox {
-    padding: 8px;
+QPushButton:pressed {
+    background-color: #6d4229; /* Café intenso */
+    color: white;
+}
+
+/* Botón de regresar */
+QPushButton#regresarButton {
+    background-color: #a67c52; /* Café oscuro */
+    color: white;
+    border: 1px solid #8b5e3c; /* Café más oscuro */
+    border-radius: 10px;
+    padding: 10px 15px;
     font-size: 14px;
-    border-radius: 15px; /* Esquinas redondeadas */
-    border: 1px solid #d3b38c; /* Pastel café suave */
-    background-color: rgba(255, 255, 255, 0.9);
+    min-height: 30px;
 }
 
-QComboBox:hover {
-    border: 2px solid #a67c52; /* Café oscuro */
-}
-
-/* ComboBox desplegado */
-QComboBox QAbstractItemView {
+/* TabWidget */
+QTabWidget::pane {
     border: 1px solid #a67c52; /* Café oscuro */
-    background-color: rgba(255, 255, 255, 0.9);
-    selection-background-color: #d3b38c; /* Pastel café suave */
-    selection-color: black;
+    background-color: transparent;
+}
+
+QTabBar::tab {
+    background-color: #b28a68; /* Café intermedio */
+    color: black;
+    padding: 10px 20px;
+    border: 1px solid #8b5e3c; /* Café más oscuro */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+QTabBar::tab:selected {
+    background-color: #8b5e3c; /* Café más oscuro */
+    color: white;
+}
+
+QTabBar::tab:hover {
+    background-color: #6d4229; /* Café intenso */
 }
 
 /* Pie de página */
 QStatusBar {
-    background-color: #f0f8ff; /* Gris muy claro */
+    background-color: #f4ece4; /* Gris muy claro */
     color: black;
     font-size: 12px;
+}
+
+/* Estilo para tablas */
+QTableWidget {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #b28a68;
+    font-size: 14px;
+    color: #000;
+}
+
+QHeaderView::section {
+    background-color: #a67c52;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #8b5e3c;
+    padding: 5px;
+}
+
+/* Botones generales */
+QPushButton {
+    background-color: #8b5e3c;
+    color: white;
+    border: 1px solid #6d4229;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    min-height: 40px;
+}
+
+QPushButton:hover {
+    background-color: #6d4229;
+    color: white;
+}
+
+QPushButton:pressed {
+    background-color: #4a2818;
+    color: white;
+}
+QCheckBox {
+    color: #000000; /* Texto en negro */
+    spacing: 5px; /* Espaciado entre el checkbox y el texto */
+    background-color: transparent;
+}
+
+QCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px; /* Bordes redondeados */
+    border: 1px solid #b28a68; /* Borde del indicador */
+    background-color: #f4ece4; /* Fondo claro */
+}
+
+QCheckBox::indicator:checked {
+    background-color: #a67c52; /* Fondo café oscuro al marcar */
+    border: 1px solid #8b5e3c; /* Borde más oscuro */
+}
+/* Estilo para el calendario */
+QCalendarWidget {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco translúcido */
+    color: #000000; /* Texto negro */
+    border: 1px solid #b28a68; /* Borde café intermedio */
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+QCalendarWidget QToolButton {
+    background-color: #a67c52; /* Fondo café oscuro */
+    color: white; /* Texto blanco */
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+QCalendarWidget QToolButton:hover {
+    background-color: #8b5e3c; /* Fondo café más oscuro */
+}
+
+QCalendarWidget QToolButton:pressed {
+    background-color: #6d4229; /* Fondo café intenso */
+}
+
+QCalendarWidget QAbstractItemView {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco translúcido */
+    selection-background-color: #a67c52; /* Fondo café oscuro para selección */
+    selection-color: white; /* Texto blanco al seleccionar */
+    border: none;
+}
+
+QCalendarWidget QHeaderView::section {
+    background-color: #a67c52; /* Fondo café oscuro */
+    color: white; /* Texto blanco */
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #8b5e3c; /* Borde café más oscuro */
+    padding: 5px;
+}
+
+QCalendarWidget QSpinBox {
+    margin: 2px;
+    border: 1px solid #a67c52; /* Borde café oscuro */
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000; /* Texto negro */
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+QCalendarWidget QSpinBox::up-button {
+    subcontrol-origin: border;
+    subcontrol-position: top right;
+    width: 16px;
+}
+
+QCalendarWidget QSpinBox::down-button {
+    subcontrol-origin: border;
+    subcontrol-position: bottom right;
+    width: 16px;
 }

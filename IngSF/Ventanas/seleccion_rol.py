@@ -242,7 +242,7 @@ class VentanaSeleccionRol(QWidget):
 
             if clave_real and clave_real[0] == clave_ingresada:
                 self.sucursal_id = self.sucursal_combo.currentData()
-                self.ventana_admin = VentanaAdministrador(self.usuario, self.sucursal_id)
+                self.ventana_admin = VentanaAdministrador(self.usuario, self.sucursal_id,ventana_anterior=self)
                 self.ventana_admin.show()
                 self.close()
             else:
