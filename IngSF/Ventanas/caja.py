@@ -1,10 +1,12 @@
 # ventanas/caja.py
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLineEdit, QLabel, QPushButton, QTableWidget, QTableWidgetItem, QComboBox, QMessageBox, QFormLayout, QDialog
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLineEdit, QLabel, QPushButton, QTableWidget, QTableWidgetItem, QComboBox, QMessageBox, QFormLayout, QDialog, QHBoxLayout, QHeaderView
 from PyQt5.QtCore import QTimer
+from PyQt5.QtCore import Qt, QSize
+from PyQt5.QtGui import QIcon
 from decimal import Decimal
 from boleta import BoletaPDF
 from db import obtener_conexion
-
+from utils import ruta_recurso
 class VentanaCaja(QWidget):
     def __init__(self, usuario,sucursal_id, ventana_anterior=None):
         super().__init__()
@@ -47,6 +49,20 @@ class VentanaCaja(QWidget):
         self.carrito_table = QTableWidget(self)
         self.carrito_table.setColumnCount(4)
         self.carrito_table.setHorizontalHeaderLabels(["Producto", "Cantidad", "Subtotal", "Eliminar"])
+
+        # Ajustar el ancho de las columnas
+        self.carrito_table.setColumnWidth(0, 200)  # Columna "Producto"
+        self.carrito_table.setColumnWidth(1, 100)  # Columna "Cantidad"
+        self.carrito_table.setColumnWidth(2, 120)  # Columna "Subtotal"
+        self.carrito_table.setColumnWidth(3, 100)  # Columna "Eliminar"
+
+        # Opcional: ajustar altura de las filas
+        self.carrito_table.verticalHeader().setDefaultSectionSize(50)  # Altura de las filas
+        self.carrito_table.horizontalHeader().setStretchLastSection(False)  # No expandir última columna
+
+        # Ajustar automáticamente el tamaño de las columnas al contenido (opcional)
+        self.carrito_table.resizeColumnsToContents()
+
         layout.addWidget(self.carrito_table)
 
         # Seleccionar método de pago
@@ -233,7 +249,6 @@ class VentanaCaja(QWidget):
         dialog.exec_()
 
     def confirmar_agregar_carrito(self, codigo, nombre, valor, cantidad_texto, dialog):
-        # Validar e intentar agregar la cantidad al carrito
         try:
             cantidad = int(cantidad_texto)
             if cantidad <= 0:
@@ -248,10 +263,25 @@ class VentanaCaja(QWidget):
             self.carrito_table.setItem(row_position, 1, QTableWidgetItem(str(cantidad)))
             self.carrito_table.setItem(row_position, 2, QTableWidgetItem(f"$ {subtotal:.2f}"))
 
-            # Botón para eliminar producto con la fila capturada
-            btn_eliminar = QPushButton("Eliminar")
+            # Crear un botón de eliminación con ícono
+            btn_eliminar = QPushButton()
+            try:
+                icon_path = ruta_recurso("Recursos/Eliminar.png")
+                print(f"Ruta del ícono: {icon_path}")
+
+                btn_eliminar.setIcon(QIcon(icon_path))
+                btn_eliminar.setIconSize(QSize(32, 32))
+            except Exception as e:
+                print(f"Error al cargar el ícono: {e}")
+                btn_eliminar.setText("Eliminar")  # Texto de respaldo si no hay ícono
+            btn_eliminar.setStyleSheet("border: none;")  # Opcional
             btn_eliminar.clicked.connect(lambda: self.eliminar_del_carrito(row_position))
             self.carrito_table.setCellWidget(row_position, 3, btn_eliminar)
+
+
+                # Ajustar el tamaño de la fila y la columna
+            self.carrito_table.setRowHeight(row_position, 40)
+            self.carrito_table.setColumnWidth(3, 100)
 
             # Actualizar el total
             self.total += subtotal
@@ -263,6 +293,8 @@ class VentanaCaja(QWidget):
             self.actualizar_botones_eliminar()
         except ValueError:
             QMessageBox.warning(self, "Error", "Ingrese una cantidad válida (número entero positivo).")
+
+
 
     def eliminar_del_carrito(self, row):
         try:

@@ -245,6 +245,17 @@ class VentanaAdministrador(QWidget):
         # Establecer layout principal
         self.setLayout(layout_principal)
 
+    
+    def validar(self, valor):
+        try:
+            numero = float(valor)
+            if numero <= 0:
+                return False
+            return True
+        except ValueError:
+            return False
+        
+
 
 
     def cargar_sucursales(self):
@@ -268,6 +279,9 @@ class VentanaAdministrador(QWidget):
             conn.close()
         except Exception as e:
             QMessageBox.critical(self, "Error", f"No se pudieron cargar las sucursales: {str(e)}")
+
+    
+    
 
     def obtener_nombre_sucursal(self):
         try:
@@ -500,7 +514,10 @@ class VentanaAdministrador(QWidget):
         if not codigo or (self.tipo_producto.currentText() == "Nuevo Producto" and (not nombre or not valor)) or not cantidad:
             QMessageBox.warning(self, "Error", "Por favor complete todos los campos")
             return
-
+        
+        if not self.validar(valor) or not self.validar(cantidad):
+            QMessageBox.warning(self, "Error", "El valor y la cantidad deben ser números positivos.")
+            return
         try:
             conn = obtener_conexion()
             cursor = conn.cursor()
@@ -576,7 +593,9 @@ class VentanaAdministrador(QWidget):
         if not codigo or (not cantidad and not self.eliminar_todo_checkbox.isChecked()):
             QMessageBox.warning(self, "Error", "Por favor complete los campos necesarios.")
             return
-
+        if not self.eliminar_todo_checkbox.isChecked() and not self.validar(cantidad):
+            QMessageBox.warning(self, "Error", "El valor y la cantidad deben ser números positivos.")
+            return
         try:
             conn = obtener_conexion()
             cursor = conn.cursor()
@@ -741,6 +760,9 @@ class VentanaAdministrador(QWidget):
             QMessageBox.warning(self, "Error", "Por favor complete todos los campos")
             return
 
+        if not self.validar(valor) or not self.validar(cantidad):
+            QMessageBox.warning(self, "Error", "El valor y la cantidad deben ser números positivos.")
+            return
         try:
             conn = obtener_conexion()
             cursor = conn.cursor()
@@ -845,6 +867,9 @@ class VentanaAdministrador(QWidget):
             QMessageBox.warning(self, "Error", "Por favor complete los campos necesarios.")
             return
 
+        if not self.eliminar_todo_checkbox_cocina.isChecked() or not self.validar(cantidad):
+            QMessageBox.warning(self, "Error", "El valor y la cantidad deben ser números positivos.")
+            return
         try:
             conn = obtener_conexion()
             cursor = conn.cursor()
@@ -1031,6 +1056,11 @@ class VentanaAdministrador(QWidget):
         # Validaciones
         if not sucursal_origen_id or not sucursal_destino_id or not producto_id:
             QMessageBox.warning(self, "Error", "Por favor selecciona todas las opciones requeridas.")
+            return
+
+        # Verificar si la cantidad es un número y es positivo      
+        if not cantidad.isdigit() or int(cantidad) <= 0:
+            QMessageBox.warning(self, "Error", "La cantidad debe ser un número positivo.")
             return
 
         if sucursal_origen_id == sucursal_destino_id:
@@ -1445,6 +1475,8 @@ class VentanaAdministrador(QWidget):
             conn.close()
         except Exception as e:
             QMessageBox.critical(self, "Error", f"No se pudieron cargar los datos: {str(e)}")
+    
+    
 
 
 

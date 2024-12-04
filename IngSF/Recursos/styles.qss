@@ -272,3 +272,22 @@ QCalendarWidget QSpinBox::down-button {
     subcontrol-position: bottom right;
     width: 16px;
 }
+
+/* Estilo para el botón Eliminar */
+QPushButton#btnEliminar {
+    background-color: #8B4513; /* Marrón oscuro */
+    color: white; /* Texto blanco */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 12px; /* Tamaño de fuente */
+    padding: 5px 10px; /* Espaciado interno */
+    min-width: 70px; /* Ancho mínimo */
+    min-height: 30px; /* Altura mínima */
+}
+
+QPushButton#btnEliminar:hover {
+    background-color: #A0522D; /* Marrón más claro */
+}
+
+QPushButton#btnEliminar:pressed {
+    background-color: #5F3C2D; /* Marrón más oscuro */
+}
