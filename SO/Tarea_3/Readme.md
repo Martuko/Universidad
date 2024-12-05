@@ -18,23 +18,27 @@ La simulación crea procesos periódicamente, finaliza procesos al azar, accede 
 
 3. **Interacción con el Programa:**
    -El programa solicitará el tamaño de la memoria física (en MB) y el tamaño de las páginas (en KB).
+   
    -Una vez ingresados, iniciará la creación de procesos, el acceso a direcciones virtuales y la finalización de procesos.
+   
    -En pantalla se mostrarán mensajes indicando creación de procesos, accesos virtuales, page faults, reemplazo de páginas y finalización de procesos.
+   
    -Presione Enter cuando desee terminar la simulación.
 
-
-```markdown
 ## Cumplimiento de la Rúbrica
 
 A continuación se detalla cómo esta implementación cumple con cada ítem de la rúbrica:
 
 1. **Parámetros de memoria y páginas:**  
    - Solicita memoria física (MB) y tamaño de página (KB).
+     
    - Calcula memoria virtual (1.5 a 4.5 veces la física).
+     
    - Muestra resultados y valida entradas.
 
 2. **Page faults y política de reemplazo:**  
    - Genera page faults cuando la página solicitada no está en RAM.
+     
    - Aplica política FIFO para reemplazar páginas en RAM por páginas en Swap.
 
 3. **Acceso a direcciones virtuales (cada 5 segundos):**  
@@ -47,13 +51,10 @@ A continuación se detalla cómo esta implementación cumple con cada ítem de l
 5. **Mensaje al agotar memoria:**  
    - Si no hay más marcos en RAM ni en Swap, el programa muestra un mensaje y finaliza.
 
-6. **README explicativo:**  
-   - Este README explica la implementación, la política de reemplazo de páginas y las instrucciones.
-
-7. **Creación/Finalización simulada adecuadamente:**  
+6. **Creación/Finalización simulada adecuadamente:**  
    - Procesos de distintos tamaños, asignación de páginas a RAM/Swap según disponibilidad.
 
-8. **Compilación y legibilidad:**  
+7. **Compilación y legibilidad:**  
    - Código claro, con comentarios y uso de librerías estándar.
    - Fácil de seguir en tiempo de ejecución.
 
