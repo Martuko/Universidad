@@ -35,29 +35,30 @@ A continuación se detalla cómo esta implementación cumple con cada ítem de l
 
 1. **Parámetros de memoria y páginas:**  
    - Solicita memoria física (MB) y tamaño de página (KB).
-     
    - Calcula memoria virtual (1.5 a 4.5 veces la física).
-     
    - Muestra resultados y valida entradas.
+   - Se crean nuevos procesos cada 2 segundos desde el inicio.
 
 2. **Page faults y política de reemplazo:**  
    - Genera page faults cuando la página solicitada no está en RAM.
-     
    - Aplica política FIFO para reemplazar páginas en RAM por páginas en Swap.
 
-3. **Acceso a direcciones virtuales (cada 5 segundos):**  
-   - Accede aleatoriamente a direcciones virtuales.
-   - Muestra page faults cuando corresponda.
+3. **Acceso a direcciones virtuales (cada 5 segundos después de 30 segundos):**  
+   - A partir de los 30 segundos de ejecución, cada 5 segundos se accede aleatoriamente a una dirección virtual.
+   - Esto permite observar page faults cuando corresponda.
 
-4. **Finalización de procesos (cada 5 segundos):**  
-   - Finaliza un proceso aleatorio, liberando sus páginas de RAM y Swap.
+4. **Finalización de procesos (cada 5 segundos después de 30 segundos):**  
+   - Durante los primeros 30 segundos, solo se crean procesos cada 2 segundos.
+   - Tras 30 segundos de ejecución, se inicia la finalización de un proceso aleatorio cada 5 segundos, liberando sus páginas de RAM y Swap.
 
 5. **Mensaje al agotar memoria:**  
-   - Si no hay más marcos en RAM ni en Swap, el programa muestra un mensaje y finaliza.
+   - Si no hay más marcos en RAM ni en Swap, el programa muestra un mensaje descriptivo y finaliza ordenadamente.
 
 6. **Creación/Finalización simulada adecuadamente:**  
-   - Procesos de distintos tamaños, asignación de páginas a RAM/Swap según disponibilidad.
-     
+   - Procesos de distintos tamaños se crean cada 2 segundos.
+   - Después de 30 segundos, además de acceder a direcciones virtuales cada 5 segundos, se finaliza un proceso aleatorio cada 5 segundos.
+   - Esta dinámica asegura la simulación correcta de creación, acceso y finalización.
+
 ## Estructura del Código y Funciones Principales
 
 La implementación se basa en varios componentes clave:
