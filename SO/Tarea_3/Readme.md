@@ -92,7 +92,5 @@ Estos hilos se ejecutan en paralelo, utilizando mutex para evitar condiciones de
 - **Extensibilidad:**  
   Fácil de implementar otras políticas de reemplazo de páginas (LRU, LFU, etc.) si se desea.
 
-## Conclusión
 
-La implementación cumple con las especificaciones, simula el mecanismo de paginación con asignación de páginas a RAM y Swap, genera page faults, finaliza procesos, y muestra mensajes descriptivos. Este README provee información para compilar, ejecutar y entender el funcionamiento, así como la relación con la rúbrica.
 
