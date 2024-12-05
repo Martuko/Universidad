@@ -17,13 +17,13 @@ La simulación crea procesos periódicamente, finaliza procesos al azar, accede 
    ./simulacion
 
 3. **Interacción con el Programa:**
-   -El programa solicitará el tamaño de la memoria física (en MB) y el tamaño de las páginas (en KB).
+   - El programa solicitará el tamaño de la memoria física (en MB) y el tamaño de las páginas (en KB).
    
-   -Una vez ingresados, iniciará la creación de procesos, el acceso a direcciones virtuales y la finalización de procesos.
+   - Una vez ingresados, iniciará la creación de procesos, el acceso a direcciones virtuales y la finalización de procesos.
    
-   -En pantalla se mostrarán mensajes indicando creación de procesos, accesos virtuales, page faults, reemplazo de páginas y finalización de procesos.
+   - En pantalla se mostrarán mensajes indicando creación de procesos, accesos virtuales, page faults, reemplazo de páginas y finalización de procesos.
    
-   -Presione Enter cuando desee terminar la simulación.
+   - Presione Enter cuando desee terminar la simulación.
 
 ## Cumplimiento de la Rúbrica
 
