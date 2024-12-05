@@ -53,10 +53,29 @@ A continuación se detalla cómo esta implementación cumple con cada ítem de l
 
 6. **Creación/Finalización simulada adecuadamente:**  
    - Procesos de distintos tamaños, asignación de páginas a RAM/Swap según disponibilidad.
+     
+## Estructura del Código y Funciones Principales
 
-7. **Compilación y legibilidad:**  
-   - Código claro, con comentarios y uso de librerías estándar.
-   - Fácil de seguir en tiempo de ejecución.
+La implementación se basa en varios componentes clave:
+
+- **Estructuras de datos:**
+  - `Proceso`: Representa cada proceso con un ID, tamaño y una tabla de páginas.
+  - `Pagina`: Representa las páginas de cada proceso, indicando si están en RAM o en Swap.
+  - Memoria representada con vectores: uno para RAM y otro para Swap.
+
+- **Funciones principales:**
+  - `inicializar_sistema()`: Solicita y valida parámetros de memoria, calcula memoria virtual y marcos.
+  - `crear_proceso()`: Crea procesos de tamaño aleatorio, asignando sus páginas a RAM o Swap.
+  - `finalizar_proceso()`: Selecciona un proceso aleatorio y libera sus páginas (RAM y Swap).
+  - `acceder_direccion_virtual()`: Accede a una dirección virtual aleatoria; si la página no está en RAM, genera un page fault y aplica el reemplazo FIFO.
+  - `manejar_page_fault()`: Realiza el reemplazo de páginas cuando la RAM está llena, moviendo páginas a Swap.
+
+- **Hilos (Threads):**
+  - Un hilo para crear procesos periódicamente.
+  - Un hilo para finalizar procesos cada cierto intervalo.
+  - Un hilo para acceder a direcciones virtuales y generar page faults.
+
+Estos hilos se ejecutan en paralelo, utilizando mutex para evitar condiciones de carrera al acceder a estructuras compartidas.
 
 ## Consideraciones Adicionales
 
