@@ -21,7 +21,7 @@ La simulación crea procesos periódicamente, finaliza procesos al azar, accede 
       - Puedes ingresar, por ejemplo, 64 MB para la memoria física.
       - Para el tamaño de páginas, un valor típico puede ser 4 KB.
    
-   Estos valores se pueden ajustar según las necesidades de la simulación. La memoria virtual se calculará automáticamente entre 1.5 y 4.5 veces la memoria física.
+      - Estos valores se pueden ajustar según las necesidades de la simulación. La memoria virtual se calculará automáticamente entre 1.5 y 4.5 veces la memoria física.
 
    - Una vez ingresados, iniciará la creación de procesos, el acceso a direcciones virtuales y la finalización de procesos.
    
