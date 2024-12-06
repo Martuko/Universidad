@@ -10,7 +10,7 @@ La simulación crea procesos periódicamente, finaliza procesos al azar, accede 
 
 1. **Compilación:**
    ```bash
-   gcc main.c -o simulacion -pthread
+   gcc Codigo_1.c -o simulacion -pthread
 
 2. **Ejecucion:**
    ```bash
