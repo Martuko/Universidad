@@ -12,10 +12,6 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
-    <dependencies>
-        <!-- Aquí puedes agregar dependencias si es necesario -->
-    </dependencies>
-
     <build>
         <plugins>
             <plugin>
