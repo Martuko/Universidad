@@ -93,5 +93,5 @@ Estos hilos se ejecutan en paralelo, utilizando mutex para evitar condiciones de
 - **Extensibilidad:**  
   Fácil de implementar otras políticas de reemplazo de páginas (LRU, LFU, etc.) si se desea.
 
-   hola
+
 
