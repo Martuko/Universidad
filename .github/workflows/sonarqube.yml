@@ -31,7 +31,7 @@ jobs:
       - name: Run SonarQube Scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: "https://ca53-45-238-22-30.ngrok-free.app"
+          SONAR_HOST_URL: "https://5f72-45-238-22-30.ngrok-free.app"
         run: |
           mvn sonar:sonar \
             -Dsonar.host.url=$SONAR_HOST_URL \
