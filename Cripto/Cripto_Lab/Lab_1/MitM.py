@@ -1,105 +1,88 @@
-import random
-import time
+import difflib
 from scapy.all import rdpcap, ICMP
 from termcolor import colored
 
-# Lista de palabras comunes en español (puedes ampliar esta lista)
-PALABRAS_COMUNES = {
-    "el", "la", "de", "y", "que", "en", "a", "los", "del", "se", "con", "por", "las", "un", "una", "para", "es", "al", "como", "su"
-}
+def extraer_mensaje_icmp(archivo_pcap):
+    paquetes = rdpcap(archivo_pcap)
+    mensaje = ""
+    for pkt in paquetes:
+        if ICMP in pkt and pkt[ICMP].type == 8:
+            try:
+                carga = pkt[ICMP].payload.load.decode("utf-8")
+                mensaje += carga.strip()
+            except:
+                continue
+    return mensaje
 
-# Función para cifrar y descifrar con el algoritmo de César (aplicando el desplazamiento negativo)
 def descifrar_cesar(texto, desplazamiento):
-    texto_descifrado = []
-    
-    # Alfabeto en español, incluyendo la ñ
-    alfabeto_espanol = 'abcdefghijklmnñopqrstuvwxyz'
-    
+    alfabeto = "abcdefghijklmnñopqrstuvwxyz"
+    resultado = []
     for char in texto:
         if char.isalpha():
-            es_mayuscula = char.isupper()
+            es_mayus = char.isupper()
             char = char.lower()
-
-            if char in alfabeto_espanol:
-                index = alfabeto_espanol.index(char)
-                nuevo_index = (index - desplazamiento) % len(alfabeto_espanol)  # Desplazamiento negativo
-                nuevo_char = alfabeto_espanol[nuevo_index]
-                texto_descifrado.append(nuevo_char.upper() if es_mayuscula else nuevo_char)
+            if char in alfabeto:
+                nuevo_char = alfabeto[(alfabeto.index(char) - desplazamiento) % len(alfabeto)]
+                resultado.append(nuevo_char.upper() if es_mayus else nuevo_char)
             else:
-                texto_descifrado.append(char)
+                resultado.append(char)
         else:
-            texto_descifrado.append(char)
+            resultado.append(char)
+    return ''.join(resultado)
 
-    return ''.join(texto_descifrado)
+def cargar_diccionario(ruta):
+    with open(ruta, 'r', encoding='utf-8') as f:
+        return [palabra.strip().lower() for palabra in f if palabra.strip()]
 
-# Función para evaluar la probabilidad de un texto basado en palabras comunes
-def evaluar_legibilidad(texto):
-    puntuacion = 0
-    palabras = texto.lower().split()
+def mejor_coincidencia(texto, diccionario):
+    mejores = difflib.get_close_matches(texto, diccionario, n=1, cutoff=0.5)
+    if mejores:
+        ratio = difflib.SequenceMatcher(None, texto, mejores[0]).ratio()
+        return mejores[0], ratio
+    return None, 0.0
 
-    # Contamos cuántas palabras del texto están en nuestra lista de palabras comunes
-    for palabra in palabras:
-        if palabra in PALABRAS_COMUNES:
-            puntuacion += 1
-    
-    return puntuacion
+def main():
+    print("Ingrese el nombre del archivo .pcapng:", end=" ")
+    archivo_pcap = input().strip()
+    mensaje_cifrado = extraer_mensaje_icmp(archivo_pcap)
+    print(f"\nMensaje cifrado extraído: {mensaje_cifrado}")
 
-# Función para procesar el archivo pcapng y extraer los datos de los paquetes ICMP
-def extraer_datos_icmp(archivo_pcapng):
-    paquetes = rdpcap(archivo_pcapng)
-    mensaje_cifrado = ""
+    diccionario = cargar_diccionario("palabras.txt")
+    print(f"\nPalabras en el diccionario: {len(diccionario)}")
+    print("\nProbando todos los desplazamientos posibles...\n")
 
-    for paquete in paquetes:
-        if paquete.haslayer(ICMP) and paquete[ICMP].type == 8:  # Echo Request
-            # Extraemos el contenido de datos del paquete ICMP
-            if paquete[ICMP].payload:
-                # Los datos de ICMP son texto, por lo que los convertimos a cadena
-                mensaje_cifrado += str(bytes(paquete[ICMP].payload), 'utf-8')
+    mejor_texto = ""
+    mejor_desplazamiento = 0
+    mejor_puntaje = 0.0
+    mejor_palabra = ""
 
-    return mensaje_cifrado
+    resultados = []
 
-# Función para probar todos los desplazamientos posibles
-def probar_descifrado(texto):
-    print("Probando todos los desplazamientos posibles...\n")
-    mejores_resultados = []
-    
-    # Probar todos los desplazamientos de 1 a 25
-    for i in range(1, 26):
-        texto_descifrado = descifrar_cesar(texto, i)
-        puntuacion = evaluar_legibilidad(texto_descifrado)
-        
-        # Guardamos el resultado con la puntuación y el desplazamiento
-        mejores_resultados.append((texto_descifrado, puntuacion, i))  # Incluimos el desplazamiento aquí
-    
-    # Encontramos el descifrado con la puntuación más alta
-    mejores_resultados.sort(key=lambda x: x[1], reverse=True)
-    mejor_descifrado = mejores_resultados[0]
-    
-    # Mostrar los resultados en el orden original de desplazamientos
-    for desplazamiento in range(1, 26):
-        # Encontramos el texto cifrado y la puntuación para el desplazamiento actual
-        texto_descifrado, puntuacion, _ = next((r for r in mejores_resultados if r[2] == desplazamiento), (None, None, None))
-        
-        if puntuacion == mejor_descifrado[1]:  # Destacar el mejor desplazamiento
-            print(colored(f"Desplazamiento: {desplazamiento} - {texto_descifrado} (probable)", "green"))
+    for desplazamiento in range(1, len("abcdefghijklmnñopqrstuvwxyz")):
+        descifrado = descifrar_cesar(mensaje_cifrado, desplazamiento)
+        palabra_similar, puntaje = mejor_coincidencia(descifrado, diccionario)
+        resultados.append((desplazamiento, descifrado, puntaje, palabra_similar))
+
+        if puntaje > mejor_puntaje:
+            mejor_texto = descifrado
+            mejor_desplazamiento = desplazamiento
+            mejor_puntaje = puntaje
+            mejor_palabra = palabra_similar
+
+    # Mostrar resultados
+    for desplazamiento, texto, puntaje, _ in resultados:
+        if desplazamiento == mejor_desplazamiento:
+            print(colored(f"✅ Desplazamiento: {desplazamiento} - Texto: {texto} - Puntuación: {puntaje:.2f}", "green"))
         else:
-            print(f"Desplazamiento: {desplazamiento} - {texto_descifrado}")
+            print(f"Desplazamiento: {desplazamiento} - Texto: {texto} - Puntuación: {puntaje:.2f}")
 
-# Función principal para ejecutar el análisis
-def main(archivo_pcapng):
-    # Extraemos el mensaje cifrado de los paquetes ICMP
-    mensaje_cifrado = extraer_datos_icmp(archivo_pcapng)
-    
-    if not mensaje_cifrado:
-        print("No se encontraron paquetes ICMP con datos para procesar.")
-        return
-    
-    print(f"Mensaje cifrado extraído: {mensaje_cifrado}")
-    
-    # Probar y mostrar los resultados
-    probar_descifrado(mensaje_cifrado)
+    # Resultado final
+    print("\nResultado más probable:")
+    print(colored(f"✔ Desplazamiento: {mejor_desplazamiento}", "green"))
+    print(colored(f"✔ Texto descifrado: {mejor_texto}", "green"))
+    print(colored(f"✔ Puntuación de similitud: {mejor_puntaje:.2f}", "green"))
+    if mejor_palabra:
+        print(colored(f"✔ Palabra más parecida en diccionario: {mejor_palabra}", "cyan"))
 
-# Ejecutar el script con el archivo pcapng proporcionado
 if __name__ == "__main__":
-    archivo_pcapng = input("Ingrese el nombre del archivo .pcapng: ")
-    main(archivo_pcapng)
+    main()
