@@ -2,4 +2,7 @@
 ============================================================
 # Sistema Operativos
 # Ingenieria de Software
-# demas
+# Señales y Sistemas
+# Criptografia
+# Comunicaciones Digitales
+
