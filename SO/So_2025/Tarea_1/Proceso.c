@@ -30,10 +30,8 @@ int main(int argc, char *argv[]) {
     char fifo_name[64];
     Task task;
 
-    // Semilla para aleatoriedad
     srand(time(NULL) + process_id);
 
-    // Nombre del pipe
     snprintf(fifo_name, sizeof(fifo_name), "/tmp/pipe_proceso%d", process_id);
     int fd = open(fifo_name, O_WRONLY);
     if (fd == -1) {
@@ -41,12 +39,11 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // Enviar entre 3 y 6 tareas aleatorias
-    int task_count = rand() % 4 + 3;  // Entre 3 y 6 tareas
+    int task_count = rand() % 4 + 3;  
     for (int i = 0; i < task_count; i++) {
         task.id = i;
-        task.arrival = rand() % 10;  // Tiempo de llegada aleatorio
-        task.burst = rand() % 5 + 1;  // CPU burst aleatorio entre 1 y 5
+        task.arrival = rand() % 10;  
+        task.burst = rand() % 5 + 1;  
         task.sender_pid = getpid();
         write(fd, &task, sizeof(Task));
     }

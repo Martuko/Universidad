@@ -22,7 +22,6 @@ int task_count = 0;
 
 void execute_fcfs() {
     int current_time = 0;
-    // Ordenar las tareas por el tiempo de llegada (FCFS)
     for (int i = 0; i < task_count - 1; i++) {
         for (int j = i + 1; j < task_count; j++) {
             if (tasks[i].arrival > tasks[j].arrival) {
@@ -34,7 +33,6 @@ void execute_fcfs() {
         }
     }
 
-    // Ejecutar tareas en orden de llegada (FCFS)
     for (int i = 0; i < task_count; i++) {
         if (tasks[i].arrival > current_time) {
             current_time = tasks[i].arrival;
@@ -62,16 +60,13 @@ int main(int argc, char *argv[]) {
     char fifo_name[64];
     Task temp;
 
-    // Semilla para aleatoriedad
     srand(time(NULL));
 
-    // Crear los FIFOs
     for (int i = 0; i < N; i++) {
         snprintf(fifo_name, sizeof(fifo_name), "/tmp/pipe_proceso%d", i);
         mkfifo(fifo_name, 0666);
     }
 
-    // Esperar y leer tareas de los procesos hijos
     for (int i = 0; i < N; i++) {
         snprintf(fifo_name, sizeof(fifo_name), "/tmp/pipe_proceso%d", i);
         int fd = open(fifo_name, O_RDONLY);
@@ -80,8 +75,6 @@ int main(int argc, char *argv[]) {
         }
         close(fd);
     }
-
-    // Ejecutar FCFS
     execute_fcfs();
     return 0;
 }
