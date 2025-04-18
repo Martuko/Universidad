@@ -1,0 +1,8 @@
+admin
+user
+guest
+test
+dvwa
+root
+gordonb
+pablo
