@@ -45,7 +45,17 @@ gcc central.c -o central
 gcc proceso.c -o proceso
 ```
 
-### 2. Ejecutar los procesos generadores
+### 2. Ejecutar el proceso central
+
+Después de que los procesos hayan enviado las tareas:
+
+```bash
+./central N
+```
+Donde `N` es el número de procesos usados.
+
+---
+### 3. Ejecutar los procesos generadores
 
 En terminales separadas:
 
@@ -58,17 +68,6 @@ En terminales separadas:
 
 > Puedes ejecutar entre 2 y 6 procesos con IDs del 0 al 5.
 
-### 3. Ejecutar el proceso central
-
-Después de que los procesos hayan enviado las tareas:
-
-```bash
-./central N
-```
-
-Donde `N` es el número de procesos usados.
-
----
 
 ## Ejemplo de salida
 
