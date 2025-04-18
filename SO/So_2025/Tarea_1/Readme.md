@@ -87,6 +87,3 @@ Borra los pipes con:
 rm /tmp/pipe_proceso*
 ```
 
----
-
-s.
