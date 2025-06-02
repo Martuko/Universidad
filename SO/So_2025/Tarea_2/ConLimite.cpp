@@ -7,6 +7,7 @@
 #include <climits>
 #include <algorithm>
 #include <map>
+#include <fstream>
 using namespace std;
 
 struct Edge {
@@ -62,6 +63,18 @@ public:
         }
     }
 
+    void guardarRutaActualCSV(const vector<int>& ruta) {
+        ofstream out("actual.csv");
+        for (int n : ruta) out << n << ",";
+        out << "\n";
+    }
+
+    void guardarHistorialCSV() {
+        ofstream out("costos.csv");
+        for (auto& [segundos, costo] : HistorialCostos)
+            out << segundos << "," << costo << "\n";
+    }
+
     void BuscarRutaAleatoria() {
         random_device rd;
         mt19937 gen(rd());
@@ -107,6 +120,9 @@ public:
                     double segundos = chrono::duration<double>(now - start).count();
                     HistorialCostos.push_back({segundos, costoTotal});
                     cout << "Nuevo mejor costo encontrado: " << costoTotal << endl;
+
+                    guardarRutaActualCSV(mejoresRuta);
+                    guardarHistorialCSV();
                 }
             }
 
@@ -134,7 +150,7 @@ int main() {
     for (int i = 0; i < K; ++i)
         threads.emplace_back(&DAG_PATH_FINDER::BuscarRutaAleatoria, &buscador);
 
-    this_thread::sleep_for(chrono::seconds(10));
+    this_thread::sleep_for(chrono::seconds(60));
     buscador.timeout = true;
 
     for (auto& t : threads)
@@ -144,8 +160,6 @@ int main() {
     for (int n : buscador.mejoresRuta)
         cout << n << " ";
     cout << endl;
-
-    
 
     return 0;
 }

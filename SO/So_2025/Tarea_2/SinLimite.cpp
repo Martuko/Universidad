@@ -85,7 +85,11 @@ public:
                     double segundos = chrono::duration<double>(now - start).count();
                     HistorialCostos.push_back({segundos, costoTotal});
                     cout << "Nuevo mejor costo encontrado: " << costoTotal << endl;
+                    ofstream out("actual.csv");
+                    for (int n : ruta) out << n << ",";
+                    out << "\n";
                 }
+
             }
         }
     }
@@ -106,7 +110,6 @@ public:
         timeout = true;
         for (auto& t : threads) t.join();
 
-        // Mostrar la mejor ruta encontrada
         lock_guard<mutex> lock(mtx);
         cout << "\n== Mejor ruta encontrada (Costo: " << mejoresCosto << ") ==" << endl;
         for (int n : mejoresRuta) cout << n << " ";
@@ -117,6 +120,7 @@ public:
         for (auto& p : HistorialCostos)
             out << p.first << "," << p.second << "\n";
         out.close();
+
     }
 };
 
