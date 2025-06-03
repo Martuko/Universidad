@@ -44,8 +44,8 @@ g++ -std=c++17 -pthread ConLimite.cpp -o ConLimite
 ./ConLimite
 ```
 - Se te solicitara:
- - La cantidad de threads
- - El limite de threads por arista
+  - La cantidad de threads
+  - El limite de threads por arista
 
 ## Ejemplo de salida esperada:
 
@@ -60,8 +60,8 @@ Nuevo mejor costo encontrado: 147
 
 ## Archivos generados
 - Al finalizar la ejecución, se generan:
- - actual.csv: la mejor ruta encontrada durante los 60 segundos.
- - costos.csv: pares (tiempo, costo) indicando cuándo se mejoró el mejor costo.
+  - actual.csv: la mejor ruta encontrada durante los 60 segundos.
+  - costos.csv: pares (tiempo, costo) indicando cuándo se mejoró el mejor costo.
 - Puedes abrir estos archivos con Excel o cualquier visor de texto para análisis posterior.
 
 ## Requisitos
