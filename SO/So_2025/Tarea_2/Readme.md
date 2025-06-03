@@ -69,4 +69,38 @@ Nuevo mejor costo encontrado: 147
 - Sistema operativo con soporte para hilos POSIX (Linux, Mac, WSL, etc.).
 
 
+## Extra
+### Visualización del DAG en tiempo real (Python)
+Este script en Python permite visualizar el grafo acíclico dirigido (DAG) utilizado por los programas en C++, mostrando en tiempo real la mejor ruta encontrada, a medida que se actualiza el archivo actual.csv.
+
+#### Requisitos
+- Este script requiere las siguientes bibliotecas de Python:
+  - matplotlib
+  - networkx
+- Puedes instalarlas con:
+  - pip install matplotlib networkx
+
+### ¿Qué hace?
+- Crea un grafo DAG de 62 nodos organizados en 14 niveles.
+
+- Lee continuamente el archivo actual.csv (generado por los programas C++).
+
+- Dibuja el grafo base y actualiza en rojo la mejor ruta encontrada.
+
+- Refresca la visualización cada segundo.
+
+### ¿Cómo ejecutar?
+python3 Dag.py
+- Debes Ejecutar el .py antes de ejecutar los .cpp
+- Asegúrate de estar en la misma carpeta donde se generan los archivos actual.csv desde los programas en C++.
+
+### Vista esperada
+- El script abrirá una ventana interactiva que mostrará:
+
+  - Los nodos del DAG en gris.
+  - La ruta óptima en rojo con los nodos resaltados en naranja.
+  - La visualización se actualiza automáticamente mientras el archivo actual.csv cambia.
+
+
+
 
