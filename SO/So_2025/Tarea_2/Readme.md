@@ -71,6 +71,7 @@ Nuevo mejor costo encontrado: 147
 
 ## Extra
 - GitHub: https://github.com/Martuko/Universidad/tree/main/SO/So_2025/Tarea_2
+
 ### Visualización del DAG en tiempo real (Python)
 Este script en Python permite visualizar el grafo acíclico dirigido (DAG) utilizado por los programas en C++, mostrando en tiempo real la mejor ruta encontrada, a medida que se actualiza el archivo actual.csv.
 
