@@ -8,39 +8,39 @@ G = nx.DiGraph()
 pos = {}
 fig, ax = plt.subplots(figsize=(12, 6))
 
-# Crear grafo tipo DAG
+
 nodos_por_nivel = 5
 nodo = 0
 niveles = []
 
-for i in range(13):  # 13 niveles: EIT + 12 intermedios
+for i in range(13):  
     nivel = []
-    for j in range(nodos_por_nivel if i > 0 else 1):  # Solo un nodo en el nivel 0
+    for j in range(nodos_por_nivel if i > 0 else 1):  
         nivel.append(nodo)
         pos[nodo] = (i, -j)
         nodo += 1
     niveles.append(nivel)
 
-# Agregar nodo final (Casa)
-nodo_final = nodo  # nodo == 61
-G.add_node(nodo_final)
-pos[nodo_final] = (13, -2)  # Posición visual
-niveles.append([nodo_final])  # Nivel 13
 
-# Conectar nodos entre niveles
+nodo_final = nodo  
+G.add_node(nodo_final)
+pos[nodo_final] = (13, -2)  
+niveles.append([nodo_final])  
+
+
 for i in range(len(niveles) - 1):
     for u in niveles[i]:
         for v in niveles[i + 1]:
             G.add_edge(u, v)
 
-# Función para dibujar el grafo base
+
 def draw_base():
     ax.clear()
     nx.draw(G, pos, ax=ax, with_labels=True, node_size=300, arrowsize=10,
             node_color='lightgray', edge_color='gray')
     fig.canvas.draw()
 
-# Leer ruta desde archivo actual.csv
+
 def leer_ruta_csv():
     if not os.path.exists("actual.csv"):
         return []
@@ -53,7 +53,7 @@ def leer_ruta_csv():
         except:
             return []
 
-# Hilo para actualizar grafo en tiempo real
+
 def actualizar_ruta():
     while True:
         draw_base()
@@ -67,6 +67,5 @@ def actualizar_ruta():
         fig.canvas.draw()
         time.sleep(1)
 
-# Lanzar hilo
 threading.Thread(target=actualizar_ruta, daemon=True).start()
 plt.show()
