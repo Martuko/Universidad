@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <map>
 #include <fstream>
+#include <memory>
 using namespace std;
 
 struct Edge {
@@ -27,7 +28,7 @@ public:
     chrono::steady_clock::time_point start;
 
     map<pair<int, int>, int> usoAristas;
-    map<pair<int, int>, mutex> mtxAristas;
+    map<pair<int, int>, shared_ptr<mutex>> mtxAristas;
     int L;
 
     DAG_PATH_FINDER(int limite_arista) {
@@ -35,12 +36,12 @@ public:
         mejoresCosto = INT_MAX;
         timeout = false;
         listaAdyacencia.resize(62);
-        niveles.resize(13);
+        niveles.resize(14);
         generarDAG();
     }
 
     void generarDAG() {
-        niveles[0].push_back(0); // Nodo EIT
+        niveles[0].push_back(0); 
 
         int nodo = 1;
         for (int nivel = 1; nivel <= 12; ++nivel) {
@@ -48,16 +49,20 @@ public:
                 niveles[nivel].push_back(nodo++);
             }
         }
+        niveles[13].push_back(61);
 
         random_device rd;
         mt19937 gen(rd());
         uniform_int_distribution<> dist(5, 20);
 
-        for (int i = 0; i < 12; ++i) {
+        for (int i = 0; i < 13; ++i) {
             for (int u : niveles[i]) {
                 for (int v : niveles[i + 1]) {
                     int costo = dist(gen);
                     listaAdyacencia[u].push_back({v, costo});
+                    pair<int, int> arco = {u, v};
+                    mtxAristas[arco] = make_shared<mutex>();
+                    usoAristas[arco] = 0;
                 }
             }
         }
@@ -71,8 +76,10 @@ public:
 
     void guardarHistorialCSV() {
         ofstream out("costos.csv");
-        for (auto& [segundos, costo] : HistorialCostos)
-            out << segundos << "," << costo << "\n";
+        out << "Tiempo,Costo\n";
+        for (auto& p : HistorialCostos)
+            out << p.first << "," << p.second << "\n";
+        out.close();
     }
 
     void BuscarRutaAleatoria() {
@@ -87,7 +94,7 @@ public:
 
             vector<pair<int, int>> aristasUsadas;
 
-            for (int nivel = 1; nivel <= 12; ++nivel) {
+            for (int nivel = 1; nivel <= 13; ++nivel) {
                 auto vecinos = listaAdyacencia[actual];
                 if (vecinos.empty()) break;
 
@@ -96,7 +103,7 @@ public:
                 pair<int, int> arco = {actual, e.vecino};
 
                 while (true) {
-                    unique_lock<mutex> lock(mtxAristas[arco]);
+                    unique_lock<mutex> lock(*mtxAristas[arco]);
                     if (usoAristas[arco] < L) {
                         usoAristas[arco]++;
                         break;
@@ -111,7 +118,7 @@ public:
                 ruta.push_back(actual);
             }
 
-            if (any_of(niveles[12].begin(), niveles[12].end(), [&](int n) { return n == actual; })) {
+            if (any_of(niveles[13].begin(), niveles[13].end(), [&](int n) { return n == actual; })) {
                 lock_guard<mutex> lock(mtx);
                 if (costoTotal < mejoresCosto) {
                     mejoresCosto = costoTotal;
@@ -127,7 +134,7 @@ public:
             }
 
             for (auto& arco : aristasUsadas) {
-                lock_guard<mutex> lock(mtxAristas[arco]);
+                lock_guard<mutex> lock(*mtxAristas[arco]);
                 usoAristas[arco]--;
             }
         }

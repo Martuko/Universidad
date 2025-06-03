@@ -31,8 +31,9 @@ public:
 
     void generarDAG() {
         listaAdyacencia.resize(62);
-        niveles.resize(13);
-        niveles[0].push_back(0); // Nodo EIT
+        niveles.resize(14);
+        niveles[0].push_back(0); 
+
 
         int nodo = 1;
         for (int nivel = 1; nivel <= 12; ++nivel) {
@@ -40,12 +41,13 @@ public:
                 niveles[nivel].push_back(nodo++);
             }
         }
-
+        niveles[13].push_back(61);
+        
         random_device rd;
         mt19937 gen(rd());
         uniform_int_distribution<> dist(5, 20);
 
-        for (int i = 0; i < 12; ++i) {
+        for (int i = 0; i < 13; ++i) {
             for (int u : niveles[i]) {
                 for (int v : niveles[i + 1]) {
                     int costo = dist(gen);
@@ -65,7 +67,7 @@ public:
             int actual = 0;
             ruta.push_back(actual);
     
-            for (int nivel = 1; nivel <= 12; ++nivel) {
+            for (int nivel = 1; nivel <= 13; ++nivel) {
                 auto vecinos = listaAdyacencia[actual];
                 if (vecinos.empty()) break;
     
@@ -76,7 +78,7 @@ public:
                 ruta.push_back(actual);
             }
     
-            if (any_of(niveles[12].begin(), niveles[12].end(), [&](int n) { return n == actual; })) {
+            if (any_of(niveles[13].begin(), niveles[13].end(), [&](int n) { return n == actual; })) {
                 lock_guard<mutex> lock(mtx);
                 if (costoTotal < mejoresCosto) {
                     mejoresCosto = costoTotal;
