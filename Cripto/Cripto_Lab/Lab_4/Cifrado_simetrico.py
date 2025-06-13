@@ -3,7 +3,6 @@ from Crypto.Random import get_random_bytes
 from Crypto.Util.Padding import pad, unpad
 import base64
 
-# Ajusta clave e IV a los tamaños requeridos
 def adjust_key_iv(key_input, iv_input, key_size, iv_size):
     key = key_input.encode('utf-8')
     iv = iv_input.encode('utf-8')
@@ -20,7 +19,6 @@ def adjust_key_iv(key_input, iv_input, key_size, iv_size):
 
     return key, iv
 
-# Función principal de cifrado y descifrado
 def encrypt_decrypt(text, key, iv, algorithm):
     data = text.encode('utf-8')
     cipher = None
@@ -49,20 +47,18 @@ def encrypt_decrypt(text, key, iv, algorithm):
 
     return cipher_b64.decode(), cipher_hex, decrypted.decode()
 
-# Diccionario con tamaños por algoritmo
 algorithms = {
     "DES": (8, 8),
     "3DES": (24, 8),
     "AES": (32, 16)
 }
 
-# Solicitud desde terminal
 algorithm = input("Ingrese algoritmo (DES, 3DES, AES): ").strip().upper()
 key_input = input("Ingrese clave: ")
 iv_input = input("Ingrese IV: ")
 text = input("Ingrese texto a cifrar: ")
 
-# Validación
+
 if algorithm not in algorithms:
     print("Algoritmo no soportado.")
     exit()
