@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  c1:
+    build: ./C1
+    container_name: c1
+    networks:
+      sshnet:
+        ipv4_address: 192.168.200.2
+
+  c2:
+    build: ./C2
+    container_name: c2
+    networks:
+      sshnet:
+        ipv4_address: 192.168.200.3
+
+  c3:
+    build: ./C3
+    container_name: c3
+    networks:
+      sshnet:
+        ipv4_address: 192.168.200.4
+
+  c4:
+    build: ./C4
+    container_name: c4
+    networks:
+      sshnet:
+        ipv4_address: 192.168.200.5
+
+  s1:
+    build: ./S1
+    container_name: s1
+    ports:
+      - "2222:22"
+    networks:
+      sshnet:
+        ipv4_address: 192.168.200.10
+
+
+networks:
+  sshnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.200.0/24
+
