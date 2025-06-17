@@ -25,19 +25,14 @@ services:
   c4:
     build: ./C4
     container_name: c4
-    networks:
-      sshnet:
-        ipv4_address: 192.168.200.5
-
-  s1:
-    build: ./S1
-    container_name: s1
     ports:
       - "2222:22"
     networks:
       sshnet:
         ipv4_address: 192.168.200.10
 
+
+ 
 
 networks:
   sshnet:
