@@ -60,7 +60,6 @@ bool FsTree::mkdir(const string& path) {
     auto parts = split(path);
     string name = parts.back();
     parts.pop_back();
-    /* padre */
     string parentPath = path[0] == '/' ? "/" : "";
     for (size_t i = 0; i < parts.size(); ++i) {
         parentPath += parts[i];
