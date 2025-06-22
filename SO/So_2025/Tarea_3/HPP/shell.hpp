@@ -1,7 +1,7 @@
 #ifndef SHELL_HPP
 #define SHELL_HPP
 
-#include "tree.hpp"  // Asegúrate de que el path sea correcto
+#include "tree.hpp"  
 
 int mainShell(FsTree& fs);
 

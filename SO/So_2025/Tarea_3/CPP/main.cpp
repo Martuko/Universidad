@@ -3,5 +3,7 @@
 int main() {
     FsTree fs;
     fs.load();
-    return mainShell(fs);   // forward-decl en shell/shell.cpp
+    return mainShell(fs);  
+    fs.save();              
+    return 0;
 }

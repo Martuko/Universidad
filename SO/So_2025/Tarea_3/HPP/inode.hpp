@@ -8,8 +8,8 @@ struct Inode {
     uint32_t            id;
     std::string         name;
     bool                isDir;
-    mode_t              perms;   // rwx: usa sólo los bits de usuario
-    size_t              size;    // 0 si directorio
+    mode_t              perms;   
+    size_t              size;    
     time_t              ctime;
     time_t              mtime;
     Inode*              parent;

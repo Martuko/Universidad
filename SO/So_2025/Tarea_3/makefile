@@ -1,6 +1,7 @@
 CXX      = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -O2
 
+SRC := $(wildcard CPP/*.cpp)
 SRC := $(shell find . -name '*.cpp')
 OBJ := $(SRC:.cpp=.o)
 

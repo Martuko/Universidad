@@ -1,5 +1,6 @@
 #pragma once
-#include "tree.hpp"
+
+class FsTree;  
 
 namespace persistence {
     void save(const FsTree& fs);

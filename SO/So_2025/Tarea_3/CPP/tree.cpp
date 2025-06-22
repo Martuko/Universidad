@@ -1,5 +1,5 @@
 #include "../HPP/tree.hpp"
-#include "../HPP/persistencia.hpp"
+#include "../HPP/persistence.hpp"
 #include "../HPP/utils.hpp"
 #include <iostream>
 #include <iomanip>
@@ -18,7 +18,6 @@ void FsTree::clearRec(Inode* n) {
     delete n;
 }
 
-/* ---------- path helpers ---------- */
 vector<string> FsTree::split(const string& path) {
     vector<string> parts;
     string token;
@@ -57,7 +56,6 @@ string FsTree::cwdAbsPath() const {
     return result;
 }
 
-/* ---------- comandos básicos ---------- */
 bool FsTree::mkdir(const string& path) {
     auto parts = split(path);
     string name = parts.back();
@@ -128,29 +126,25 @@ bool FsTree::cd(const string& path) {
 
 void FsTree::pwd() const { cout << cwdAbsPath() << '\n'; }
 
-/* ---------- ls ---------- */
-void FsTree::lsRec(Inode* dir, const string& prefix, bool showId) const {
+void FsTree::lsRec(Inode* dir, const string& prefix, bool showId, bool recursive) const {
     for (auto* h : dir->children) {
         cout << prefix;
         if (showId) cout << setw(4) << h->id << " ";
         cout << utils::permsToStr(h->perms)
-             << (h->isDir ? 'd' : '-')
-             << " " << h->name << '\n';
-        if (h->isDir) lsRec(h, prefix + "  ", showId);
+             << (h->isDir ? 'd' : '-') << " " << h->name << '\n';
+
+        if (recursive && h->isDir) {
+            cout << "\n" << cwdAbsPath() << "/" << h->name << ":\n";
+            lsRec(h, prefix + "  ", showId, recursive);
+        }
     }
 }
 
+
 void FsTree::ls(bool showId, bool recursive) const {
-    lsRec(cwd, "", showId);
-    if (!recursive) return;
-    for (auto* h : cwd->children)
-        if (h->isDir) {
-            cout << "\n" << cwdAbsPath() << "/" << h->name << ":\n";
-            lsRec(h, "", showId);
-        }
+    lsRec(cwd, "", showId, recursive);
 }
 
-/* ---------- find ---------- */
 void FsTree::findRec(Inode* dir,
                      const string& name,
                      const string& abs) const {
@@ -163,6 +157,5 @@ void FsTree::find(const string& name) const {
     findRec(cwd, name, cwdAbsPath());
 }
 
-/* ---------- persistencia ---------- */
 void FsTree::save() const { persistence::save(*this); }
 void FsTree::load()       { persistence::load(*this); }
