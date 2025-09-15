@@ -1,9 +1,8 @@
 from fastapi import FastAPI
 import httpx, os, time
 
-# Variables de entorno
 OLLAMA = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-MODEL  = os.getenv("LLM_MODEL", "llama3.1:70b-instruct-q4_K_M")
+MODEL  = os.getenv("LLM_MODEL", "llama3.1:8b-instruct-q4_K_M")
 MAX_TOK = int(os.getenv("LLM_MAX_TOKENS", "512"))
 TEMP    = float(os.getenv("LLM_TEMPERATURE", "0.2"))
 
@@ -15,9 +14,7 @@ app = FastAPI()
 
 @app.post("/generate")
 async def generate(payload: dict):
-    """
-    Endpoint principal: recibe una pregunta y devuelve respuesta del LLM.
-    """
+   
     question = payload.get("question", "")
     if not question:
         return {"error": "Falta el campo 'question'"}

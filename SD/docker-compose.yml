@@ -12,25 +12,39 @@ services:
       - OLLAMA_NUM_PARALLEL=2
       - OLLAMA_MAX_LOADED_MODELS=2
       - OLLAMA_KEEP_ALIVE=30m
-   
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
-      interval: 30s
-      timeout: 10s
-      retries: 15
+  
 
   llm:
     build: ./Servicios/LLM
+    command: uvicorn app:app --host 0.0.0.0 --port 8000
     environment:
-      - OLLAMA_HOST=http://ollama:11434/
-      - LLM_MODEL=llama3.1:70b-instruct-q4_K_M
+      - OLLAMA_HOST=http://ollama:11434
+      - LLM_MODEL=llama3.1:8b-instruct-q4_K_M
       - LLM_MAX_TOKENS=512
       - LLM_TEMPERATURE=0.2
     depends_on:
-      ollama:
-        condition: service_healthy
+      - ollama
+        
     ports:
       - "8000:8000"
+  ##cache:
+    ##build: ./Servicios/Cache
+    ##environment:
+    ##  - LLM_HOST=http://llm:8000
+    ##depends_on:
+    ##  - llm
+    ##ports:
+    ##  - "8001:8001"
+    
+  ##score:
+    ##build: ./Servicios/Score
+    ##environment:
+    ##  - LLM_HOST=http://llm:8000
+    ##depends_on:
+    ##  - llm
+    ##ports:
+    ##  - "8002:8002"
+
 
 volumes:
   ollama:
