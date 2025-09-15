@@ -3,6 +3,7 @@ version: "3.9"
 services:
   ollama:
     image: ollama/ollama:latest
+    runtime: nvidia
     ports:
       - "11434:11434"
     volumes:
@@ -11,11 +12,7 @@ services:
       - OLLAMA_NUM_PARALLEL=2
       - OLLAMA_MAX_LOADED_MODELS=2
       - OLLAMA_KEEP_ALIVE=30m
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [gpu]
+   
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
       interval: 30s
