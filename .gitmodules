@@ -1,0 +1,3 @@
+[submodule "SD"]
+	path = SD
+	url = git@github.com:Martuko/SD.git
