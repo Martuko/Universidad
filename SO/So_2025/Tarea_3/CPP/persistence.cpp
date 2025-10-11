@@ -36,7 +36,7 @@ void save(const FsTree& fs) {
     if (!out) return;
 
     uint32_t count = 0;
-    Inode* root = fs.resolvePath("/");  // se accede gracias al friend
+    Inode* root = fs.resolvePath("/");  
     walkCount(root, count);
 
     out.write(reinterpret_cast<const char*>(&MAGIC), 4);
