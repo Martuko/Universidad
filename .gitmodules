@@ -1,3 +1,6 @@
 [submodule "SD"]
 	path = SD
 	url = git@github.com:Martuko/SD.git
+[submodule "Arquitectura_de_Software"]
+	path = Arquitectura_de_Software
+	url = git@github.com:3dvvarMvb/Proyecto_AS.git
