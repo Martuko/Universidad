@@ -4,3 +4,7 @@
 [submodule "Arquitectura_de_Software"]
 	path = Arquitectura_de_Software
 	url = git@github.com:3dvvarMvb/Proyecto_AS.git
+[submodule "IA"]
+	path = IA
+	url = https://github.com/Martuko/IA.git
+	branch = main
