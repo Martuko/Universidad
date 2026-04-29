@@ -1,0 +1,701 @@
+country,dataset,entity,name,label,typeName,tema_detectado
+argentina,CP2010ARG,DPTO,DPTO,Departamento / Partido,integer,sin_clasificar
+argentina,CP2010ARG,DPTO,IDDPTO,Departamento,string,sin_clasificar
+argentina,CP2010ARG,DPTO,NOMDPTO,Departamento / Partido,string,sin_clasificar
+argentina,CP2010ARG,FRAC,IDFRAC,Fraccion,string,sin_clasificar
+argentina,CP2010ARG,HOGAR,ALGUNBI,Al menos un indicador NBI,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,CODPUEBLO,Pueblo al que pertenece,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,EXPH,Expansor,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H05M,Alguna persona descendiente de indigenas,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H05P,Total de Personas descendiente de indigenas,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H06M,Alguna persona es afrodescendiente,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H06P,Total de Personas afrodescendientes,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H0705,Material predominante de los pisos,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H08A,Material predominante de las paredes exteriores,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H09A,Revestimiento externo de las paredes exteriores,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H1006,Material predominante de la cubierta exterior del techo,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H1107,Revestimiento interior o cielorraso del techo,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H12A,Tenencia de Electricidad,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H1308,Tenencia de agua,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H1409,Procedencia del agua para beber y cocinar,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H1510,Tiene baño / letrina,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H1611,"Tiene botón, cadena, mochila para limpieza del inodoro",integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H1712,Desagüe del inodoro,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H1813,Baño / letrina de uso exclusivo,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H19A,Instalación de Agua en Cocina,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H2014,Combustible usado principalmente para cocinar,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H2115,Total de habitaciones o piezas para dormir,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H2216,Total de habitaciones o piezas,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H23,Antiguedad de la vivienda,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H2417,Propiedad de la vivienda,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H2518,Propiedad del terreno,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H26,La vivienda esta totalmente paga,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H27,La vivienda esta escriturada,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H2819,El hogar tiene,string,sin_clasificar
+argentina,CP2010ARG,HOGAR,H2819A,Heladera,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H2819B,Computadora,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H2819C,Teléfono celular,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,H2819D,Teléfono de línea,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,INCALCONS,Calidad constructiva de la vivienda,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,INCALSERV,Calidad de Conexiones a Servicios Básicos,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,INDHAC,Hacinamiento,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,INMAT,Calidad de los materiales,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,NBI1,NBI Vivienda,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,NBI2,NBI Condiciones sanitarias,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,NBI3,NBI Hacinamiento,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,NBI4,NBI Asistencia escolar,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,NBI5,NBI Capacidad de subsistencia,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,NHOG,hogar-numero,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,PROP,Régimen de tenencia,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,TIPOHOGAR,Tipo de Hogar,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,TOTPERS,Total de Personas en el Hogar,integer,sin_clasificar
+argentina,CP2010ARG,HOGAR,V01,Tipo de vivienda,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,ACT2CIFR,Código de actividad 2 cifras,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,ACT4CIFR,Código de actividad,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,ACTLETRA,Código de actividad letra,string,sin_clasificar
+argentina,CP2010ARG,PERSONA,CARACTER,Carácter ocupacional,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,CLAVE1P,Clave1,string,sin_clasificar
+argentina,CP2010ARG,PERSONA,CODOCUP,Código de ocupación,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,CONDACT,Condición de actividad,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,EDADAGRU,Edad en grandes grupos,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,EDADQUI,Edades quinquenales,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,JEFEBAJAED,Jefe baja educ,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,MARCA_AFRO,Afrodescendiente,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,MARCA_INDI,Indígena,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,MNI,Máximo Nivel de Instrucción,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,NPER,Número de persona en el hogar,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P01,Relación o parentesco con el jefe(a) del hogar,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P02,Sexo,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P03,Edad,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P04,Fecha de nacimiento,string,sin_clasificar
+argentina,CP2010ARG,PERSONA,P04A,Año de nacimiento,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P04D,Día de nacimiento,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P04M,Mes de nacimiento,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P05,En que país nació,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P06C,Pais de nacimiento,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P07,Año de llegada a la Argentina,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P08M,Que Provincia Nació,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P08N,Que Provincia Nació-Nombre,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P09M,Donde viviá hace 5 años,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P09N,Donde viviá hace 5 años-Nombre,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P10,En que municipio vivia hace 5 años,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P11M,Donde vive habitualmente,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P11N,Donde vive habitualmente-Nombre,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P12,En que municipio vive habitualmente,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P1305,Cobertura de salud,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P14A,Dificultad o limitación permanente para ver,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P14B,Dificultad o limitación permanente para oír,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P14C,Dificultad o limitación permanente para caminar o subir,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P14D,Dificultad o limitación permanente para agarrar objetos,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P14E,Dificultad o limitación permanente para entender y/o aprender,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P15,Recibe jubilación o pensión,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P16,Tipo de beneficio que recibe,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P1707,Sabe leer y escribir,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P1808,Asiste o asistió a un establecimiento educativo,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P1808C,Condición de asistencia escolar,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P1909,Nivel educativo que cursa o cursó,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P1909C,Nivel educativo que cursa o cursó,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P2010,Completó ese nivel,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P2010C,Completó el nivel,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P2111A,Último grado o año que aprobó en ese nivel,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P2111B,Ningun grado o año aprobado,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P2111C,Grado o año aprobado ignorado,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P2212,Utiliza computadora,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P23,Estado civil legal,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P24,Convive en pareja o matrimonio,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P2513,"La semana pasada, trabajó al menos una hora",integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P2614,"La semana pasada, hizo alguna changa o algo para vender afuera",integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P2715,"La semana pasada, estuvo de licencia por vacaciones o enfermedad",integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P2816,"En las últimas 4 semanas, estuvo buscando trabajo",integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P31,Tamaño del establecimiento,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P32,Categoría ocupacional,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P33,Sector en el que trabaja,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P34,Le descuentan para jubilación,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P34C,Le descuentan para jubilación,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P35,Aporta para jubilación,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P35C,Aporta para la jubilación,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P36,Tuvo hijos/as nacidos vivos,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P37,Hijos nacidos vivos en total,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P38,Hijos vivos actualmente,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P39,Fecha último hijo nacido vivo,string,sin_clasificar
+argentina,CP2010ARG,PERSONA,P39A,Año,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,P39M,Mes,integer,sin_clasificar
+argentina,CP2010ARG,PERSONA,RAMA,Rama de actividad,integer,sin_clasificar
+argentina,CP2010ARG,PROV,IDPROV,Provincia,string,sin_clasificar
+argentina,CP2010ARG,PROV,NOMPROV,Provincia,string,sin_clasificar
+argentina,CP2010ARG,PROV,PROV,Provincia,integer,sin_clasificar
+argentina,CP2010ARG,RADIO,IDRADIO,Radio,string,sin_clasificar
+argentina,CP2010ARG,SEG,IDSEG,Segmento,string,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC1,Inundaciones en últimos cinco años,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC10,Ubicado en Villa de emergencia o asentamiento,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC11,Ubicado en barrio plan o monoblock,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC12,Ubicado en country o barrio cerrado,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC13,Existencia de al menos de una cuadra pavimentada,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC14,Existencia de al menos una boca de tormenta,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC15,Existencia de alumbrado público,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC2,Basural permanente a 300 metros,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC3,Servicio de cloacas,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC4,Servicio de agua de red,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC5,Servicio de gas de red,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC6,Servicio de energía electrica por red domiciliaria,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC7,Servicio regular de recolección de residuos,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC8,Transporte público a 300 metros,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CC9,Teléfono público a 300 metros,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CODAGLO,Código de Aglomerado,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CODENT,Código de Entidad,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CODLOC,Código de Localidad,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,CODMUNI,Código de Municipio,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,ENTIDAD,Barrio / Entidad,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,EXPV,Expansor,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,INCALCONS,Calidad constructiva de la vivienda,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,INCALSERV,Calidad de Conexiones a Servicios Básicos,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,INMAT,Calidad de los materiales,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,LOCAL,Localidad,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,MUNI,Municipio,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,TIPVV,Tipo de vivienda agrupado,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,TOTHOG,Cantidad de Hogares en la Vivienda,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,URP,Area Urbano - Rural,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,V00,Tipo de vivienda colectiva,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,V00O,Otros tipo de vivienda colectiva,string,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,V01,Tipo de vivienda particular,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,V01C,Casa tipo B,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,V02,Condición de ocupación,integer,sin_clasificar
+argentina,CP2010ARG,VIVIENDA,V03,Cantidad de hogares,integer,sin_clasificar
+brasil,CP2010BRA,APOND,APOND,Área de Ponderação,integer,sin_clasificar
+brasil,CP2010BRA,APOND,APONDNOME,Nome das Áreas de Ponderação,string,sin_clasificar
+brasil,CP2010BRA,APOND,APONDTIPO,Tipo das Áreas de Ponderação,integer,sin_clasificar
+brasil,CP2010BRA,APOND,IDAPOND,Identificação de Área de Ponderação,string,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0201,Marca de imputação na V0201,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0202,Marca de imputação na V0202,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0203,Marca de imputação na V0203,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0204,Marca de imputação na V0204,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0205,Marca de imputação na V0205,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0206,Marca de imputação na V0206,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0207,Marca de imputação na V0207,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0208,Marca de imputação na V0208,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0209,Marca de imputação na V0209,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0210,Marca de imputação na V0210,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0211,Marca de imputação na V0211,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0212,Marca de imputação na V0212,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0213,Marca de imputação na V0213,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0214,Marca de imputação na V0214,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0215,Marca de imputação na V0215,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0216,Marca de imputação na V0216,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0217,Marca de imputação na V0217,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0218,Marca de imputação na V0218,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0219,Marca de imputação na V0219,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0220,Marca de imputação na V0220,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0221,Marca de imputação na V0221,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0222,Marca de imputação na V0222,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0301,Marca de imputação na V0301,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0401,Marca de imputação na V0401,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0402,Marca de imputação na V0402,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M0701,Marca de imputação na V0701,integer,sin_clasificar
+brasil,CP2010BRA,DMARCAS,M2011,Marca de imputação na V2011,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,AGUA,Abastecimento de água,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,ALUGUEL,Valor do aluguel,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,ALUGUELSM,Aluguel em nº de salários mínimos,real,sin_clasificar
+brasil,CP2010BRA,DOMICIL,AUTO,"Automóvel para uso particular, existência",integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,BANHEIROS,Banheiros de uso exclusivo,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,CANALIZ,Água canalizada,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,CELULAR,"Telefone celular, existência",integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,COMODOS,Cômodos,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,CONDOCUP,Condição de ocupação,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,CONTROLE,Controle,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,DENSICOM,Densidade de moradores por cômodo,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,DENSIDOR,Densidade de moradores por dormitório,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,DORMIT,Dormitórios,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,DPESO,Peso Amostral,real,sin_clasificar
+brasil,CP2010BRA,DOMICIL,ELETRIC,Energia elétrica,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,ESGOTO,Esgotamento sanitário,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,ESPECIE,Espécie de Unidade Visitada,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,ESPECIED,Espécie da Unidade Doméstica,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,FALECEU,Alguém faleceu nos 12 meses anteriores,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,FORA,Alguém reside fora do país,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,GELADEIRA,"Geladeira, existência",integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,INTERNET,"Microcomputador com acesso à internet, existência",integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,LAVAR,"Máquina de lavar roupa, existência",integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,LIXO,"Lixo, destino",integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,MEDIDOR,Medidor ou relógio para energia elétrica,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,MICROCOMP,"Microcomputador, existência",integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,MORADOR,Quantos moradores,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,MOTO,"Motocicleta para uso particular, existência",integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,PAREDES,Paredes externas,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,PERCAPITA,Rendimento mensal domiciliar per capita,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,PERCAPTAS,Rendimento mensal domiciliar per capita em Salários Mínimos,real,sin_clasificar
+brasil,CP2010BRA,DOMICIL,PESO,Peso Amostral,real,sin_clasificar
+brasil,CP2010BRA,DOMICIL,RADIO,"Rádio, existência",integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,RENDIM,Rendimento mensal domiciliar,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,RENDIMSM,Rendimento mensal domiciliar em Salários Mínimos,real,sin_clasificar
+brasil,CP2010BRA,DOMICIL,RESPONSA,Responsabilidade pelo domicílio,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,SANITAR,Sanitário ou buraco para dejeções,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,SITUACAO,Situação do domicílio,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,TELEFONE,"Telefone fixo, existência",integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,TIPO,Tipo de Espécie,integer,sin_clasificar
+brasil,CP2010BRA,DOMICIL,TV,Televisão,integer,sin_clasificar
+brasil,CP2010BRA,EMIGRA,EMNASC,Ano de Nascimento do emigrante,integer,sin_clasificar
+brasil,CP2010BRA,EMIGRA,EMPAIS,País de Residência,integer,sin_clasificar
+brasil,CP2010BRA,EMIGRA,EMPAISA,País de residência - 3 dígitos,integer,sin_clasificar
+brasil,CP2010BRA,EMIGRA,EMPART,Ano da última partida do emigrante,integer,sin_clasificar
+brasil,CP2010BRA,EMIGRA,EMSEXO,Sexo do emigrante,integer,sin_clasificar
+brasil,CP2010BRA,EMIGRA,M0303,Marca de imputação da V0303,integer,sin_clasificar
+brasil,CP2010BRA,EMIGRA,M0304,Marca de imputação da V0304,integer,sin_clasificar
+brasil,CP2010BRA,EMIGRA,M0305,Marca de imputação da V0305,integer,sin_clasificar
+brasil,CP2010BRA,EMIGRA,M3061,Marca de imputação da V3061,integer,sin_clasificar
+brasil,CP2010BRA,FAMILIA,FAMILIA,Número da família,integer,sin_clasificar
+brasil,CP2010BRA,FAMILIA,NUMPES,Número de Pessoas na Família,integer,sin_clasificar
+brasil,CP2010BRA,FAMILIA,PERCAPITA,Rendimento familiar per capita em julho de 2010,real,sin_clasificar
+brasil,CP2010BRA,FAMILIA,PERCPTSM,Rendimento familiar per capita em nº de salários mínimos em julho de 2010,real,sin_clasificar
+brasil,CP2010BRA,MORT,M0703,Marca de imputação da V0703,integer,sin_clasificar
+brasil,CP2010BRA,MORT,M0704,Marca de imputação da V0704,integer,sin_clasificar
+brasil,CP2010BRA,MORT,M7051,Marca de imputação da V7051,integer,sin_clasificar
+brasil,CP2010BRA,MORT,M7052,Marca de imputação da V7052,integer,sin_clasificar
+brasil,CP2010BRA,MORT,MOIDANO,"Idade ao falecer, em anos",integer,sin_clasificar
+brasil,CP2010BRA,MORT,MOIDMES,"Idade ao falecer, em meses",integer,sin_clasificar
+brasil,CP2010BRA,MORT,MOMESANO,Mês e ano de falecimento,integer,sin_clasificar
+brasil,CP2010BRA,MORT,MOSEXO,Sexo,integer,sin_clasificar
+brasil,CP2010BRA,MUNIC,IDMUNIC,Identificação de Município,string,sin_clasificar
+brasil,CP2010BRA,MUNIC,MESOCOD,Código das Mesorregiões,integer,sin_clasificar
+brasil,CP2010BRA,MUNIC,MESONOME,Nome das Mesorregiões,string,sin_clasificar
+brasil,CP2010BRA,MUNIC,MICROCOD,Código das Microregiões,integer,sin_clasificar
+brasil,CP2010BRA,MUNIC,MICRONOME,Nome das Microregiões,string,sin_clasificar
+brasil,CP2010BRA,MUNIC,MUNIC,Município,integer,sin_clasificar
+brasil,CP2010BRA,MUNIC,MUNICNOME,Nome dos Municípios,string,sin_clasificar
+brasil,CP2010BRA,MUNIC,RM,Região metropolitana,integer,sin_clasificar
+brasil,CP2010BRA,MUNIC,UFMUNIC,Composição de UF e MUNIC,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,AJUDA,Trabalhou em ajuda a morador sem pagamento,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,APOSENT,Tinha rendimento mensal de aposentadoria,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,AQUI,Nasceu neste município,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,AQUIUF,Nasceu nesta Unidade da Federação,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,ATIV,Atividade,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,ATIV2000,Qual era a atividade principal do empreendimento em que tinha esse trabalho? - código 2000,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,BOLSAFAM,Tinha rendimento mensal de Programa Social Bolsa-Família ou PETI,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CAMINHAR,Dificuldade permanente de Caminhar ou subir degraus,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CATEMP,Subgrupo e categoria do emprego,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CONDATIV,Condição de atividade,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CONDOCUP,Condição de ocupação,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,COR,Cor ou Raça,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CURSO,Curso que frequenta,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CURSOCONC,Conclusão deste curso,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CURSODOUT,Curso de Doutorado,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CURSODOUTG,Curso de Doutorado - Grupo,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CURSODOUTS,Curso de Doutorado - Subgrupo,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CURSOESP,Espécie do curso mais elevado concluido,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CURSOGRAD,Curso Superior de graduação,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CURSOGRADG,Curso Superior de Graduação - Grupo,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CURSOGRADS,Curso Superior de Graduação - Subgrupo,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CURSOMAIS,Curso mais elevado que frequentou,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CURSOMEST,Curso de Mestrado,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CURSOMESTG,Curso de Mestrado - Grupo,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,CURSOMESTS,Curso de Mestrado - Subgrupo,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,DISPONIVEL,"Se tivesse conseguido trabalho, estaria disponível para assumi-lo",integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,EMPREG,Pessoas empregadas neste trabalho,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,ENXERGAR,Dificuldade permanente de Enxergar,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,ESTCIVL,Estado Civil,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FALEANO,Ano que este filho faleceu,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FALEMES,Mês que este filho faleceu,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FALESABE,Sabe mês e ano que este filho faleceu,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FILHOST,Filhos tidos total (nascidos vivos e nascidos mortos),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FINVHOM,Filhos nascidos vivos (homens),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FINVMUL,Filhas nascidas vivas (mulheres),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FINVTOT,Filhos nascidos vivos (total),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FIULT,Existência de filho tido nascido vivo no último ano,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FIULTVIVO,Este filho estava vivo,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FIVIHOM,Filhos vivos (homens),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FIVIID,Idade do último filho nascido vivo,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FIVIMUL,Filhas vivas (mulheres),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FIVISEXO,Sexo do último filho nascido vivo,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FIVITOT,Filhos vivos (total),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FIXOU,Ano que fixou residência no Brasil,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FREQMUN,Município que frequentava escola (ou creche),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FREQONDE,Município e UF ou País Estrangeiro que frequentava escola (ou creche),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FREQPAIS,País estrangeiro que frequentava escola (ou creche),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FREQUENTA,Frequenta escola ou creche,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,FREQUF,UF que frequentava escola (ou creche),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,HORAS,Horas trabalhadas por semana no trabalho principal,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,IDADE,Idade em anos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,IDADEAM,Idade em anos e meses,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,IDADEF,Forma de declaração da idade,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,IDADEM,Idade em meses,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,INFORDEM,Nº de ordem do informante (outro morador),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,INFORMA,Quem prestou informações,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,MAEVIVA,Tem mãe viva,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,MENTAL,Deficiência Mental/Intelectual permanente,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,MORTHOM,Filhos nascidos mortos (homens),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,MORTMUL,Filhas nascidas mortas (mulheres),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,MORTOS,Teve filhos nascidos mortos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,MORTTOT,Filhos nascidos mortos (total),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,MUDARONDE,UF e Munic ou País Estrangeiro antes de mudar-se,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,MUNICANT,Município de residência anterior,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,NACION,Nacionalidade,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,NASCONDE,UF ou país estrangeiro de nascimento,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,NASCPAIS,País estrangeiro de nascimento,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,NASCUF,Unidade da Federação de Nascimento,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,NATUREZA,Natureza da união,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,NIVEL,Nível de instrução,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,NUMMAE,Número de ordem da mãe da pessoa,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,OCUP,Ocupação,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,OCUP2000,Qual era a ocupação que exercia no trabalho que tinha? - código 2000,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,ORDEM,Ordem lógica,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,ORDEMCONJ,Número de ordem do Cônjuge ou Companheiro(a),integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,OUTRFONT,"Tinha rendimento mensal de outras fontes (juros, pensão, aluguel, etc.)",integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,OUTROCUR,Conclusão de outro curso superior de graduação,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,OUTRPROG,Tinha rendimento mensal de outros programas sociais ou de transferências,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,OUTRVALOR,"Rendimento (valor) total de outras fontes (aluguel, aposentadoria...)",integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,OUVIR,Dificuldade permanente de Ouvir,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,PAISANT,País estrangeiro de residência anterior,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,PAISANTA,País estrangeiro de residência anterior - 3 dígitos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,PAISFREQA,País estrangeiro que frequentava escola (ou creche) - 3 dígitos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,PAISNASCA,País estrangeiro de nascimento - 3 dígitos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,PAISRESIDA,País de residência em 31 de julho de 2005 - 3 dígitos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,PAISTRABA,País estrangeiro que trabalhava - 3 dígitos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,PARENT,Relação de parentesco com a pessoa responsável,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,PLANTACAO,"Trabalhou na plantação, criação animais ou pesca",integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,POSICAO,Posição na Ocupação,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,POSOCUP,Posição na ocupação e categoria do emprego,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,PPESO,Peso Amostral,real,sin_clasificar
+brasil,CP2010BRA,PESSOA,PREVID,Contribuinte de Instituto de Previdência,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,PREVPRI,Condição de contribuição para instituto de previdência oficial no trabalho principal,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,PREVQQ,Condição de contribuição para instituto de previdência oficial em qualquer trabalho,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,REGISTRO,Registro de Nascimento,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RELIGIAO,Religiao,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RELIGIAOG,Religião ou culto - grupo,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RENDOUTS,Rendimento nos demais trabalhos em salários mínimos,real,sin_clasificar
+brasil,CP2010BRA,PESSOA,RENDOUTT,Tipo de rendimento bruto nos demais trabalhos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RENDOUTV,Rendimento bruto (valor) mensal nos demais trabalhos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RENDSM,Rendimento no trabalho principal em salários mínimos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RENDTIPO,Tipo de rendimento bruto no trabalho principal,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RENDTOT,Rendimento mensal total,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RENDTOTSM,Rendimento mensal total em salários mínimos,real,sin_clasificar
+brasil,CP2010BRA,PESSOA,RENDTOTT,Rendimento em todos os trabalhos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RENDTOTTS,Rendimento em todos os trabalhos em salários mínimos,real,sin_clasificar
+brasil,CP2010BRA,PESSOA,RENDTRAB,Rendimento no trabalho principal,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RENDVALOR,Rendimento bruto (valor) mensal no trabalho principal,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RESIDMUN,Município de residência em 31 de Julho de 2005,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RESIDONDE,Residência em 31 de Julho de 2005,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RESIDPAIS,País de residência em 31 de Julho de 2005,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RESIDUF,UF de residência em 31 de Julho de 2005,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,RETORNA,Retorna do trabalho para casa diariamente,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,SABELER,Sabe ler e escrever,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,SERIE,Série que frequenta,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,SERIEANO,Série / Ano que frequenta,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,SEXO,Sexo,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,SITOCUP,Situação de ocupação,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,TEMFIVI,Tem filhos vivos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,TEMPO,Tempo de deslocamento para o trabalho,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,TEMPOMUN,Tempo de moradia no município,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,TEMPOUF,Tempo de moradia na UF,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,TEVEFINV,Teve filhos e filhas nascidos vivos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,TINHA,Tinha trabalho mas estava afastado,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,TOMOU,Tomou alguma providência para conseguir trabalho,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,TRABALHOS,Quantos trabalhos tinha,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,TRABALHOU,"Trabalhou ganhando dinheiro, produtos, mercadorias ou benefícios",integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,TRABMUN,Munic que trabalha,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,TRABONDE,Em que Munic e UF ou País trabalha,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,TRABPAIS,País estrangeiro que trabalha,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,TRABUF,UF que trabalha,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,UFANT,UF de residência anterior,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,UFANTA,UF de residência anterior - 2 dígitos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,UFFREQA,UF que frequentava escola (ou creche) - 2 dígitos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,UFNASCA,UF de Nascimento - 2 dígitos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,UFRESIDA,UF de residência em 31 de julho de 2005 - 2 dígitos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,UFTRABA,UF que trabalhava - 2 dígitos,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,V5020,Número da família,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,V5060,Número de pessoas na família,integer,sin_clasificar
+brasil,CP2010BRA,PESSOA,V5070,Rendimento familiar per capita em julho de 2010,real,sin_clasificar
+brasil,CP2010BRA,PESSOA,V5080,Rendimento familiar per capita em nº de salários mínimos em julho de 2010,real,sin_clasificar
+brasil,CP2010BRA,PESSOA,VIVE,Vive em companhia de cônjuge ou companheiro(a),integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0502,Marca de imputação da V0502,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0601,Marca de imputação da V0601,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0604,Marca de imputação na V0604,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0605,Marca de imputação na V0605,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0606,Marca de imputação da V0606,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0613,Marca de imputação da V0613,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0614,Marca de imputação da V0614,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0615,Marca de imputação da V0615,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0616,Marca de imputação da V0616,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0617,Marca de imputação da V0617,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0618,Marca de imputação da V0618,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0619,Marca de imputação da V0619,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0620,Marca de imputação da V0620,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0621,Marca de imputação da V0621,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0622,Marca de imputação da V0622,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0623,Marca de imputação da V0623,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0624,Marca de imputação da V0624,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0625,Marca de imputação da V0625,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0626,Marca de imputação da V0626,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0627,Marca de imputação da V0627,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0628,Marca de imputação da V0628,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0629,Marca de imputação da V0629,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0630,Marca de imputação da V0630,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0631,Marca de imputação da V0631,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0632,Marca de imputação da V0632,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0633,Marca de imputação da V0633,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0634,Marca de imputação da V0634,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0635,Marca de imputação da V0635,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0636,Marca de imputação da V0636,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0637,Marca de imputação da V0637,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0638,Marca de imputação da V0638,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0639,Marca de imputação da V0639,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0640,Marca de imputação da V0640,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0641,Marca de imputação da V0641,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0642,Marca de imputação da V0642,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0643,Marca de imputação da V0643,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0644,Marca de imputação da V0644,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0645,Marca de imputação da V0645,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0648,Marca de imputação da V0648,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0649,Marca de imputação da V0649,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0650,Marca de imputação da V0650,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0651,Marca de imputação da V0651,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0652,Marca de imputação da V0652,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0653,Marca de imputação da V0653,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0654,Marca de imputação da V0654,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0655,Marca de imputação da V0655,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0656,Marca de imputação da V0656,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0657,Marca de imputação da V0657,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0658,Marca de imputação da V0658,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0659,Marca de imputação da V0659,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0660,Marca de imputação da V0660,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0662,Marca de imputação da V0662,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0663,Marca de imputação da V0663,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0664,Marca de imputação da V0664,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0665,Marca de imputação da V0665,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0667,Marca de imputação da V0667,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0668,Marca de imputação da V0668,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0669,Marca de imputação da V0669,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0670,Marca de imputação da V0670,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M0671,Marca de imputação da V0671,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6033,Marca de imputação da V6033,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6121,Marca de imputação na V6121,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6222,Marca de imputação da V6222,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6224,Marca de imputação da V6224,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6252,Marca de imputação da V6252,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6254,Marca de imputação da V6254,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6256,Marca de imputação da V6256,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6262,Marca de imputação da V6262,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6264,Marca de imputação da V6264,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6266,Marca de imputação da V6266,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6352,Marca de imputação da V6352,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6354,Marca de imputação da V6354,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6356,Marca de imputação da V6356,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6362,Marca de imputação da V6362,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6364,Marca de imputação da V6364,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6366,Marca de imputação da V6366,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6461,Marca de imputação da V6461,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6462,Marca de imputação na V6462,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6471,Marca de imputação da V6471,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6472,Marca de imputação na V6472,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6511,Marca de imputação da V6511,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6521,Marca de imputação da V6521,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6591,Marca de imputação da V6591,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6602,Marca de imputação da V6602,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6604,Marca de imputação da V6604,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6606,Marca de imputação da V6606,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M660A,Marca de imputação da V0661,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6631,Marca de imputação da V6631,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6632,Marca de imputação da V6632,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6633,Marca de imputação da V6633,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6641,Marca de imputação da V6641,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6642,Marca de imputação da V6642,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6643,Marca de imputação da V6643,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6660,Marca de imputação da V6660,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6681,Marca de imputação da V6681,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6682,Marca de imputação da V6682,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6691,Marca de imputação da V6691,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6692,Marca de imputação da V6692,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6693,Marca de imputação da V6693,integer,sin_clasificar
+brasil,CP2010BRA,PMARCAS,M6800,Marca de imputação da V6800,integer,sin_clasificar
+brasil,CP2010BRA,REGIAO,IDREG,Identificação da Região Geográfica,string,sin_clasificar
+brasil,CP2010BRA,REGIAO,REGIAO,Código da Região Geográfica,integer,sin_clasificar
+brasil,CP2010BRA,REGIAO,REGNOME,Nome das Regiões,string,sin_clasificar
+brasil,CP2010BRA,UF,IDUF,Identificação da Unidade da Federação,string,sin_clasificar
+brasil,CP2010BRA,UF,UF,Unidade da Federação,integer,sin_clasificar
+brasil,CP2010BRA,UF,UFNOME,Nome das UFs,string,sin_clasificar
+chile,CP2017CHL,AREA,AREA,Código de Area,integer,sin_clasificar
+chile,CP2017CHL,AREA,IDAREA,Código de Area,string,sin_clasificar
+chile,CP2017CHL,CENSO16R,CENSO,Identification code,string,sin_clasificar
+chile,CP2017CHL,COMUNA,IDCOMUNA,Código Comuna,string,sin_clasificar
+chile,CP2017CHL,COMUNA,NCOMUNA,Comunas,string,sin_clasificar
+chile,CP2017CHL,COMUNA,REDCODEN,División Comunal,integer,sin_clasificar
+chile,CP2017CHL,DISTRITO,IDDIST,Distrito Censal,string,sin_clasificar
+chile,CP2017CHL,DISTRITO,NDISTRITO,Distritos,string,sin_clasificar
+chile,CP2017CHL,HOGAR,NHOGAR,Número del hogar,integer,sin_clasificar
+chile,CP2017CHL,HOGAR,TIPO_HOGAR,Tipo de hogar,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,ESCOLARIDAD,Años de escolaridad,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P07,Relación de parentesco,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P08,Sexo,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P09,Edad,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P10,Residencia habitual,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P10COMUNA,Comuna de Residencia Habitual,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P10PAIS,Pais de Residencia Habitual,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P10PAIS_GRUPO,Pais de Residencia Habitual(grupo),integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P11,Comuna de Residencia Anterior,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P11COMUNA,Comuna de Residencia Anterior,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P11PAIS,Pais de Residencia Anterior,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P11PAIS_GRUPO,Pais de Residencia Anterior (grupo),integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P12,Comuna o pais de Nacimiento,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P12A_LLEGADA,Año de Llegada al País,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P12A_TRAMO,Período de Llegada al País,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P12COMUNA,Comuna de Nacimiento,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P12PAIS,Pais de Nacimiento,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P12PAIS_GRUPO,Pais de Nacimiento(grupo),integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P13,Asiste actualmente a educación formal,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P14,Curso o año más alto aprobado,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P15,Nivel del curso más alto aprobado,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P15A,Completó el nivel especificado,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P16,Se considera perteneciente a pueblo indígena u originario,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P16A,Pueblo indígena u originario,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P16A_GRUPO,Pueblo indígena u originario (Grupo),integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P16A_OTRO,Pueblo indígena u originario (Otros),integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P17,Trabajó durante la semana pasada,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P18,Rama de la actividad económica,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P19,Total hijos/as nacidos vivos,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P20,Total hijos/as actualmente vivos,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P21A,Año de nacimiento de último hijo/a,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,P21M,Mes de nacimiento del último/a hijo/a,integer,sin_clasificar
+chile,CP2017CHL,PERSONA,PERSONAN,Número de la persona,integer,sin_clasificar
+chile,CP2017CHL,PROVINCI,IDPROVIN,Código Provincia,string,sin_clasificar
+chile,CP2017CHL,PROVINCI,NPROVI,Provincias,string,sin_clasificar
+chile,CP2017CHL,PROVINCI,REDCODEN,División Provincial,integer,sin_clasificar
+chile,CP2017CHL,REGION,IDREGION,Código Region,string,sin_clasificar
+chile,CP2017CHL,REGION,NREGION,Regiones,string,sin_clasificar
+chile,CP2017CHL,REGION,REDCODEN,División Regional,integer,sin_clasificar
+chile,CP2017CHL,VIVIENDA,CANT_HOG,Cantidad de Hogares,integer,sin_clasificar
+chile,CP2017CHL,VIVIENDA,CANT_PER,Cantidad de Personas,integer,sin_clasificar
+chile,CP2017CHL,VIVIENDA,NVIV,Número de la Vivienda,integer,sin_clasificar
+chile,CP2017CHL,VIVIENDA,P01,Tipo de Vivienda,integer,sin_clasificar
+chile,CP2017CHL,VIVIENDA,P02,Ocupación de la Vivienda,integer,sin_clasificar
+chile,CP2017CHL,VIVIENDA,P03A,Material de los muros exteriores,integer,sin_clasificar
+chile,CP2017CHL,VIVIENDA,P03B,Material en la cubierta del techo,integer,sin_clasificar
+chile,CP2017CHL,VIVIENDA,P03C,Material de construcción del piso,integer,sin_clasificar
+chile,CP2017CHL,VIVIENDA,P04,Número de piezas usadas exclusivamente como dormitorio,integer,sin_clasificar
+chile,CP2017CHL,VIVIENDA,P05,Origen del Agua,integer,sin_clasificar
+chile,CP2017CHL,ZONALOC,IDZC,Zona Censal/Localidad,string,sin_clasificar
+chile,CP2017CHL,ZONALOC,NLOCALIDAD,Localidades,string,sin_clasificar
+peru,CP2017PER,DEPARTAM,CCDD,Departamento,string,sin_clasificar
+peru,CP2017PER,DEPARTAM,NCCDD,Departamento,string,sin_clasificar
+peru,CP2017PER,DISTRITO,CCDI,Distrito,string,sin_clasificar
+peru,CP2017PER,DISTRITO,NCCDI,Distrito,string,sin_clasificar
+peru,CP2017PER,HOGAR,C3P11,H: La energía o combustible que utiliza para cocinar: electricidad,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P12,H: La energía o combustible que utiliza para cocinar: gas (balón GLP),integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P13,H: La energía o combustible que utiliza para cocinar: gas natural (sistema de tuberías),integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P14,H: La energía o combustible que utiliza para cocinar: carbón,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P15,H: La energía o combustible que utiliza para cocinar: leña,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P16,"H: La energía o combustible que utiliza para cocinar: bosta, estiércol",integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P17,"H: La energía o combustible que utiliza para cocinar: otros (residuos agrícolas, etc.)",integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P18,H: La energía o combustible que utiliza para cocinar: NO COCINAN,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P21,H: Su hogar tiene: Equipo de sonido,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P210,H: Su hogar tiene: Teléfono celular,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P211,H: Su hogar tiene: Teléfono fijo,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P212,H: Su hogar tiene: Conexión a TV por cable o satelital,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P213,H: Su hogar tiene: Conexión a Internet,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P214,"H: Su hogar tiene: Automóvil, camioneta",integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P215,H: Su hogar tiene: Motocicleta,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P216,"H: Su hogar tiene: Lancha, bote motor, peque peque, canoa",integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P22,H: Su hogar tiene: Televisor a color,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P23,H: Su hogar tiene: Cocina a gas,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P24,H: Su hogar tiene: Refrigeradora o congeladora,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P25,H: Su hogar tiene: Lavadora de ropa,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P26,H: Su hogar tiene: Horno microondas,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P27,H: Su hogar tiene: Licuadora,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P28,H: Su hogar tiene: Plancha eléctrica,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P29,H: Su hogar tiene: Computadora/Laptop/Tablet,integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P3,"H: Personas que eran miembros de este hogar, viven en otro país",integer,sin_clasificar
+peru,CP2017PER,HOGAR,C3P3A,H: Nro. de personas en este hogar que viven en otro país,integer,sin_clasificar
+peru,CP2017PER,HOGAR,HAREA,H: Área concepto censal,integer,sin_clasificar
+peru,CP2017PER,HOGAR,HENCARE,H: Área concepto encuesta,integer,sin_clasificar
+peru,CP2017PER,HOGAR,HNROHOG,Número Hogar,integer,sin_clasificar
+peru,CP2017PER,HOGAR,sexcon,H: Sexo del Esposo/a o compañero/a del hogar,integer,sin_clasificar
+peru,CP2017PER,HOGAR,sexjef,H: Sexo del jefe del hogar,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P1,P: Relación de parentesco con el jefe del hogar,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P10A,P: Tipo de documento nacional de identidad,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P11,P3a+: Idioma o lengua con el que aprendió hablar,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P12,P3a+: Sabe leer y escribir,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P13ANIOE,P3a+: Último año que aprobó en Básica Especial,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P13ANIOP,P3a+: Último año que aprobó en Primaria,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P13ANIOS,P3a+: Último año que aprobó en Secundaria,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P13GRA,P3a+: Último grado que aprobó en Primaria,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P13NIV,P3a+: Último nivel de estudio que aprobó,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P14,"P3a+: Actualmente - Asiste a algún colegio, instituto o universidad",integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P15,P3a+: La institución educativa al que asiste está ubicada:,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P15BCOD,P3a+: Departamento de la Institución a la que asiste,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P15DI,P3a+: Distrito o país de la Institución a la que asiste,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P15PV,P3a+: Provincia o continente de la Institución a la que asiste,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P16,P5a+: La semana pasada - Trabajó por algún pago en dinero o especie,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P17,P5a+: La semana pasada - ¿Qué hacia?,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P18,P5a+: La semana pasada estuvo buscando trabajo activamente,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P19COD,P5a+: La semana pasada ¿Cuál es la ocupación principal?,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P19CODA,"P5a+: La semana pasada, segúngran grupo, ¿Cuál es la ocupación principal?",integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P2,P: Sexo,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P20COD,"P5a+: La semana pasada a qué actividad se dedicó el negocio, organismo o empresa en la que trabajó",integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P20CODA,"P5a+: La semana pasada, según sección, ¿A qué actividad se dedicó el negocio?",integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P21,P5a+: En su centro de trabajo se desempeñó como:,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P22,P5a+: En su centro de trabajo laboraron:,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P23,P5a+: Su centro de trabajo está ubicado,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P23BCOD,P5a+: Departamento donde está ubicado su centro trabajo,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P24,P12a+: Estado civil o conyugal,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P25,P12a+: Por sus costumbres y sus antepasados Ud. se considera:,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P26,P12a+: Religión que profesa,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P27,Pm12a+: Nro. total de hijos/as que ha tenido - Nacidos vivos,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P271,Pm12a+: Ningún hijo nacido vivo,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P28,Pm12a+: Nro. total de hijos/as que actualmente - Están vivos,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P281,Pm12a+: Ningún hijo actualmente vivo,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P291,Pm12a+: Su último hijo nacido vivo - Mes,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P292,Pm12a+: Su último hijo nacido vivo  - Año,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P41,P: Edad en años,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P41M,P: Edad en meses,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P5,P: ¿Vive permanentemente en este distrito?,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P5BCOD,P: Departamento donde vive permanentemente,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P5DI,P: Distrito o país donde vive permanentemente,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P5PV,P: Provincia o continente donde vive permanentemente,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P6,P: ¿Hace 5 años vivía en este distrito?,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P6BCOD,P: Departamento donde vivía hace 5 años,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P6DI,P: Distrito o país donde vivía hace 5 años,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P6PV,P: Provincia o continente donde vivía hace 5 años,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P7,P: Cuándo ud nació ¿Vivía su madre en este distrito?,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P7BCOD,P: Departamento donde vivía su madre,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P7DI,P: Distrito o país donde vivía su madre,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P7PV,P: Provincia o continente donde vivía su madre,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P81,P: Población afiliada: al SIS,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P82,P: Población afiliada: a EsSalud,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P83,P: Población afiliada: a seguro de fuerzas armadas o policiales,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P84,P: Población afiliada: a seguro privado de salud,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P85,P: Población afiliada: a otro seguro,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P86,P: Población afiliada: a ningún seguro,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P91,P: Población con discapacidad: Ver,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P92,P: Población con discapacidad: Oír,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P93,P: Población con discapacidad: Hablar,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P94,P: Población con discapacidad: Moverse o caminar para usar brazos y piernas,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P95,P: Población con discapacidad: Entender o aprender,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P96,P: Población con discapacidad: Relacionarse con los demás,integer,sin_clasificar
+peru,CP2017PER,PERSONA,C5P97,P: Población con discapacidad: Ninguna,integer,sin_clasificar
+peru,CP2017PER,PERSONA,EDQUINQ,P: Edad en grupos quinquenales,integer,sin_clasificar
+peru,CP2017PER,PERSONA,FACTORPOND,Población total,real,sin_clasificar
+peru,CP2017PER,PERSONA,P03ESC,"P: Población de 3 a 24 años, por grupo de edad",integer,sin_clasificar
+peru,CP2017PER,PERSONA,P03GQ15M,P: Población de 15 años a más en grupos quinquenales,integer,sin_clasificar
+peru,CP2017PER,PERSONA,P08AFILIA,Población afiliada a seguros de salud,integer,sin_clasificar
+peru,CP2017PER,PERSONA,P09DISC,Población con alguna discapacidad,integer,sin_clasificar
+peru,CP2017PER,PERSONA,PAREA,P: Área concepto censal,integer,sin_clasificar
+peru,CP2017PER,PERSONA,PENCARE,P: Área concepto encuesta,integer,sin_clasificar
+peru,CP2017PER,PERSONA,PET,P15a+: Población en edad de trabajar - PET,integer,sin_clasificar
+peru,CP2017PER,PROVINCI,CCPP,Provincia,string,sin_clasificar
+peru,CP2017PER,PROVINCI,NCCPP,Provincia,string,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P1,V: Tipo de vivienda,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P10,V: Servicio higiénico que tiene la vivienda,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P11,V: La vivienda tiene alumbrado eléctrico por red pública,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P12,V: Nro. de habitaciones que tiene en total la vivienda,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P13,V: Tenencia de la vivienda - La vivienda que ocupa es:,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P2,V: Condición de ocupación de la vivienda,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P3,V: Material de construcción predominante en las paredes,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P4,V: Material de construcción predominante en los techos,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P5,V: Material de construcción predominante en los pisos,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P6,V: Abastecimiento de agua en la vivienda,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P7,V: Servicio de agua - Todos los días de la semana,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P7A,V: Servicio de agua - En la semana ¿Cuántas horas por día?,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P7B,V: Servicio de agua - Solo algunos días a la semana,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P7C,V: Servicio de agua - Por los días de la semana ¿Cuántas horas al día?,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P8,V: ¿Pagan por el servicio de agua?,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,C2P9,V: A qué empresa o entidad se paga por el servicio de agua,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,ENCAREA,V: Área concepto encuesta,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,TOTELD,V: Indicador de vivienda con adulto mayor,integer,sin_clasificar
+peru,CP2017PER,VIVIENDA,VAREA,V: Área concepto censal,integer,sin_clasificar
