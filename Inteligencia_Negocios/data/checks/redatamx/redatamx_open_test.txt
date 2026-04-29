@@ -1,0 +1,175 @@
+== redatamx open test ==
+Package version: 1.2.1 
+R_LIBS_USER: ~/R/x86_64-pc-linux-gnu-library/4.6 
+Working directory: /home/martuko/Universidad/Inteligencia_Negocios 
+
+Available redatamx functions:
+ [1] "outputs"                "redatam_close"          "redatam_create"        
+ [4] "redatam_destroy_"       "redatam_entities"       "redatam_info"          
+ [7] "redatam_init_"          "redatam_internal_query" "redatam_internal_run"  
+[10] "redatam_load_plugin"    "redatam_open"           "redatam_query"         
+[13] "redatam_run"            "redatam_save"           "redatam_variables"     
+[16] "redatam_version"       
+
+Candidate files found: 16 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dic 
+Size bytes: 318217 
+STATUS: open_failed 
+ERROR: Dictionary must be a valid object 
+strings_has_text: TRUE 
+strings_hits: 678 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx 
+Size bytes: 1510392 
+Entities:
+      name selectable virtual   codes  labels
+1 CPV2010A          0       0                
+2     PROV          1       0  IDPROV NOMPROV
+3     DPTO          1       0  IDDPTO NOMDPTO
+4     FRAC          1       0  IDFRAC        
+5    RADIO          1       0 IDRADIO        
+6      SEG          1       0   IDSEG        
+7 VIVIENDA          0       0                
+8    HOGAR          0       0                
+9  PERSONA          0       0                
+STATUS: opened_ok 
+NOTES:  variables_failed: argument "entity_name" is missing, with no default 
+strings_has_text: TRUE 
+strings_hits: 1049 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dic 
+Size bytes: 48041 
+STATUS: open_failed 
+ERROR: Dictionary must be a valid object 
+strings_has_text: TRUE 
+strings_hits: 206 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx 
+Size bytes: 446774 
+Entities:
+       name selectable virtual    codes     labels
+1  CENSO16R          0       0    CENSO           
+2    REGION          1       0 IDREGION    NREGION
+3  PROVINCI          1       0 IDPROVIN     NPROVI
+4    COMUNA          1       0 IDCOMUNA    NCOMUNA
+5  DISTRITO          1       0   IDDIST  NDISTRITO
+6      AREA          1       0   IDAREA           
+7   ZONALOC          1       0     IDZC NLOCALIDAD
+8  VIVIENDA          0       0                    
+9     HOGAR          0       0                    
+10  PERSONA          0       0                    
+STATUS: opened_ok 
+NOTES:  variables_failed: argument "entity_name" is missing, with no default 
+strings_has_text: TRUE 
+strings_hits: 250 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dic 
+Size bytes: 498423 
+STATUS: open_failed 
+ERROR: Dictionary must be a valid object 
+strings_has_text: TRUE 
+strings_hits: 4069 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX 
+Size bytes: 2297323 
+Entities:
+      name selectable virtual codes labels
+1 CPV2017D          0       0             
+2 DEPARTAM          1       0  CCDD  NCCDD
+3 PROVINCI          1       0  CCPP  NCCPP
+4 DISTRITO          1       0  CCDI  NCCDI
+5 VIVIENDA          0       0             
+6    HOGAR          0       0             
+7  PERSONA          0       0             
+STATUS: opened_ok 
+NOTES:  variables_failed: argument "entity_name" is missing, with no default 
+strings_has_text: TRUE 
+strings_hits: 9901 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2010BRA/BaseR/CD2010_001.rbf 
+Size bytes: 5 
+STATUS: open_failed 
+ERROR: Dictionary must be a valid object 
+strings_has_text: TRUE 
+strings_hits: 0 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2010BRA/BaseR/CD2010_002.rbf 
+Size bytes: 4 
+STATUS: open_failed 
+ERROR: Dictionary must be a valid object 
+strings_has_text: FALSE 
+strings_hits: 0 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2010BRA/BaseR/CD2010_003.rbf 
+Size bytes: 320 
+STATUS: open_failed 
+ERROR: Dictionary must be a valid object 
+strings_has_text: TRUE 
+strings_hits: 0 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2010BRA/BaseR/CD2010_004.rbf 
+Size bytes: 27 
+STATUS: open_failed 
+ERROR: Dictionary must be a valid object 
+strings_has_text: TRUE 
+strings_hits: 0 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2010BRA/BaseR/CD2010_005.rbf 
+Size bytes: 24 
+STATUS: open_failed 
+ERROR: Dictionary must be a valid object 
+strings_has_text: TRUE 
+strings_hits: 0 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2010BRA/BaseR/CD2010_006.rbf 
+Size bytes: 1728 
+STATUS: open_failed 
+ERROR: Dictionary must be a valid object 
+strings_has_text: TRUE 
+strings_hits: 1 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2010BRA/BaseR/CD2010_007.rbf 
+Size bytes: 27825 
+STATUS: open_failed 
+ERROR: Dictionary must be a valid object 
+strings_has_text: TRUE 
+strings_hits: 0 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2010BRA/BaseR/CD2010_008.rbf 
+Size bytes: 11828 
+STATUS: open_failed 
+ERROR: Dictionary must be a valid object 
+strings_has_text: TRUE 
+strings_hits: 0 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2010BRA/BaseR/CD2010_009.rbf 
+Size bytes: 4872 
+STATUS: open_failed 
+ERROR: Dictionary must be a valid object 
+strings_has_text: FALSE 
+strings_hits: 0 
+
+------------------------------------------------------------
+Testing: data/extracted/CP2010BRA/BaseR/CD2010_010.rbf 
+Size bytes: 356160 
+STATUS: open_failed 
+ERROR: Dictionary must be a valid object 
+strings_has_text: TRUE 
+strings_hits: 105 
+

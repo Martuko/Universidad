@@ -1,0 +1,24 @@
+   1104 rbf
+    149 bin
+     61 ptr
+     29 pdf
+     23 spc
+     15 txt
+      9 xls
+      9 dicx
+      8 dic
+      6 ~dicx
+      5 doc
+      4 wxp
+      4 prjx
+      2 ~di
+      1 zip
+      1 xlsx
+      1 wpm
+      1 ~wipx
+      1 tmp
+      1 mpg
+      1 mdb
+      1 ldb
+      1 docx
+      1 dic(respaldo del original)

@@ -1,0 +1,63 @@
+# Listado de datasets por país
+
+## Brasil
+
+Dir: data/extracted/CP2010BRA
+Tamaño: 4.8G
+
+Subdirectorios:
+  - BaseR
+  - Docs
+
+Dir: data/extracted/Cp1991BRA
+Tamaño: 1.8G
+
+Subdirectorios:
+  - BaseOriginal
+  - Celade
+  - Documentos
+
+Dir: data/extracted/Cp2000BRA
+Tamaño: 3.0G
+
+Subdirectorios:
+  - BaseOriginal
+  - Celade
+  - Documentos
+
+## Peru
+
+Dir: data/extracted/CP2017PER
+Tamaño: 1.8G
+
+Subdirectorios:
+  - BaseD
+  - Docs
+
+Dir: data/extracted/CP2007PER
+Tamaño: 1.6G
+
+Subdirectorios:
+  - CP2007PER
+
+## Argentina
+
+Dir: data/extracted/CP2010ARG
+Tamaño: 1.5G
+
+Subdirectorios:
+  - BASE_AMP_DPTO
+  - Docs
+
+## Chile
+
+Dir: data/extracted/CP2017CHL
+Tamaño: 763M
+
+Subdirectorios:
+  - BaseOrg16
+  - Docs
+
+
+---
+

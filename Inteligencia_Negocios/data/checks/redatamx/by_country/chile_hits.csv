@@ -1,0 +1,62 @@
+name,label,typeName,alias,country,dataset,dictionary,entity,theme_hits
+AREA,Código de Area,integer,URBRUR,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,AREA,geografia
+IDAREA,Código de Area,string,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,AREA,geografia
+CENSO,Identification code,string,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,CENSO16R,geografia
+IDCOMUNA,Código Comuna,string,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,COMUNA,geografia
+NCOMUNA,Comunas,string,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,COMUNA,geografia
+REDCODEN,División Comunal,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,COMUNA,geografia
+IDDIST,Distrito Censal,string,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,DISTRITO,geografia
+NDISTRITO,Distritos,string,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,DISTRITO,geografia
+NHOGAR,Número del hogar,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,HOGAR,vivienda;entidad
+TIPO_HOGAR,Tipo de hogar,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,HOGAR,vivienda;entidad
+ESCOLARIDAD,Años de escolaridad,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,escolaridad;edad;entidad
+P07,Relación de parentesco,integer,PARENTES,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,entidad
+P08,Sexo,integer,SEXO,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,sexo;entidad
+P09,Edad,integer,EDAD,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,edad;entidad
+P10,Residencia habitual,integer,LUGRES,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,entidad
+P10COMUNA,Comuna de Residencia Habitual,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,geografia;entidad
+P10PAIS,Pais de Residencia Habitual,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,entidad
+P10PAIS_GRUPO,Pais de Residencia Habitual(grupo),integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,edad;entidad
+P11,Comuna de Residencia Anterior,integer,LUGRESANT,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,geografia;entidad
+P11COMUNA,Comuna de Residencia Anterior,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,geografia;entidad
+P11PAIS,Pais de Residencia Anterior,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,entidad
+P11PAIS_GRUPO,Pais de Residencia Anterior (grupo),integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,edad;entidad
+P12,Comuna o pais de Nacimiento,integer,LUGNAC,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,geografia;entidad
+P12A_LLEGADA,Año de Llegada al País,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,entidad
+P12A_TRAMO,Período de Llegada al País,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,edad;entidad
+P12COMUNA,Comuna de Nacimiento,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,geografia;entidad
+P12PAIS,Pais de Nacimiento,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,entidad
+P12PAIS_GRUPO,Pais de Nacimiento(grupo),integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,edad;entidad
+P13,Asiste actualmente a educación formal,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,escolaridad;entidad
+P14,Curso o año más alto aprobado,integer,CURSO,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,escolaridad;entidad
+P15,Nivel del curso más alto aprobado,integer,NIVEL,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,escolaridad;entidad
+P15A,Completó el nivel especificado,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,escolaridad;entidad
+P16,Se considera perteneciente a pueblo indígena u originario,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,entidad
+P16A,Pueblo indígena u originario,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,entidad
+P16A_GRUPO,Pueblo indígena u originario (Grupo),integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,edad;entidad
+P16A_OTRO,Pueblo indígena u originario (Otros),integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,entidad
+P17,Trabajó durante la semana pasada,integer,SLABORAL,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,entidad
+P18,Rama de la actividad económica,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,entidad
+P19,Total hijos/as nacidos vivos,integer,HIJOS,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,vivienda;entidad
+P20,Total hijos/as actualmente vivos,integer,HIJOSVIV,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,vivienda;entidad
+P21A,Año de nacimiento de último hijo/a,integer,ANOHIJO,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,entidad
+P21M,Mes de nacimiento del último/a hijo/a,integer,MESHIJO,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,entidad
+PERSONAN,Número de la persona,integer,NUMOPER,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PERSONA,entidad
+IDPROVIN,Código Provincia,string,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PROVINCI,geografia
+NPROVI,Provincias,string,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PROVINCI,geografia
+REDCODEN,División Provincial,integer,PROVINCIA,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,PROVINCI,geografia
+IDREGION,Código Region,string,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,REGION,geografia
+NREGION,Regiones,string,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,REGION,geografia
+REDCODEN,División Regional,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,REGION,geografia
+CANT_HOG,Cantidad de Hogares,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,VIVIENDA,vivienda;entidad
+CANT_PER,Cantidad de Personas,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,VIVIENDA,vivienda;entidad
+NVIV,Número de la Vivienda,integer,NUMOVIV,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,VIVIENDA,vivienda;entidad
+P01,Tipo de Vivienda,integer,TIPOVIV,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,VIVIENDA,vivienda;entidad
+P02,Ocupación de la Vivienda,integer,CONDOCUP,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,VIVIENDA,vivienda;entidad
+P03A,Material de los muros exteriores,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,VIVIENDA,vivienda;entidad
+P03B,Material en la cubierta del techo,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,VIVIENDA,vivienda;entidad
+P03C,Material de construcción del piso,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,VIVIENDA,vivienda;entidad
+P04,Número de piezas usadas exclusivamente como dormitorio,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,VIVIENDA,vivienda;entidad
+P05,Origen del Agua,integer,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,VIVIENDA,vivienda;entidad
+IDZC,Zona Censal/Localidad,string,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,ZONALOC,geografia
+NLOCALIDAD,Localidades,string,,chile,CP2017CHL,data/extracted/CP2017CHL/BaseOrg16/CPV2017-16.dicx,ZONALOC,edad;geografia

@@ -1,0 +1,140 @@
+# Clasificación de Archivos por Rol Probable
+# Reconocimiento Técnico Inicial - 2026-04-29
+
+## CLASIFICACIÓN POR ROL
+
+### 1. DATOS PRINCIPALES (.rbf)
+**Cantidad**: 1,104 archivos
+**Tamaño aproximado**: 10+ GB
+**Descripción**: Datos Redatam principales (personas + viviendas)
+
+**Estructura típica**:
+- CPVxxxx.rbf - Datos combinados de censo
+- CPVxxxx-xxxx.rbf - Segmentos geográficos/temáticos
+- CDxxxxxxx.rbf - Diccionarios de código (también .rbf pero rol diferente)
+- PESSOA_xxx.rbf - Datos de persona (Brasil 2010)
+
+**Características**:
+- No legibles directamente sin librería Redatam
+- Estructura binaria propietaria
+- Contienen datos de vivienda y población
+
+### 2. BINARIOS (.bin)
+**Cantidad**: 149 archivos
+**Tamaño aproximado**: 10 GB
+**Descripción**: Datos binarios (posiblemente comprimidos o formatos especiales)
+
+**Ubicación típica**:
+- Cp1991BRA/BaseOriginal/
+- Posibles datos comprimidos o binarios del censo
+
+### 3. POINTER FILES (.ptr)
+**Cantidad**: 61 archivos
+**Tamaño**: < 100 KB cada uno
+**Descripción**: Archivos de punteros para navegación en datasets grandes
+
+**Función probable**:
+- Optimizar acceso a datos
+- Segmentar datasets grandes
+- Indexación interna de Redatam
+
+### 4. DICCIONARIOS (.dic, .dicx, .~dicX)
+**Cantidad**: 108 archivos
+**Tamaño**: 200KB - 500KB
+**Descripción**: Diccionarios Redatam con nombres de variables
+
+**Estructura**:
+- .dic - Diccionario principal (texto)
+- .dicx - Diccionario comprimido
+- .~dicX - Respaldo/diagnóstico
+
+**Contenido**:
+- Strings que representan nombres de variables
+- Rangos de valores (ej: "0 TO 19" = edad 0-19 años)
+- Códigos y descripciones
+
+### 5. ESPECIFICACIONES (.spc)
+**Cantidad**: 23 archivos
+**Descripción**: Especificaciones de datasets
+
+**Probable contenido**:
+- Definición de estructura de dataset
+- Metadatos técnicos
+- Versiones de datasets
+
+### 6. DOCUMENTACIÓN (.pdf, .doc, .docx, .txt)
+**Cantidad**: 73 archivos
+**Tamaño**: 1MB - 10MB
+**Descripción**: Documentación técnica y usuarios
+
+**Categorías**:
+- **Manuales**: Manual de usuario, manual para censistas
+- **Glosarios**: Glosas_COMUNA, Glosas_REGION, etc.
+- **Cuestionarios**: Formularios de censo
+- **Presentaciones**: Slides de resultados
+- **LEAME**: Instrucciones de uso
+
+### 7. PROYECTOS (.prjx, .wxp, .wpm)
+**Cantidad**: 10 archivos
+**Descripción**: Archivos de proyecto Redatam
+
+**Probable contenido**:
+- Estructura de proyecto
+- Definiciones de datasets
+- Metadatos del proyecto
+
+### 8. HOJAS DE CÁLCULO (.xls, .xlsx)
+**Cantidad**: 10 archivos
+**Descripción**: Hojas de cálculo con datos o templates
+
+### 9. OTROS
+**Cantidad**: 5 archivos
+**Descripción**:
+- .zip - Archivo comprimido
+- .mpg - Archivo de video/audio
+- .mdb, .ldb - Archivos Access (bases de datos)
+- .tmp - Archivos temporales
+
+---
+
+## RESUMEN POR EXTENSIÓN
+
+| Extensión | Rol | Cantidad | Tamaño típico | Legible |
+|---|---|---|---|---|
+| .rbf | Datos principales | 1,104 | 5MB - 500MB | No (sin librería) |
+| .bin | Binarios | 149 | 50MB - 70MB | No |
+| .ptr | Pointers | 61 | < 100KB | No |
+| .dic / .dicx | Diccionarios | 108 | 200KB - 500KB | Parcial (strings) |
+| .spc | Especificaciones | 23 | 1KB - 100KB | Sí |
+| .pdf | Documentación | 29 | 1MB - 5MB | Sí |
+| .doc / .docx | Documentación | 11 | 100KB - 5MB | Sí |
+| .txt | Metadata | 15 | 1KB - 50KB | Sí |
+| .xls / .xlsx | Hojas de cálculo | 10 | 50KB - 500KB | Parcial |
+| .prjx / .wxp / .wpm | Proyectos | 10 | 1KB - 100KB | Parcial |
+| .zip | Comprimido | 1 | Variable | Sí |
+| .mpg | Media | 1 | 78MB | Sí (video) |
+| .mdb / .ldb | Bases Access | 2 | Variable | Parcial |
+| .tmp | Temporal | 1 | Variable | Sí |
+| .dic (respaldo) | Diccionario | 1 | - | - |
+
+**Total: 1,438 archivos, ~14.9 GB**
+
+---
+
+## OBSERVACIONES IMPORTANTES
+
+1. **Archivos .rbf no son CSV**: No se pueden leer como texto plano
+2. **Diccionarios contienen nombres reales**: Requieren lectura parcial
+3. **Pointer files**: Probablemente para optimización de lectura
+4. **Proyectos (.prjx)**: Contienen estructura de datasets
+5. **Hojas de cálculo**: Posiblemente con datos procesados o templates
+
+---
+
+## SIGUIENTES PASOS
+
+1. Leer diccionarios para obtener nombres reales de variables
+2. Identificar archivos .rbf principales (CPV, CDxxxxxx)
+3. Analizar documentación para entender estructura
+4. Instalar librería Redatam o usar duckdb con extensión
+5. Unificar esquemas entre países

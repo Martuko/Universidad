@@ -1,0 +1,25 @@
+# Extracted Directories (2026-04-29)
+
+data/extracted
+data/extracted/Cp1991BRA
+data/extracted/Cp1991BRA/BaseOriginal
+data/extracted/Cp1991BRA/Celade
+data/extracted/Cp1991BRA/Documentos
+data/extracted/Cp2000BRA
+data/extracted/Cp2000BRA/BaseOriginal
+data/extracted/Cp2000BRA/Celade
+data/extracted/Cp2000BRA/Documentos
+data/extracted/CP2007PER
+data/extracted/CP2007PER/CP2007PER
+data/extracted/CP2010ARG
+data/extracted/CP2010ARG/BASE_AMP_DPTO
+data/extracted/CP2010ARG/Docs
+data/extracted/CP2010BRA
+data/extracted/CP2010BRA/BaseR
+data/extracted/CP2010BRA/Docs
+data/extracted/CP2017CHL
+data/extracted/CP2017CHL/BaseOrg16
+data/extracted/CP2017CHL/Docs
+data/extracted/CP2017PER
+data/extracted/CP2017PER/BaseD
+data/extracted/CP2017PER/Docs

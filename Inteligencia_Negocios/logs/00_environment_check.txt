@@ -1,0 +1,43 @@
+# Environment Check - 2026-04-29
+# ==================================
+
+pwd: /home/martuko/Universidad/Inteligencia_Negocios
+
+ls -la:
+drwxr-xr-x  6 martuko martuko 4096 Apr 29 20:35 .
+drwxr-xr-x 13 martuko martuko 4096 Apr 29 20:22 ..
+drwxr-xr-x  5 martuko martuko 4096 Apr 29 20:29 data
+-rw-r--r--  1 martuko martuko   98 Apr 29 20:35 .gitignore
+drwxr-xr-x  2 martuko martuko 4096 Apr 29 20:28 logs
+drwxr-xr-x  2 martuko martuko 4096 Apr 28 20:28 reports
+drwxr-xr-x  2 martuko martuko 4096 Apr 28 20:28 scripts
+
+Directorios (hasta depth 3):
+- .
+- ./data
+- ./data/checks
+- ./data/extracted
+- ./data/extracted/Cp1991BRA
+- ./data/extracted/Cp2000BRA
+- ./data/extracted/CP2007PER
+- ./data/extracted/CP2010ARG
+- ./data/extracted/CP2010BRA
+- ./data/extracted/CP2017CHL
+- ./data/extracted/CP2017PER
+- ./data/zips
+- ./logs
+- ./reports
+- ./scripts
+
+Tamaños totales:
+- .: 19G
+
+Herramientas disponibles:
+- python: /usr/bin/python (Python 3.14.4)
+- unzip: /usr/bin/unzip
+- file: /usr/bin/file
+- strings: /usr/bin/strings
+- grep: /usr/bin/grep
+- find: /usr/bin/find
+- duckdb: NO ENCONTRADO
+- pdftotext: por verificar

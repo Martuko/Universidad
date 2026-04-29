@@ -1,0 +1,7 @@
+763M	data/extracted/CP2017CHL
+1.5G	data/extracted/CP2010ARG
+1.6G	data/extracted/CP2007PER
+1.8G	data/extracted/Cp1991BRA
+1.8G	data/extracted/CP2017PER
+3.0G	data/extracted/Cp2000BRA
+4.8G	data/extracted/CP2010BRA

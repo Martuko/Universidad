@@ -1,0 +1,128 @@
+name,label,typeName,alias,country,dataset,dictionary,entity,theme_hits
+CCDD,Departamento,string,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,DEPARTAM,geografia
+NCCDD,Departamento,string,NDEPTO,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,DEPARTAM,geografia
+CCDI,Distrito,string,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,DISTRITO,geografia
+NCCDI,Distrito,string,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,DISTRITO,geografia
+C3P11,H: La energía o combustible que utiliza para cocinar: electricidad,integer,ELECTRIC,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P12,H: La energía o combustible que utiliza para cocinar: gas (balón GLP),integer,GAS,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P13,H: La energía o combustible que utiliza para cocinar: gas natural (sistema de tuberías),integer,GASNAT,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P14,H: La energía o combustible que utiliza para cocinar: carbón,integer,CARBON,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P15,H: La energía o combustible que utiliza para cocinar: leña,integer,LEÑA,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P16,"H: La energía o combustible que utiliza para cocinar: bosta, estiércol",integer,BOSTA,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P17,"H: La energía o combustible que utiliza para cocinar: otros (residuos agrícolas, etc.)",integer,OTRO,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P18,H: La energía o combustible que utiliza para cocinar: NO COCINAN,integer,NOCOCINA,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P21,H: Su hogar tiene: Equipo de sonido,integer,EQSONIDO,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P210,H: Su hogar tiene: Teléfono celular,integer,CELULAR,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P211,H: Su hogar tiene: Teléfono fijo,integer,TELEFIJO,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P212,H: Su hogar tiene: Conexión a TV por cable o satelital,integer,CABLE,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P213,H: Su hogar tiene: Conexión a Internet,integer,INTERNET,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P214,"H: Su hogar tiene: Automóvil, camioneta",integer,CARRO,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P215,H: Su hogar tiene: Motocicleta,integer,MOTO,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P216,"H: Su hogar tiene: Lancha, bote motor, peque peque, canoa",integer,LANCHA,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P22,H: Su hogar tiene: Televisor a color,integer,TVCOLOR,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P23,H: Su hogar tiene: Cocina a gas,integer,COCINGAS,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P24,H: Su hogar tiene: Refrigeradora o congeladora,integer,REFRIG,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P25,H: Su hogar tiene: Lavadora de ropa,integer,LAVADORA,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P26,H: Su hogar tiene: Horno microondas,integer,HORNOMIC,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P27,H: Su hogar tiene: Licuadora,integer,LICUADORA,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P28,H: Su hogar tiene: Plancha eléctrica,integer,PLANCHA,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P29,H: Su hogar tiene: Computadora/Laptop/Tablet,integer,PC,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P3,"H: Personas que eran miembros de este hogar, viven en otro país",integer,EMIGHOG,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+C3P3A,H: Nro. de personas en este hogar que viven en otro país,integer,TOTEMIG,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+HAREA,H: Área concepto censal,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;geografia;entidad
+HENCARE,H: Área concepto encuesta,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;geografia;entidad
+HNROHOG,Número Hogar,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;entidad
+sexcon,H: Sexo del Esposo/a o compañero/a del hogar,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;sexo;entidad
+sexjef,H: Sexo del jefe del hogar,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,HOGAR,vivienda;sexo;entidad
+C5P1,P: Relación de parentesco con el jefe del hogar,integer,PARENTES,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;entidad
+C5P10A,P: Tipo de documento nacional de identidad,integer,IDENTIDAD,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P11,P3a+: Idioma o lengua con el que aprendió hablar,integer,IDIOMA,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P12,P3a+: Sabe leer y escribir,integer,SABELEER,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P13ANIOE,P3a+: Último año que aprobó en Básica Especial,integer,ANIOBAS,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,escolaridad;entidad
+C5P13ANIOP,P3a+: Último año que aprobó en Primaria,integer,ANIOPRI,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,escolaridad;entidad
+C5P13ANIOS,P3a+: Último año que aprobó en Secundaria,integer,ANIOSEC,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,escolaridad;entidad
+C5P13GRA,P3a+: Último grado que aprobó en Primaria,integer,GRADOPRI,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,escolaridad;entidad
+C5P13NIV,P3a+: Último nivel de estudio que aprobó,integer,NIVEL,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,escolaridad;entidad
+C5P14,"P3a+: Actualmente - Asiste a algún colegio, instituto o universidad",integer,PASISTE,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P15,P3a+: La institución educativa al que asiste está ubicada:,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,escolaridad;entidad
+C5P15BCOD,P3a+: Departamento de la Institución a la que asiste,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,geografia;entidad
+C5P15DI,P3a+: Distrito o país de la Institución a la que asiste,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,geografia;entidad
+C5P15PV,P3a+: Provincia o continente de la Institución a la que asiste,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,geografia;entidad
+C5P16,P5a+: La semana pasada - Trabajó por algún pago en dinero o especie,integer,TRABAJO,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P17,P5a+: La semana pasada - ¿Qué hacia?,integer,QHACIA,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P18,P5a+: La semana pasada estuvo buscando trabajo activamente,integer,BUSCOTRAB,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P19COD,P5a+: La semana pasada ¿Cuál es la ocupación principal?,integer,OCUPACION,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,geografia;entidad
+C5P19CODA,"P5a+: La semana pasada, segúngran grupo, ¿Cuál es la ocupación principal?",integer,OCUPAGRP,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,edad;geografia;entidad
+C5P2,P: Sexo,integer,SEXO,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,sexo;entidad
+C5P20COD,"P5a+: La semana pasada a qué actividad se dedicó el negocio, organismo o empresa en la que trabajó",integer,RAMACT,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,geografia;entidad
+C5P20CODA,"P5a+: La semana pasada, según sección, ¿A qué actividad se dedicó el negocio?",integer,RAMAGRP,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,geografia;entidad
+C5P21,P5a+: En su centro de trabajo se desempeñó como:,integer,DESEMPENO,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P22,P5a+: En su centro de trabajo laboraron:,integer,NLABORARON,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P23,P5a+: Su centro de trabajo está ubicado,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P23BCOD,P5a+: Departamento donde está ubicado su centro trabajo,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,geografia;entidad
+C5P24,P12a+: Estado civil o conyugal,integer,ECIVIL,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,geografia;entidad
+C5P25,P12a+: Por sus costumbres y sus antepasados Ud. se considera:,integer,AUTOINDG,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P26,P12a+: Religión que profesa,integer,RELIGION,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P27,Pm12a+: Nro. total de hijos/as que ha tenido - Nacidos vivos,integer,NHIJOSNV,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;entidad
+C5P271,Pm12a+: Ningún hijo nacido vivo,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;entidad
+C5P28,Pm12a+: Nro. total de hijos/as que actualmente - Están vivos,integer,NHIJOSAV,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;entidad
+C5P281,Pm12a+: Ningún hijo actualmente vivo,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;entidad
+C5P291,Pm12a+: Su último hijo nacido vivo - Mes,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;entidad
+C5P292,Pm12a+: Su último hijo nacido vivo  - Año,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;entidad
+C5P41,P: Edad en años,integer,EDAD,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,edad;entidad
+C5P41M,P: Edad en meses,integer,EDADES,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,edad;entidad
+C5P5,P: ¿Vive permanentemente en este distrito?,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;geografia;entidad
+C5P5BCOD,P: Departamento donde vive permanentemente,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;geografia;entidad
+C5P5DI,P: Distrito o país donde vive permanentemente,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;geografia;entidad
+C5P5PV,P: Provincia o continente donde vive permanentemente,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;geografia;entidad
+C5P6,P: ¿Hace 5 años vivía en este distrito?,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;edad;geografia;entidad
+C5P6BCOD,P: Departamento donde vivía hace 5 años,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;edad;geografia;entidad
+C5P6DI,P: Distrito o país donde vivía hace 5 años,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;edad;geografia;entidad
+C5P6PV,P: Provincia o continente donde vivía hace 5 años,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;edad;geografia;entidad
+C5P7,P: Cuándo ud nació ¿Vivía su madre en este distrito?,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;geografia;entidad
+C5P7BCOD,P: Departamento donde vivía su madre,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;geografia;entidad
+C5P7DI,P: Distrito o país donde vivía su madre,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;geografia;entidad
+C5P7PV,P: Provincia o continente donde vivía su madre,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,vivienda;geografia;entidad
+C5P81,P: Población afiliada: al SIS,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P82,P: Población afiliada: a EsSalud,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P83,P: Población afiliada: a seguro de fuerzas armadas o policiales,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P84,P: Población afiliada: a seguro privado de salud,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P85,P: Población afiliada: a otro seguro,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P86,P: Población afiliada: a ningún seguro,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P91,P: Población con discapacidad: Ver,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P92,P: Población con discapacidad: Oír,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P93,P: Población con discapacidad: Hablar,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P94,P: Población con discapacidad: Moverse o caminar para usar brazos y piernas,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P95,P: Población con discapacidad: Entender o aprender,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P96,P: Población con discapacidad: Relacionarse con los demás,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+C5P97,P: Población con discapacidad: Ninguna,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+EDQUINQ,P: Edad en grupos quinquenales,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,edad;entidad
+FACTORPOND,Población total,real,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,ponderador;entidad
+P03ESC,"P: Población de 3 a 24 años, por grupo de edad",integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,edad;entidad
+P03GQ15M,P: Población de 15 años a más en grupos quinquenales,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,edad;entidad
+P08AFILIA,Población afiliada a seguros de salud,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+P09DISC,Población con alguna discapacidad,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,entidad
+PAREA,P: Área concepto censal,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,geografia;entidad
+PENCARE,P: Área concepto encuesta,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,geografia;entidad
+PET,P15a+: Población en edad de trabajar - PET,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PERSONA,edad;entidad
+CCPP,Provincia,string,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PROVINCI,geografia
+NCCPP,Provincia,string,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,PROVINCI,geografia
+C2P1,V: Tipo de vivienda,integer,TIPOVIV,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P10,V: Servicio higiénico que tiene la vivienda,integer,HIGIENICO,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P11,V: La vivienda tiene alumbrado eléctrico por red pública,integer,LUZ,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P12,V: Nro. de habitaciones que tiene en total la vivienda,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P13,V: Tenencia de la vivienda - La vivienda que ocupa es:,integer,TENENCIA,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P2,V: Condición de ocupación de la vivienda,integer,CONDOCUP,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P3,V: Material de construcción predominante en las paredes,integer,PARED,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P4,V: Material de construcción predominante en los techos,integer,TECHO,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P5,V: Material de construcción predominante en los pisos,integer,PISO,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P6,V: Abastecimiento de agua en la vivienda,integer,AGUAOROC,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P7,V: Servicio de agua - Todos los días de la semana,integer,DIARIO,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P7A,V: Servicio de agua - En la semana ¿Cuántas horas por día?,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P7B,V: Servicio de agua - Solo algunos días a la semana,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P7C,V: Servicio de agua - Por los días de la semana ¿Cuántas horas al día?,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P8,V: ¿Pagan por el servicio de agua?,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+C2P9,V: A qué empresa o entidad se paga por el servicio de agua,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+ENCAREA,V: Área concepto encuesta,integer,AREA,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;geografia;entidad
+TOTELD,V: Indicador de vivienda con adulto mayor,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;entidad
+VAREA,V: Área concepto censal,integer,,peru,CP2017PER,data/extracted/CP2017PER/BaseD/BaseR/CPVPER2017D.dicX,VIVIENDA,vivienda;geografia;entidad

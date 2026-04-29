@@ -1,0 +1,160 @@
+name,label,typeName,alias,country,dataset,dictionary,entity,theme_hits
+DPTO,Departamento / Partido,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,DPTO,geografia
+IDDPTO,Departamento,string,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,DPTO,geografia
+NOMDPTO,Departamento / Partido,string,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,DPTO,geografia
+ALGUNBI,Al menos un indicador NBI,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+CODPUEBLO,Pueblo al que pertenece,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;geografia;entidad
+EXPH,Expansor,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;ponderador;entidad
+H05M,Alguna persona descendiente de indigenas,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H05P,Total de Personas descendiente de indigenas,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H06M,Alguna persona es afrodescendiente,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H06P,Total de Personas afrodescendientes,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H0705,Material predominante de los pisos,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H08A,Material predominante de las paredes exteriores,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H09A,Revestimiento externo de las paredes exteriores,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H1006,Material predominante de la cubierta exterior del techo,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H1107,Revestimiento interior o cielorraso del techo,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H12A,Tenencia de Electricidad,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H1308,Tenencia de agua,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H1409,Procedencia del agua para beber y cocinar,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H1510,Tiene baño / letrina,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H1611,"Tiene botón, cadena, mochila para limpieza del inodoro",integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H1712,Desagüe del inodoro,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H1813,Baño / letrina de uso exclusivo,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H19A,Instalación de Agua en Cocina,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H2014,Combustible usado principalmente para cocinar,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H2115,Total de habitaciones o piezas para dormir,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H2216,Total de habitaciones o piezas,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H23,Antiguedad de la vivienda,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;edad;entidad
+H2417,Propiedad de la vivienda,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;edad;entidad
+H2518,Propiedad del terreno,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;edad;entidad
+H26,La vivienda esta totalmente paga,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H27,La vivienda esta escriturada,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H2819,El hogar tiene,string,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H2819A,Heladera,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H2819B,Computadora,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H2819C,Teléfono celular,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+H2819D,Teléfono de línea,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+INCALCONS,Calidad constructiva de la vivienda,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+INCALSERV,Calidad de Conexiones a Servicios Básicos,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+INDHAC,Hacinamiento,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+INMAT,Calidad de los materiales,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+NBI1,NBI Vivienda,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+NBI2,NBI Condiciones sanitarias,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+NBI3,NBI Hacinamiento,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+NBI4,NBI Asistencia escolar,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,escolaridad;vivienda;entidad
+NBI5,NBI Capacidad de subsistencia,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+NHOG,hogar-numero,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+PROP,Régimen de tenencia,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+TIPOHOGAR,Tipo de Hogar,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+TOTPERS,Total de Personas en el Hogar,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+V01,Tipo de vivienda,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,HOGAR,vivienda;entidad
+ACT2CIFR,Código de actividad 2 cifras,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,geografia;entidad
+ACT4CIFR,Código de actividad,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,geografia;entidad
+ACTLETRA,Código de actividad letra,string,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,geografia;entidad
+CARACTER,Carácter ocupacional,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+CLAVE1P,Clave1,string,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+CODOCUP,Código de ocupación,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,geografia;entidad
+CONDACT,Condición de actividad,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+EDADAGRU,Edad en grandes grupos,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,edad;entidad
+EDADQUI,Edades quinquenales,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,edad;entidad
+JEFEBAJAED,Jefe baja educ,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,escolaridad;entidad
+MARCA_AFRO,Afrodescendiente,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+MARCA_INDI,Indígena,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+MNI,Máximo Nivel de Instrucción,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,escolaridad;entidad
+NPER,Número de persona en el hogar,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,vivienda;entidad
+P01,Relación o parentesco con el jefe(a) del hogar,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,vivienda;entidad
+P02,Sexo,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,sexo;entidad
+P03,Edad,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,edad;entidad
+P04,Fecha de nacimiento,string,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P04A,Año de nacimiento,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P04D,Día de nacimiento,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P04M,Mes de nacimiento,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P05,En que país nació,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P06C,Pais de nacimiento,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P07,Año de llegada a la Argentina,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P08M,Que Provincia Nació,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,geografia;entidad
+P08N,Que Provincia Nació-Nombre,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,geografia;entidad
+P09M,Donde viviá hace 5 años,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,vivienda;edad;entidad
+P09N,Donde viviá hace 5 años-Nombre,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,vivienda;edad;entidad
+P10,En que municipio vivia hace 5 años,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,vivienda;edad;geografia;entidad
+P11M,Donde vive habitualmente,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,vivienda;entidad
+P11N,Donde vive habitualmente-Nombre,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,vivienda;entidad
+P12,En que municipio vive habitualmente,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,vivienda;geografia;entidad
+P1305,Cobertura de salud,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P14A,Dificultad o limitación permanente para ver,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P14B,Dificultad o limitación permanente para oír,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P14C,Dificultad o limitación permanente para caminar o subir,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P14D,Dificultad o limitación permanente para agarrar objetos,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P14E,Dificultad o limitación permanente para entender y/o aprender,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P15,Recibe jubilación o pensión,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P16,Tipo de beneficio que recibe,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P1707,Sabe leer y escribir,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P1808,Asiste o asistió a un establecimiento educativo,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,escolaridad;entidad
+P1808C,Condición de asistencia escolar,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,escolaridad;entidad
+P1909,Nivel educativo que cursa o cursó,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,escolaridad;entidad
+P1909C,Nivel educativo que cursa o cursó,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,escolaridad;entidad
+P2010,Completó ese nivel,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,escolaridad;entidad
+P2010C,Completó el nivel,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,escolaridad;entidad
+P2111A,Último grado o año que aprobó en ese nivel,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,escolaridad;entidad
+P2111B,Ningun grado o año aprobado,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,escolaridad;entidad
+P2111C,Grado o año aprobado ignorado,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,escolaridad;entidad
+P2212,Utiliza computadora,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P23,Estado civil legal,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,geografia;entidad
+P24,Convive en pareja o matrimonio,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,vivienda;entidad
+P2513,"La semana pasada, trabajó al menos una hora",integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P2614,"La semana pasada, hizo alguna changa o algo para vender afuera",integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P2715,"La semana pasada, estuvo de licencia por vacaciones o enfermedad",integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,edad;entidad
+P2816,"En las últimas 4 semanas, estuvo buscando trabajo",integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P31,Tamaño del establecimiento,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P32,Categoría ocupacional,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P33,Sector en el que trabaja,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P34,Le descuentan para jubilación,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P34C,Le descuentan para jubilación,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P35,Aporta para jubilación,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P35C,Aporta para la jubilación,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P36,Tuvo hijos/as nacidos vivos,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,vivienda;entidad
+P37,Hijos nacidos vivos en total,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,vivienda;entidad
+P38,Hijos vivos actualmente,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,vivienda;entidad
+P39,Fecha último hijo nacido vivo,string,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,vivienda;entidad
+P39A,Año,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+P39M,Mes,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+RAMA,Rama de actividad,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PERSONA,entidad
+IDPROV,Provincia,string,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PROV,geografia
+NOMPROV,Provincia,string,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PROV,geografia
+PROV,Provincia,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,PROV,geografia
+CC1,Inundaciones en últimos cinco años,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;edad;entidad
+CC10,Ubicado en Villa de emergencia o asentamiento,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+CC11,Ubicado en barrio plan o monoblock,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+CC12,Ubicado en country o barrio cerrado,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+CC13,Existencia de al menos de una cuadra pavimentada,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+CC14,Existencia de al menos una boca de tormenta,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+CC15,Existencia de alumbrado público,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+CC2,Basural permanente a 300 metros,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+CC3,Servicio de cloacas,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+CC4,Servicio de agua de red,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+CC5,Servicio de gas de red,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+CC6,Servicio de energía electrica por red domiciliaria,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+CC7,Servicio regular de recolección de residuos,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+CC8,Transporte público a 300 metros,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+CC9,Teléfono público a 300 metros,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+CODAGLO,Código de Aglomerado,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;geografia;entidad
+CODENT,Código de Entidad,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;geografia;entidad
+CODLOC,Código de Localidad,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;geografia;entidad
+CODMUNI,Código de Municipio,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;geografia;entidad
+ENTIDAD,Barrio / Entidad,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+EXPV,Expansor,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;ponderador;entidad
+INCALCONS,Calidad constructiva de la vivienda,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+INCALSERV,Calidad de Conexiones a Servicios Básicos,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+INMAT,Calidad de los materiales,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+LOCAL,Localidad,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;geografia;entidad
+MUNI,Municipio,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;geografia;entidad
+TIPVV,Tipo de vivienda agrupado,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+TOTHOG,Cantidad de Hogares en la Vivienda,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+URP,Area Urbano - Rural,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;geografia;entidad
+V00,Tipo de vivienda colectiva,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+V00O,Otros tipo de vivienda colectiva,string,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+V01,Tipo de vivienda particular,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+V01C,Casa tipo B,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+V02,Condición de ocupación,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad
+V03,Cantidad de hogares,integer,,argentina,CP2010ARG,data/extracted/CP2010ARG/BASE_AMP_DPTO/CPV2010Ampliado.dicx,VIVIENDA,vivienda;entidad

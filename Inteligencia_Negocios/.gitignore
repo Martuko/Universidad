@@ -1,0 +1,28 @@
+# Datos grandes Redatam
+data/zips/
+data/extracted/
+data/raw/
+data/staging/
+data/processed/
+*.zip
+
+# Archivos binarios Redatam / censales
+*.rbf
+*.RBF
+*.bin
+*.ptr
+*.spc
+*.dic
+*.dicx
+*.dicX
+
+# Temporales / entorno
+.venv/
+__pycache__/
+*.pyc
+.Rhistory
+.RData
+.Rproj.user/
+
+# Logs pesados si aparecen
+logs/*.log
