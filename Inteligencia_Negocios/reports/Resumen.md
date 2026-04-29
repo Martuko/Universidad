@@ -33,13 +33,6 @@ Archivos inventariados: 1.438
 Archivos `.rbf`: 1.104  
 Diccionarios detectados: 108  
 
-## Herramientas probadas
-
-- R instalado
-- `redatamx` instalado correctamente
-- RedEngine funcionando en Linux
-- DuckDB instalado
-- Se logró abrir diccionarios `.dicx` de los 4 países
 
 ## Entidades reales encontradas
 
@@ -175,12 +168,4 @@ Motivo:
 7. Exportar tablas agregadas para Power BI.
 8. Preparar análisis GeoDa solo para Chile.
 
-## Advertencias
-
-- No subir ZIP ni carpetas extraídas al repositorio.
-- No usar pandas para abrir `.rbf`.
-- No asumir que todos los países son perfectamente comparables.
-- No comparar conteos absolutos sin revisar ponderadores.
-- Trabajar con porcentajes y tasas.
-- Las variables deben salir de `redatam_variables_all.csv`, no de intuición.
 
