@@ -1,0 +1,238 @@
+country,dataset,entity,name,label,typeName,tema,subtema
+argentina,CP2010ARG,HOGAR,H1308,Tenencia de agua,integer,vivienda,agua
+argentina,CP2010ARG,HOGAR,H1409,Procedencia del agua para beber y cocinar,integer,vivienda,agua
+argentina,CP2010ARG,HOGAR,H19A,Instalación de Agua en Cocina,integer,vivienda,agua
+argentina,CP2010ARG,VIVIENDA,CC4,Servicio de agua de red,integer,vivienda,agua
+argentina,CP2010ARG,HOGAR,H12A,Tenencia de Electricidad,integer,vivienda,electricidad
+argentina,CP2010ARG,VIVIENDA,CC6,Servicio de energía electrica por red domiciliaria,integer,vivienda,electricidad
+argentina,CP2010ARG,HOGAR,H2115,Total de habitaciones o piezas para dormir,integer,vivienda,hacinamiento
+argentina,CP2010ARG,HOGAR,H2216,Total de habitaciones o piezas,integer,vivienda,hacinamiento
+argentina,CP2010ARG,HOGAR,INDHAC,Hacinamiento,integer,vivienda,hacinamiento
+argentina,CP2010ARG,HOGAR,NBI3,NBI Hacinamiento,integer,vivienda,hacinamiento
+argentina,CP2010ARG,HOGAR,H0705,Material predominante de los pisos,integer,vivienda,materialidad
+argentina,CP2010ARG,HOGAR,H08A,Material predominante de las paredes exteriores,integer,vivienda,materialidad
+argentina,CP2010ARG,HOGAR,H09A,Revestimiento externo de las paredes exteriores,integer,vivienda,materialidad
+argentina,CP2010ARG,HOGAR,H1006,Material predominante de la cubierta exterior del techo,integer,vivienda,materialidad
+argentina,CP2010ARG,HOGAR,H1107,Revestimiento interior o cielorraso del techo,integer,vivienda,materialidad
+argentina,CP2010ARG,HOGAR,INCALCONS,Calidad constructiva de la vivienda,integer,vivienda,materialidad
+argentina,CP2010ARG,HOGAR,INCALSERV,Calidad de Conexiones a Servicios Básicos,integer,vivienda,materialidad
+argentina,CP2010ARG,HOGAR,INMAT,Calidad de los materiales,integer,vivienda,materialidad
+argentina,CP2010ARG,VIVIENDA,CODLOC,Código de Localidad,integer,vivienda,materialidad
+argentina,CP2010ARG,VIVIENDA,INCALCONS,Calidad constructiva de la vivienda,integer,vivienda,materialidad
+argentina,CP2010ARG,VIVIENDA,INCALSERV,Calidad de Conexiones a Servicios Básicos,integer,vivienda,materialidad
+argentina,CP2010ARG,VIVIENDA,INMAT,Calidad de los materiales,integer,vivienda,materialidad
+argentina,CP2010ARG,VIVIENDA,LOCAL,Localidad,integer,vivienda,materialidad
+argentina,CP2010ARG,HOGAR,ALGUNBI,Al menos un indicador NBI,integer,vivienda,nbi
+argentina,CP2010ARG,HOGAR,NBI1,NBI Vivienda,integer,vivienda,nbi
+argentina,CP2010ARG,HOGAR,NBI2,NBI Condiciones sanitarias,integer,vivienda,nbi
+argentina,CP2010ARG,HOGAR,NBI4,NBI Asistencia escolar,integer,vivienda,nbi
+argentina,CP2010ARG,HOGAR,NBI5,NBI Capacidad de subsistencia,integer,vivienda,nbi
+argentina,CP2010ARG,HOGAR,H1510,Tiene baño / letrina,integer,vivienda,saneamiento
+argentina,CP2010ARG,HOGAR,H1611,"Tiene botón, cadena, mochila para limpieza del inodoro",integer,vivienda,saneamiento
+argentina,CP2010ARG,HOGAR,H1712,Desagüe del inodoro,integer,vivienda,saneamiento
+argentina,CP2010ARG,HOGAR,H1813,Baño / letrina de uso exclusivo,integer,vivienda,saneamiento
+argentina,CP2010ARG,VIVIENDA,CC3,Servicio de cloacas,integer,vivienda,saneamiento
+argentina,CP2010ARG,VIVIENDA,URP,Area Urbano - Rural,integer,vivienda,saneamiento
+argentina,CP2010ARG,HOGAR,CODPUEBLO,Pueblo al que pertenece,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,EXPH,Expansor,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H05M,Alguna persona descendiente de indigenas,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H05P,Total de Personas descendiente de indigenas,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H06M,Alguna persona es afrodescendiente,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H06P,Total de Personas afrodescendientes,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H2014,Combustible usado principalmente para cocinar,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H23,Antiguedad de la vivienda,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H2417,Propiedad de la vivienda,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H2518,Propiedad del terreno,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H26,La vivienda esta totalmente paga,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H27,La vivienda esta escriturada,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H2819,El hogar tiene,string,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H2819A,Heladera,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H2819B,Computadora,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H2819C,Teléfono celular,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,H2819D,Teléfono de línea,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,NHOG,hogar-numero,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,PROP,Régimen de tenencia,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,TIPOHOGAR,Tipo de Hogar,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,TOTPERS,Total de Personas en el Hogar,integer,vivienda,vivienda_general
+argentina,CP2010ARG,HOGAR,V01,Tipo de vivienda,integer,vivienda,vivienda_general
+argentina,CP2010ARG,PERSONA,NPER,Número de persona en el hogar,integer,vivienda,vivienda_general
+argentina,CP2010ARG,PERSONA,P01,Relación o parentesco con el jefe(a) del hogar,integer,vivienda,vivienda_general
+argentina,CP2010ARG,PERSONA,P09M,Donde viviá hace 5 años,integer,vivienda,vivienda_general
+argentina,CP2010ARG,PERSONA,P09N,Donde viviá hace 5 años-Nombre,integer,vivienda,vivienda_general
+argentina,CP2010ARG,PERSONA,P10,En que municipio vivia hace 5 años,integer,vivienda,vivienda_general
+argentina,CP2010ARG,PERSONA,P11M,Donde vive habitualmente,integer,vivienda,vivienda_general
+argentina,CP2010ARG,PERSONA,P11N,Donde vive habitualmente-Nombre,integer,vivienda,vivienda_general
+argentina,CP2010ARG,PERSONA,P12,En que municipio vive habitualmente,integer,vivienda,vivienda_general
+argentina,CP2010ARG,PERSONA,P24,Convive en pareja o matrimonio,integer,vivienda,vivienda_general
+argentina,CP2010ARG,PERSONA,P36,Tuvo hijos/as nacidos vivos,integer,vivienda,vivienda_general
+argentina,CP2010ARG,PERSONA,P37,Hijos nacidos vivos en total,integer,vivienda,vivienda_general
+argentina,CP2010ARG,PERSONA,P38,Hijos vivos actualmente,integer,vivienda,vivienda_general
+argentina,CP2010ARG,PERSONA,P39,Fecha último hijo nacido vivo,string,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CC1,Inundaciones en últimos cinco años,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CC10,Ubicado en Villa de emergencia o asentamiento,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CC11,Ubicado en barrio plan o monoblock,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CC12,Ubicado en country o barrio cerrado,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CC13,Existencia de al menos de una cuadra pavimentada,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CC14,Existencia de al menos una boca de tormenta,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CC15,Existencia de alumbrado público,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CC2,Basural permanente a 300 metros,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CC5,Servicio de gas de red,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CC7,Servicio regular de recolección de residuos,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CC8,Transporte público a 300 metros,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CC9,Teléfono público a 300 metros,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CODAGLO,Código de Aglomerado,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CODENT,Código de Entidad,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,CODMUNI,Código de Municipio,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,ENTIDAD,Barrio / Entidad,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,EXPV,Expansor,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,MUNI,Municipio,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,TIPVV,Tipo de vivienda agrupado,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,TOTHOG,Cantidad de Hogares en la Vivienda,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,V00,Tipo de vivienda colectiva,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,V00O,Otros tipo de vivienda colectiva,string,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,V01,Tipo de vivienda particular,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,V01C,Casa tipo B,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,V02,Condición de ocupación,integer,vivienda,vivienda_general
+argentina,CP2010ARG,VIVIENDA,V03,Cantidad de hogares,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,AGUA,Abastecimento de água,integer,vivienda,agua
+brasil,CP2010BRA,DOMICIL,ELETRIC,Energia elétrica,integer,vivienda,electricidad
+brasil,CP2010BRA,DOMICIL,MEDIDOR,Medidor ou relógio para energia elétrica,integer,vivienda,electricidad
+brasil,CP2010BRA,DOMICIL,PAREDES,Paredes externas,integer,vivienda,materialidad
+brasil,CP2010BRA,DOMICIL,ALUGUEL,Valor do aluguel,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,ALUGUELSM,Aluguel em nº de salários mínimos,real,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,AUTO,"Automóvel para uso particular, existência",integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,BANHEIROS,Banheiros de uso exclusivo,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,CANALIZ,Água canalizada,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,CELULAR,"Telefone celular, existência",integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,COMODOS,Cômodos,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,CONDOCUP,Condição de ocupação,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,CONTROLE,Controle,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,DENSICOM,Densidade de moradores por cômodo,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,DENSIDOR,Densidade de moradores por dormitório,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,DORMIT,Dormitórios,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,DPESO,Peso Amostral,real,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,ESGOTO,Esgotamento sanitário,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,ESPECIE,Espécie de Unidade Visitada,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,ESPECIED,Espécie da Unidade Doméstica,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,FALECEU,Alguém faleceu nos 12 meses anteriores,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,FORA,Alguém reside fora do país,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,GELADEIRA,"Geladeira, existência",integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,INTERNET,"Microcomputador com acesso à internet, existência",integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,LAVAR,"Máquina de lavar roupa, existência",integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,LIXO,"Lixo, destino",integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,MICROCOMP,"Microcomputador, existência",integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,MORADOR,Quantos moradores,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,MOTO,"Motocicleta para uso particular, existência",integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,PERCAPITA,Rendimento mensal domiciliar per capita,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,PERCAPTAS,Rendimento mensal domiciliar per capita em Salários Mínimos,real,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,PESO,Peso Amostral,real,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,RADIO,"Rádio, existência",integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,RENDIM,Rendimento mensal domiciliar,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,RENDIMSM,Rendimento mensal domiciliar em Salários Mínimos,real,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,RESPONSA,Responsabilidade pelo domicílio,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,SANITAR,Sanitário ou buraco para dejeções,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,SITUACAO,Situação do domicílio,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,TELEFONE,"Telefone fixo, existência",integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,TIPO,Tipo de Espécie,integer,vivienda,vivienda_general
+brasil,CP2010BRA,DOMICIL,TV,Televisão,integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,FILHOST,Filhos tidos total (nascidos vivos e nascidos mortos),integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,FINVHOM,Filhos nascidos vivos (homens),integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,FINVMUL,Filhas nascidas vivas (mulheres),integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,FINVTOT,Filhos nascidos vivos (total),integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,FIULT,Existência de filho tido nascido vivo no último ano,integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,FIULTVIVO,Este filho estava vivo,integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,FIVIHOM,Filhos vivos (homens),integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,FIVIID,Idade do último filho nascido vivo,integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,FIVIMUL,Filhas vivas (mulheres),integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,FIVISEXO,Sexo do último filho nascido vivo,integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,FIVITOT,Filhos vivos (total),integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,MAEVIVA,Tem mãe viva,integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,RETORNA,Retorna do trabalho para casa diariamente,integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,TEMFIVI,Tem filhos vivos,integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,TEVEFINV,Teve filhos e filhas nascidos vivos,integer,vivienda,vivienda_general
+brasil,CP2010BRA,PESSOA,VIVE,Vive em companhia de cônjuge ou companheiro(a),integer,vivienda,vivienda_general
+chile,CP2017CHL,VIVIENDA,P05,Origen del Agua,integer,vivienda,agua
+chile,CP2017CHL,VIVIENDA,P04,Número de piezas usadas exclusivamente como dormitorio,integer,vivienda,hacinamiento
+chile,CP2017CHL,VIVIENDA,P03A,Material de los muros exteriores,integer,vivienda,materialidad
+chile,CP2017CHL,VIVIENDA,P03B,Material en la cubierta del techo,integer,vivienda,materialidad
+chile,CP2017CHL,VIVIENDA,P03C,Material de construcción del piso,integer,vivienda,materialidad
+chile,CP2017CHL,ZONALOC,IDZC,Zona Censal/Localidad,string,vivienda,materialidad
+chile,CP2017CHL,ZONALOC,NLOCALIDAD,Localidades,string,vivienda,materialidad
+chile,CP2017CHL,HOGAR,NHOGAR,Número del hogar,integer,vivienda,vivienda_general
+chile,CP2017CHL,HOGAR,TIPO_HOGAR,Tipo de hogar,integer,vivienda,vivienda_general
+chile,CP2017CHL,PERSONA,P19,Total hijos/as nacidos vivos,integer,vivienda,vivienda_general
+chile,CP2017CHL,PERSONA,P20,Total hijos/as actualmente vivos,integer,vivienda,vivienda_general
+chile,CP2017CHL,VIVIENDA,CANT_HOG,Cantidad de Hogares,integer,vivienda,vivienda_general
+chile,CP2017CHL,VIVIENDA,CANT_PER,Cantidad de Personas,integer,vivienda,vivienda_general
+chile,CP2017CHL,VIVIENDA,NVIV,Número de la Vivienda,integer,vivienda,vivienda_general
+chile,CP2017CHL,VIVIENDA,P01,Tipo de Vivienda,integer,vivienda,vivienda_general
+chile,CP2017CHL,VIVIENDA,P02,Ocupación de la Vivienda,integer,vivienda,vivienda_general
+peru,CP2017PER,VIVIENDA,C2P6,V: Abastecimiento de agua en la vivienda,integer,vivienda,agua
+peru,CP2017PER,VIVIENDA,C2P7,V: Servicio de agua - Todos los días de la semana,integer,vivienda,agua
+peru,CP2017PER,VIVIENDA,C2P7A,V: Servicio de agua - En la semana ¿Cuántas horas por día?,integer,vivienda,agua
+peru,CP2017PER,VIVIENDA,C2P7B,V: Servicio de agua - Solo algunos días a la semana,integer,vivienda,agua
+peru,CP2017PER,VIVIENDA,C2P7C,V: Servicio de agua - Por los días de la semana ¿Cuántas horas al día?,integer,vivienda,agua
+peru,CP2017PER,VIVIENDA,C2P8,V: ¿Pagan por el servicio de agua?,integer,vivienda,agua
+peru,CP2017PER,VIVIENDA,C2P9,V: A qué empresa o entidad se paga por el servicio de agua,integer,vivienda,agua
+peru,CP2017PER,HOGAR,C3P11,H: La energía o combustible que utiliza para cocinar: electricidad,integer,vivienda,electricidad
+peru,CP2017PER,HOGAR,C3P12,H: La energía o combustible que utiliza para cocinar: gas (balón GLP),integer,vivienda,electricidad
+peru,CP2017PER,HOGAR,C3P13,H: La energía o combustible que utiliza para cocinar: gas natural (sistema de tuberías),integer,vivienda,electricidad
+peru,CP2017PER,HOGAR,C3P14,H: La energía o combustible que utiliza para cocinar: carbón,integer,vivienda,electricidad
+peru,CP2017PER,HOGAR,C3P15,H: La energía o combustible que utiliza para cocinar: leña,integer,vivienda,electricidad
+peru,CP2017PER,HOGAR,C3P16,"H: La energía o combustible que utiliza para cocinar: bosta, estiércol",integer,vivienda,electricidad
+peru,CP2017PER,HOGAR,C3P17,"H: La energía o combustible que utiliza para cocinar: otros (residuos agrícolas, etc.)",integer,vivienda,electricidad
+peru,CP2017PER,HOGAR,C3P18,H: La energía o combustible que utiliza para cocinar: NO COCINAN,integer,vivienda,electricidad
+peru,CP2017PER,VIVIENDA,C2P12,V: Nro. de habitaciones que tiene en total la vivienda,integer,vivienda,hacinamiento
+peru,CP2017PER,VIVIENDA,C2P3,V: Material de construcción predominante en las paredes,integer,vivienda,materialidad
+peru,CP2017PER,VIVIENDA,C2P4,V: Material de construcción predominante en los techos,integer,vivienda,materialidad
+peru,CP2017PER,VIVIENDA,C2P5,V: Material de construcción predominante en los pisos,integer,vivienda,materialidad
+peru,CP2017PER,HOGAR,C3P21,H: Su hogar tiene: Equipo de sonido,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P210,H: Su hogar tiene: Teléfono celular,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P211,H: Su hogar tiene: Teléfono fijo,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P212,H: Su hogar tiene: Conexión a TV por cable o satelital,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P213,H: Su hogar tiene: Conexión a Internet,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P214,"H: Su hogar tiene: Automóvil, camioneta",integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P215,H: Su hogar tiene: Motocicleta,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P216,"H: Su hogar tiene: Lancha, bote motor, peque peque, canoa",integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P22,H: Su hogar tiene: Televisor a color,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P23,H: Su hogar tiene: Cocina a gas,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P24,H: Su hogar tiene: Refrigeradora o congeladora,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P25,H: Su hogar tiene: Lavadora de ropa,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P26,H: Su hogar tiene: Horno microondas,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P27,H: Su hogar tiene: Licuadora,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P28,H: Su hogar tiene: Plancha eléctrica,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P29,H: Su hogar tiene: Computadora/Laptop/Tablet,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P3,"H: Personas que eran miembros de este hogar, viven en otro país",integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,C3P3A,H: Nro. de personas en este hogar que viven en otro país,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,HAREA,H: Área concepto censal,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,HENCARE,H: Área concepto encuesta,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,HNROHOG,Número Hogar,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,sexcon,H: Sexo del Esposo/a o compañero/a del hogar,integer,vivienda,vivienda_general
+peru,CP2017PER,HOGAR,sexjef,H: Sexo del jefe del hogar,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P1,P: Relación de parentesco con el jefe del hogar,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P27,Pm12a+: Nro. total de hijos/as que ha tenido - Nacidos vivos,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P271,Pm12a+: Ningún hijo nacido vivo,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P28,Pm12a+: Nro. total de hijos/as que actualmente - Están vivos,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P281,Pm12a+: Ningún hijo actualmente vivo,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P291,Pm12a+: Su último hijo nacido vivo - Mes,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P292,Pm12a+: Su último hijo nacido vivo  - Año,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P5,P: ¿Vive permanentemente en este distrito?,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P5BCOD,P: Departamento donde vive permanentemente,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P5DI,P: Distrito o país donde vive permanentemente,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P5PV,P: Provincia o continente donde vive permanentemente,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P6,P: ¿Hace 5 años vivía en este distrito?,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P6BCOD,P: Departamento donde vivía hace 5 años,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P6DI,P: Distrito o país donde vivía hace 5 años,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P6PV,P: Provincia o continente donde vivía hace 5 años,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P7,P: Cuándo ud nació ¿Vivía su madre en este distrito?,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P7BCOD,P: Departamento donde vivía su madre,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P7DI,P: Distrito o país donde vivía su madre,integer,vivienda,vivienda_general
+peru,CP2017PER,PERSONA,C5P7PV,P: Provincia o continente donde vivía su madre,integer,vivienda,vivienda_general
+peru,CP2017PER,VIVIENDA,C2P1,V: Tipo de vivienda,integer,vivienda,vivienda_general
+peru,CP2017PER,VIVIENDA,C2P10,V: Servicio higiénico que tiene la vivienda,integer,vivienda,vivienda_general
+peru,CP2017PER,VIVIENDA,C2P11,V: La vivienda tiene alumbrado eléctrico por red pública,integer,vivienda,vivienda_general
+peru,CP2017PER,VIVIENDA,C2P13,V: Tenencia de la vivienda - La vivienda que ocupa es:,integer,vivienda,vivienda_general
+peru,CP2017PER,VIVIENDA,C2P2,V: Condición de ocupación de la vivienda,integer,vivienda,vivienda_general
+peru,CP2017PER,VIVIENDA,ENCAREA,V: Área concepto encuesta,integer,vivienda,vivienda_general
+peru,CP2017PER,VIVIENDA,TOTELD,V: Indicador de vivienda con adulto mayor,integer,vivienda,vivienda_general
+peru,CP2017PER,VIVIENDA,VAREA,V: Área concepto censal,integer,vivienda,vivienda_general

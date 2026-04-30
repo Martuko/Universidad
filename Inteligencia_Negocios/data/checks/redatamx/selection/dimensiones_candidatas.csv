@@ -1,0 +1,137 @@
+country,dataset,entity,name,label,typeName,dimension
+argentina,CP2010ARG,HOGAR,H23,Antiguedad de la vivienda,integer,edad
+argentina,CP2010ARG,HOGAR,H2417,Propiedad de la vivienda,integer,edad
+argentina,CP2010ARG,HOGAR,H2518,Propiedad del terreno,integer,edad
+argentina,CP2010ARG,PERSONA,EDADAGRU,Edad en grandes grupos,integer,edad
+argentina,CP2010ARG,PERSONA,EDADQUI,Edades quinquenales,integer,edad
+argentina,CP2010ARG,PERSONA,P03,Edad,integer,edad
+argentina,CP2010ARG,PERSONA,P09M,Donde viviá hace 5 años,integer,edad
+argentina,CP2010ARG,PERSONA,P09N,Donde viviá hace 5 años-Nombre,integer,edad
+argentina,CP2010ARG,PERSONA,P10,En que municipio vivia hace 5 años,integer,edad
+argentina,CP2010ARG,PERSONA,P2715,"La semana pasada, estuvo de licencia por vacaciones o enfermedad",integer,edad
+argentina,CP2010ARG,VIVIENDA,CC1,Inundaciones en últimos cinco años,integer,edad
+argentina,CP2010ARG,DPTO,DPTO,Departamento / Partido,integer,geografia
+argentina,CP2010ARG,DPTO,IDDPTO,Departamento,string,geografia
+argentina,CP2010ARG,DPTO,NOMDPTO,Departamento / Partido,string,geografia
+argentina,CP2010ARG,PERSONA,P08M,Que Provincia Nació,integer,geografia
+argentina,CP2010ARG,PERSONA,P08N,Que Provincia Nació-Nombre,integer,geografia
+argentina,CP2010ARG,PERSONA,P12,En que municipio vive habitualmente,integer,geografia
+argentina,CP2010ARG,PROV,IDPROV,Provincia,string,geografia
+argentina,CP2010ARG,PROV,NOMPROV,Provincia,string,geografia
+argentina,CP2010ARG,PROV,PROV,Provincia,integer,geografia
+argentina,CP2010ARG,VIVIENDA,CODLOC,Código de Localidad,integer,geografia
+argentina,CP2010ARG,VIVIENDA,CODMUNI,Código de Municipio,integer,geografia
+argentina,CP2010ARG,VIVIENDA,LOCAL,Localidad,integer,geografia
+argentina,CP2010ARG,VIVIENDA,MUNI,Municipio,integer,geografia
+argentina,CP2010ARG,VIVIENDA,URP,Area Urbano - Rural,integer,geografia
+argentina,CP2010ARG,HOGAR,EXPH,Expansor,integer,ponderador
+argentina,CP2010ARG,VIVIENDA,EXPV,Expansor,integer,ponderador
+argentina,CP2010ARG,PERSONA,P02,Sexo,integer,sexo
+brasil,CP2010BRA,DOMICIL,DENSICOM,Densidade de moradores por cômodo,integer,edad
+brasil,CP2010BRA,DOMICIL,DENSIDOR,Densidade de moradores por dormitório,integer,edad
+brasil,CP2010BRA,DOMICIL,ESPECIE,Espécie de Unidade Visitada,integer,edad
+brasil,CP2010BRA,DOMICIL,ESPECIED,Espécie da Unidade Doméstica,integer,edad
+brasil,CP2010BRA,DOMICIL,RESPONSA,Responsabilidade pelo domicílio,integer,edad
+brasil,CP2010BRA,MORT,MOIDANO,"Idade ao falecer, em anos",integer,edad
+brasil,CP2010BRA,MORT,MOIDMES,"Idade ao falecer, em meses",integer,edad
+brasil,CP2010BRA,PESSOA,AQUIUF,Nasceu nesta Unidade da Federação,integer,edad
+brasil,CP2010BRA,PESSOA,ATIV,Atividade,integer,edad
+brasil,CP2010BRA,PESSOA,ATIV2000,Qual era a atividade principal do empreendimento em que tinha esse trabalho? - código 2000,integer,edad
+brasil,CP2010BRA,PESSOA,CONDATIV,Condição de atividade,integer,edad
+brasil,CP2010BRA,PESSOA,FIVIID,Idade do último filho nascido vivo,integer,edad
+brasil,CP2010BRA,PESSOA,IDADE,Idade em anos,integer,edad
+brasil,CP2010BRA,PESSOA,IDADEAM,Idade em anos e meses,integer,edad
+brasil,CP2010BRA,PESSOA,IDADEF,Forma de declaração da idade,integer,edad
+brasil,CP2010BRA,PESSOA,IDADEM,Idade em meses,integer,edad
+brasil,CP2010BRA,PESSOA,NACION,Nacionalidade,integer,edad
+brasil,CP2010BRA,PESSOA,NASCUF,Unidade da Federação de Nascimento,integer,edad
+brasil,CP2010BRA,UF,IDUF,Identificação da Unidade da Federação,string,edad
+brasil,CP2010BRA,UF,UF,Unidade da Federação,integer,edad
+brasil,CP2010BRA,MUNIC,UFMUNIC,Composição de UF e MUNIC,integer,geografia
+brasil,CP2010BRA,PESSOA,FREQONDE,Município e UF ou País Estrangeiro que frequentava escola (ou creche),integer,geografia
+brasil,CP2010BRA,PESSOA,FREQUF,UF que frequentava escola (ou creche),integer,geografia
+brasil,CP2010BRA,PESSOA,MUDARONDE,UF e Munic ou País Estrangeiro antes de mudar-se,integer,geografia
+brasil,CP2010BRA,PESSOA,NASCONDE,UF ou país estrangeiro de nascimento,integer,geografia
+brasil,CP2010BRA,PESSOA,RESIDUF,UF de residência em 31 de Julho de 2005,integer,geografia
+brasil,CP2010BRA,PESSOA,TEMPOUF,Tempo de moradia na UF,integer,geografia
+brasil,CP2010BRA,PESSOA,TRABONDE,Em que Munic e UF ou País trabalha,integer,geografia
+brasil,CP2010BRA,PESSOA,TRABUF,UF que trabalha,integer,geografia
+brasil,CP2010BRA,PESSOA,UFANT,UF de residência anterior,integer,geografia
+brasil,CP2010BRA,PESSOA,UFANTA,UF de residência anterior - 2 dígitos,integer,geografia
+brasil,CP2010BRA,PESSOA,UFFREQA,UF que frequentava escola (ou creche) - 2 dígitos,integer,geografia
+brasil,CP2010BRA,PESSOA,UFNASCA,UF de Nascimento - 2 dígitos,integer,geografia
+brasil,CP2010BRA,PESSOA,UFRESIDA,UF de residência em 31 de julho de 2005 - 2 dígitos,integer,geografia
+brasil,CP2010BRA,PESSOA,UFTRABA,UF que trabalhava - 2 dígitos,integer,geografia
+brasil,CP2010BRA,UF,UFNOME,Nome das UFs,string,geografia
+brasil,CP2010BRA,APOND,APOND,Área de Ponderação,integer,ponderador
+brasil,CP2010BRA,APOND,APONDNOME,Nome das Áreas de Ponderação,string,ponderador
+brasil,CP2010BRA,APOND,APONDTIPO,Tipo das Áreas de Ponderação,integer,ponderador
+brasil,CP2010BRA,APOND,IDAPOND,Identificação de Área de Ponderação,string,ponderador
+brasil,CP2010BRA,DOMICIL,DPESO,Peso Amostral,real,ponderador
+brasil,CP2010BRA,DOMICIL,PESO,Peso Amostral,real,ponderador
+brasil,CP2010BRA,PESSOA,PPESO,Peso Amostral,real,ponderador
+brasil,CP2010BRA,EMIGRA,EMSEXO,Sexo do emigrante,integer,sexo
+brasil,CP2010BRA,MORT,MOSEXO,Sexo,integer,sexo
+brasil,CP2010BRA,PESSOA,FINVMUL,Filhas nascidas vivas (mulheres),integer,sexo
+brasil,CP2010BRA,PESSOA,FIVIMUL,Filhas vivas (mulheres),integer,sexo
+brasil,CP2010BRA,PESSOA,FIVISEXO,Sexo do último filho nascido vivo,integer,sexo
+brasil,CP2010BRA,PESSOA,MORTMUL,Filhas nascidas mortas (mulheres),integer,sexo
+brasil,CP2010BRA,PESSOA,SEXO,Sexo,integer,sexo
+chile,CP2017CHL,PERSONA,ESCOLARIDAD,Años de escolaridad,integer,edad
+chile,CP2017CHL,PERSONA,P09,Edad,integer,edad
+chile,CP2017CHL,ZONALOC,NLOCALIDAD,Localidades,string,edad
+chile,CP2017CHL,AREA,AREA,Código de Area,integer,geografia
+chile,CP2017CHL,AREA,IDAREA,Código de Area,string,geografia
+chile,CP2017CHL,COMUNA,IDCOMUNA,Código Comuna,string,geografia
+chile,CP2017CHL,COMUNA,NCOMUNA,Comunas,string,geografia
+chile,CP2017CHL,COMUNA,REDCODEN,División Comunal,integer,geografia
+chile,CP2017CHL,DISTRITO,IDDIST,Distrito Censal,string,geografia
+chile,CP2017CHL,DISTRITO,NDISTRITO,Distritos,string,geografia
+chile,CP2017CHL,PERSONA,P10COMUNA,Comuna de Residencia Habitual,integer,geografia
+chile,CP2017CHL,PERSONA,P11,Comuna de Residencia Anterior,integer,geografia
+chile,CP2017CHL,PERSONA,P11COMUNA,Comuna de Residencia Anterior,integer,geografia
+chile,CP2017CHL,PERSONA,P12,Comuna o pais de Nacimiento,integer,geografia
+chile,CP2017CHL,PERSONA,P12COMUNA,Comuna de Nacimiento,integer,geografia
+chile,CP2017CHL,PROVINCI,IDPROVIN,Código Provincia,string,geografia
+chile,CP2017CHL,PROVINCI,NPROVI,Provincias,string,geografia
+chile,CP2017CHL,PROVINCI,REDCODEN,División Provincial,integer,geografia
+chile,CP2017CHL,REGION,IDREGION,Código Region,string,geografia
+chile,CP2017CHL,REGION,NREGION,Regiones,string,geografia
+chile,CP2017CHL,REGION,REDCODEN,División Regional,integer,geografia
+chile,CP2017CHL,ZONALOC,IDZC,Zona Censal/Localidad,string,geografia
+chile,CP2017CHL,PERSONA,P08,Sexo,integer,sexo
+peru,CP2017PER,PERSONA,C5P41,P: Edad en años,integer,edad
+peru,CP2017PER,PERSONA,C5P41M,P: Edad en meses,integer,edad
+peru,CP2017PER,PERSONA,C5P6,P: ¿Hace 5 años vivía en este distrito?,integer,edad
+peru,CP2017PER,PERSONA,C5P6BCOD,P: Departamento donde vivía hace 5 años,integer,edad
+peru,CP2017PER,PERSONA,C5P6DI,P: Distrito o país donde vivía hace 5 años,integer,edad
+peru,CP2017PER,PERSONA,C5P6PV,P: Provincia o continente donde vivía hace 5 años,integer,edad
+peru,CP2017PER,PERSONA,EDQUINQ,P: Edad en grupos quinquenales,integer,edad
+peru,CP2017PER,PERSONA,P03ESC,"P: Población de 3 a 24 años, por grupo de edad",integer,edad
+peru,CP2017PER,PERSONA,P03GQ15M,P: Población de 15 años a más en grupos quinquenales,integer,edad
+peru,CP2017PER,PERSONA,PET,P15a+: Población en edad de trabajar - PET,integer,edad
+peru,CP2017PER,DEPARTAM,CCDD,Departamento,string,geografia
+peru,CP2017PER,DEPARTAM,NCCDD,Departamento,string,geografia
+peru,CP2017PER,DISTRITO,CCDI,Distrito,string,geografia
+peru,CP2017PER,DISTRITO,NCCDI,Distrito,string,geografia
+peru,CP2017PER,HOGAR,HAREA,H: Área concepto censal,integer,geografia
+peru,CP2017PER,PERSONA,C5P15BCOD,P3a+: Departamento de la Institución a la que asiste,integer,geografia
+peru,CP2017PER,PERSONA,C5P15DI,P3a+: Distrito o país de la Institución a la que asiste,integer,geografia
+peru,CP2017PER,PERSONA,C5P15PV,P3a+: Provincia o continente de la Institución a la que asiste,integer,geografia
+peru,CP2017PER,PERSONA,C5P23BCOD,P5a+: Departamento donde está ubicado su centro trabajo,integer,geografia
+peru,CP2017PER,PERSONA,C5P5,P: ¿Vive permanentemente en este distrito?,integer,geografia
+peru,CP2017PER,PERSONA,C5P5BCOD,P: Departamento donde vive permanentemente,integer,geografia
+peru,CP2017PER,PERSONA,C5P5DI,P: Distrito o país donde vive permanentemente,integer,geografia
+peru,CP2017PER,PERSONA,C5P5PV,P: Provincia o continente donde vive permanentemente,integer,geografia
+peru,CP2017PER,PERSONA,C5P7,P: Cuándo ud nació ¿Vivía su madre en este distrito?,integer,geografia
+peru,CP2017PER,PERSONA,C5P7BCOD,P: Departamento donde vivía su madre,integer,geografia
+peru,CP2017PER,PERSONA,C5P7DI,P: Distrito o país donde vivía su madre,integer,geografia
+peru,CP2017PER,PERSONA,C5P7PV,P: Provincia o continente donde vivía su madre,integer,geografia
+peru,CP2017PER,PERSONA,PAREA,P: Área concepto censal,integer,geografia
+peru,CP2017PER,PROVINCI,CCPP,Provincia,string,geografia
+peru,CP2017PER,PROVINCI,NCCPP,Provincia,string,geografia
+peru,CP2017PER,VIVIENDA,ENCAREA,V: Área concepto encuesta,integer,geografia
+peru,CP2017PER,VIVIENDA,VAREA,V: Área concepto censal,integer,geografia
+peru,CP2017PER,HOGAR,sexcon,H: Sexo del Esposo/a o compañero/a del hogar,integer,sexo
+peru,CP2017PER,HOGAR,sexjef,H: Sexo del jefe del hogar,integer,sexo
+peru,CP2017PER,PERSONA,C5P2,P: Sexo,integer,sexo

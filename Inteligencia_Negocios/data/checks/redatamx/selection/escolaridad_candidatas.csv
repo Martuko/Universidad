@@ -1,0 +1,46 @@
+country,dataset,entity,name,label,typeName,tema,prioridad
+argentina,CP2010ARG,PERSONA,P2111B,Ningun grado o año aprobado,integer,escolaridad,alternativa
+argentina,CP2010ARG,PERSONA,P2111C,Grado o año aprobado ignorado,integer,escolaridad,alternativa
+argentina,CP2010ARG,HOGAR,NBI4,NBI Asistencia escolar,integer,escolaridad,principal_posible
+argentina,CP2010ARG,PERSONA,JEFEBAJAED,Jefe baja educ,integer,escolaridad,principal_posible
+argentina,CP2010ARG,PERSONA,MNI,Máximo Nivel de Instrucción,integer,escolaridad,principal_posible
+argentina,CP2010ARG,PERSONA,P1808,Asiste o asistió a un establecimiento educativo,integer,escolaridad,principal_posible
+argentina,CP2010ARG,PERSONA,P1808C,Condición de asistencia escolar,integer,escolaridad,principal_posible
+argentina,CP2010ARG,PERSONA,P1909,Nivel educativo que cursa o cursó,integer,escolaridad,principal_posible
+argentina,CP2010ARG,PERSONA,P1909C,Nivel educativo que cursa o cursó,integer,escolaridad,principal_posible
+argentina,CP2010ARG,PERSONA,P2010,Completó ese nivel,integer,escolaridad,principal_posible
+argentina,CP2010ARG,PERSONA,P2010C,Completó el nivel,integer,escolaridad,principal_posible
+argentina,CP2010ARG,PERSONA,P2111A,Último grado o año que aprobó en ese nivel,integer,escolaridad,principal_posible
+brasil,CP2010BRA,PESSOA,CURSO,Curso que frequenta,integer,escolaridad,alternativa
+brasil,CP2010BRA,PESSOA,CURSOCONC,Conclusão deste curso,integer,escolaridad,alternativa
+brasil,CP2010BRA,PESSOA,CURSODOUT,Curso de Doutorado,integer,escolaridad,alternativa
+brasil,CP2010BRA,PESSOA,CURSODOUTG,Curso de Doutorado - Grupo,integer,escolaridad,alternativa
+brasil,CP2010BRA,PESSOA,CURSODOUTS,Curso de Doutorado - Subgrupo,integer,escolaridad,alternativa
+brasil,CP2010BRA,PESSOA,CURSOESP,Espécie do curso mais elevado concluido,integer,escolaridad,alternativa
+brasil,CP2010BRA,PESSOA,CURSOGRAD,Curso Superior de graduação,integer,escolaridad,alternativa
+brasil,CP2010BRA,PESSOA,CURSOGRADG,Curso Superior de Graduação - Grupo,integer,escolaridad,alternativa
+brasil,CP2010BRA,PESSOA,CURSOGRADS,Curso Superior de Graduação - Subgrupo,integer,escolaridad,alternativa
+brasil,CP2010BRA,PESSOA,CURSOMAIS,Curso mais elevado que frequentou,integer,escolaridad,alternativa
+brasil,CP2010BRA,PESSOA,CURSOMEST,Curso de Mestrado,integer,escolaridad,alternativa
+brasil,CP2010BRA,PESSOA,CURSOMESTG,Curso de Mestrado - Grupo,integer,escolaridad,alternativa
+brasil,CP2010BRA,PESSOA,CURSOMESTS,Curso de Mestrado - Subgrupo,integer,escolaridad,alternativa
+brasil,CP2010BRA,PESSOA,OUTROCUR,Conclusão de outro curso superior de graduação,integer,escolaridad,alternativa
+brasil,CP2010BRA,PESSOA,DISPONIVEL,"Se tivesse conseguido trabalho, estaria disponível para assumi-lo",integer,escolaridad,principal_posible
+brasil,CP2010BRA,PESSOA,FREQMUN,Município que frequentava escola (ou creche),integer,escolaridad,principal_posible
+brasil,CP2010BRA,PESSOA,FREQONDE,Município e UF ou País Estrangeiro que frequentava escola (ou creche),integer,escolaridad,principal_posible
+brasil,CP2010BRA,PESSOA,FREQPAIS,País estrangeiro que frequentava escola (ou creche),integer,escolaridad,principal_posible
+brasil,CP2010BRA,PESSOA,FREQUENTA,Frequenta escola ou creche,integer,escolaridad,principal_posible
+brasil,CP2010BRA,PESSOA,FREQUF,UF que frequentava escola (ou creche),integer,escolaridad,principal_posible
+brasil,CP2010BRA,PESSOA,NIVEL,Nível de instrução,integer,escolaridad,principal_posible
+brasil,CP2010BRA,PESSOA,PAISFREQA,País estrangeiro que frequentava escola (ou creche) - 3 dígitos,integer,escolaridad,principal_posible
+brasil,CP2010BRA,PESSOA,UFFREQA,UF que frequentava escola (ou creche) - 2 dígitos,integer,escolaridad,principal_posible
+chile,CP2017CHL,PERSONA,P14,Curso o año más alto aprobado,integer,escolaridad,alternativa
+chile,CP2017CHL,PERSONA,ESCOLARIDAD,Años de escolaridad,integer,escolaridad,principal_posible
+chile,CP2017CHL,PERSONA,P13,Asiste actualmente a educación formal,integer,escolaridad,principal_posible
+chile,CP2017CHL,PERSONA,P15,Nivel del curso más alto aprobado,integer,escolaridad,principal_posible
+chile,CP2017CHL,PERSONA,P15A,Completó el nivel especificado,integer,escolaridad,principal_posible
+peru,CP2017PER,PERSONA,C5P13GRA,P3a+: Último grado que aprobó en Primaria,integer,escolaridad,alternativa
+peru,CP2017PER,PERSONA,C5P13NIV,P3a+: Último nivel de estudio que aprobó,integer,escolaridad,principal_posible
+peru,CP2017PER,PERSONA,C5P15,P3a+: La institución educativa al que asiste está ubicada:,integer,escolaridad,principal_posible
+peru,CP2017PER,PERSONA,C5P13ANIOP,P3a+: Último año que aprobó en Primaria,integer,escolaridad,revisar
+peru,CP2017PER,PERSONA,C5P13ANIOS,P3a+: Último año que aprobó en Secundaria,integer,escolaridad,revisar
